@@ -18,15 +18,15 @@
   
   <title>Hadoop HA部署 | 王鹏</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原文地址：https:&#x2F;&#x2F;gitbook.cn&#x2F;books&#x2F;5954c9600326c7705af8a92a&#x2F;index.html软件下载： 第一部分、linux安装第一步、Quick Start一、Create a new post1、aabbc1$ vim">
+  <meta name="description" content="原文地址：https:&#x2F;&#x2F;gitbook.cn&#x2F;books&#x2F;5954c9600326c7705af8a92a&#x2F;index.html软件下载：https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1h0np0XBZwUYXwmHILuqnjQ  提取码：vt6h  第一部分、linux环境安装第一步、配置Vmware NAT网络一、Vmware网络模式介绍参考：https:&#x2F;&#x2F;blog.csdn.net&#x2F;">
 <meta name="keywords" content="实践">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hadoop HA部署">
 <meta property="og:url" content="https:&#x2F;&#x2F;wpblog.top&#x2F;categories&#x2F;hadoop&#x2F;6&#x2F;index.html">
 <meta property="og:site_name" content="王鹏">
-<meta property="og:description" content="原文地址：https:&#x2F;&#x2F;gitbook.cn&#x2F;books&#x2F;5954c9600326c7705af8a92a&#x2F;index.html软件下载： 第一部分、linux安装第一步、Quick Start一、Create a new post1、aabbc1$ vim">
+<meta property="og:description" content="原文地址：https:&#x2F;&#x2F;gitbook.cn&#x2F;books&#x2F;5954c9600326c7705af8a92a&#x2F;index.html软件下载：https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1h0np0XBZwUYXwmHILuqnjQ  提取码：vt6h  第一部分、linux环境安装第一步、配置Vmware NAT网络一、Vmware网络模式介绍参考：https:&#x2F;&#x2F;blog.csdn.net&#x2F;">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-23T23:38:09.614Z">
+<meta property="og:updated_time" content="2019-10-24T06:11:30.491Z">
 <meta name="twitter:card" content="summary">
   
   
@@ -88,14 +88,15 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/6/" data-id="ck23x4zkv000734tv6m8uddhx" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/6/" data-id="ck24b6nvn000co4tve0x93e9d" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>原文地址：<a href="https://gitbook.cn/books/5954c9600326c7705af8a92a/index.html" target="_blank" rel="noopener">https://gitbook.cn/books/5954c9600326c7705af8a92a/index.html</a><br>软件下载：</p>
-<h2 id="第一部分、linux安装"><a href="#第一部分、linux安装" class="headerlink" title="第一部分、linux安装"></a>第一部分、linux安装</h2><h3 id="第一步、Quick-Start"><a href="#第一步、Quick-Start" class="headerlink" title="第一步、Quick Start"></a>第一步、Quick Start</h3><h4 id="一、Create-a-new-post"><a href="#一、Create-a-new-post" class="headerlink" title="一、Create a new post"></a>一、Create a new post</h4><h5 id="1、aabbc"><a href="#1、aabbc" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
+        <p>原文地址：<a href="https://gitbook.cn/books/5954c9600326c7705af8a92a/index.html" target="_blank" rel="noopener">https://gitbook.cn/books/5954c9600326c7705af8a92a/index.html</a><br>软件下载：<a href="https://pan.baidu.com/s/1h0np0XBZwUYXwmHILuqnjQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1h0np0XBZwUYXwmHILuqnjQ</a>  提取码：vt6h </p>
+<h2 id="第一部分、linux环境安装"><a href="#第一部分、linux环境安装" class="headerlink" title="第一部分、linux环境安装"></a>第一部分、linux环境安装</h2><h3 id="第一步、配置Vmware-NAT网络"><a href="#第一步、配置Vmware-NAT网络" class="headerlink" title="第一步、配置Vmware NAT网络"></a>第一步、配置Vmware NAT网络</h3><h4 id="一、Vmware网络模式介绍"><a href="#一、Vmware网络模式介绍" class="headerlink" title="一、Vmware网络模式介绍"></a>一、Vmware网络模式介绍</h4><p>参考：<a href="https://blog.csdn.net/collection4u/article/details/14127671" target="_blank" rel="noopener">https://blog.csdn.net/collection4u/article/details/14127671</a></p>
+<h4 id="二、NAT模式配置"><a href="#二、NAT模式配置" class="headerlink" title="二、NAT模式配置"></a>二、NAT模式配置</h4><h5 id="1、aabbc"><a href="#1、aabbc" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
       
     </div><!-- .entry-content -->
 
@@ -123,10 +124,8 @@
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
-        <span class="nav-previous"><a href="/categories/linux/1/" rel="prev"><span class="meta-nav">←</span> linux-记</a></span>
+        <span class="nav-previous"><a href="/categories/hadoop/2/" rel="prev"><span class="meta-nav">←</span> hadoop-记</a></span>
     
-    
-        <span class="nav-next"><a href="/categories/hadoop/2/" rel="next">hadoop-记 <span class="meta-nav">→</span></a></span>
     
 </nav><!-- .nav-single -->
 
@@ -180,7 +179,7 @@
           </li>
         
           <li>
-            <a href="/categories/hadoop/6/">Hadoop HA部署</a>
+            <a href="/categories/hadoop/2/">hadoop-记</a>
           </li>
         
       </ul>
