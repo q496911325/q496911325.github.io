@@ -34,7 +34,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;wpblog.top&#x2F;css&#x2F;images&#x2F;hadoop环境搭建1&#x2F;9-Edit.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;wpblog.top&#x2F;css&#x2F;images&#x2F;hadoop环境搭建1&#x2F;10-网卡.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;wpblog.top&#x2F;css&#x2F;images&#x2F;hadoop环境搭建1&#x2F;11-job.png">
-<meta property="og:updated_time" content="2019-10-25T14:17:28.113Z">
+<meta property="og:updated_time" content="2019-10-25T14:21:56.165Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;wpblog.top&#x2F;css&#x2F;images&#x2F;hadoop环境搭建1&#x2F;1-欢迎.png">
   
@@ -97,13 +97,13 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1008/" data-id="ck267zroq000kc8tv6a5uet5m" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1008/" data-id="ck2685uvg000jjstv5bowg2uy" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>本系列首页：<a href="/categories/hadoop/6/">Hadoop环境搭建</a></p>
+        <p>本系列首页：<a href="/categories/hadoop/1006/">Hadoop环境搭建</a></p>
 <h2 id="第二部分、Hadoop本地模式安装"><a href="#第二部分、Hadoop本地模式安装" class="headerlink" title="第二部分、Hadoop本地模式安装"></a>第二部分、Hadoop本地模式安装</h2><h3 id="第一步、本地模式部署"><a href="#第一步、本地模式部署" class="headerlink" title="第一步、本地模式部署"></a>第一步、本地模式部署</h3><h4 id="一、复制实验虚拟机-两种方法-任选一种就好"><a href="#一、复制实验虚拟机-两种方法-任选一种就好" class="headerlink" title="一、复制实验虚拟机(两种方法 任选一种就好)"></a>一、复制实验虚拟机(两种方法 任选一种就好)</h4><h5 id="1、克隆"><a href="#1、克隆" class="headerlink" title="1、克隆"></a>1、克隆</h5><p>右键模板系统model-管理-克隆，进入克隆虚拟机向导<br><img src="/css/images/hadoop环境搭建1/1-欢迎.png"><br><img src="/css/images/hadoop环境搭建1/2-克隆源.png"><br><img src="/css/images/hadoop环境搭建1/3-类型.png"><br><img src="/css/images/hadoop环境搭建1/4-名称.png"></p>
 <h5 id="2、复制"><a href="#2、复制" class="headerlink" title="2、复制"></a>2、复制</h5><h4 id="二、重新配置实验机网络"><a href="#二、重新配置实验机网络" class="headerlink" title="二、重新配置实验机网络"></a>二、重新配置实验机网络</h4><p>修改网卡名称：</p>
 <p>在BigData01机器上编辑网卡信息。执行vim /etc/udev/rules.d/70-persistent-net.rules命令。因为是从model机器克隆来的，所以会保留model的网卡eth0，并且再添加一个网卡eth1。并且eth0的Mac地址和model的地址是一样的，Mac地址不允许相同，所以要删除eth0，只保留eth1网卡，并且要将eth1改名为eth0。将修改后的eth0的mac地址复制下来，修改network-scripts文件中的HWADDR属性。</p>
@@ -161,10 +161,10 @@
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
-        <span class="nav-previous"><a href="/categories/hadoop/1006/" rel="prev"><span class="meta-nav">←</span> Hadoop环境搭建-首页</a></span>
+        <span class="nav-previous"><a href="/categories/hadoop/1002/" rel="prev"><span class="meta-nav">←</span> hadoop-记</a></span>
     
     
-        <span class="nav-next"><a href="/categories/hadoop/1009/" rel="next">Hadoop环境搭建-第三部分 伪分布式模式安装 <span class="meta-nav">→</span></a></span>
+        <span class="nav-next"><a href="/categories/hadoop/1006/" rel="next">Hadoop环境搭建-首页 <span class="meta-nav">→</span></a></span>
     
 </nav><!-- .nav-single -->
 
@@ -208,19 +208,19 @@
           </li>
         
           <li>
-            <a href="/categories/%E7%BD%91%E7%BB%9C/1003/">网络-记</a>
-          </li>
-        
-          <li>
             <a href="/categories/hexo/1004/">hexo</a>
           </li>
         
           <li>
-            <a href="/categories/hadoop/1002/">hadoop-记</a>
+            <a href="/categories/%E7%BD%91%E7%BB%9C/1003/">网络-记</a>
           </li>
         
           <li>
             <a href="/categories/linux/1001/">linux-记</a>
+          </li>
+        
+          <li>
+            <a href="/categories/hadoop/1011/">Hadoop环境搭建-第五部分 Hadoop HA安装</a>
           </li>
         
       </ul>
