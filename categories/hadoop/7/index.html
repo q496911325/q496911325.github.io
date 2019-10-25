@@ -70,7 +70,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;wpblog.top&#x2F;css&#x2F;images&#x2F;hadoop环境搭建&#x2F;42-上传文件.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;wpblog.top&#x2F;css&#x2F;images&#x2F;hadoop环境搭建&#x2F;43-确认上传.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;wpblog.top&#x2F;css&#x2F;images&#x2F;hadoop环境搭建&#x2F;44-已安装jdk.png">
-<meta property="og:updated_time" content="2019-10-25T07:31:53.378Z">
+<meta property="og:updated_time" content="2019-10-25T07:42:02.136Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;wpblog.top&#x2F;css&#x2F;images&#x2F;hadoop环境搭建&#x2F;1-默认的NAT设置.png">
   
@@ -133,7 +133,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/7/" data-id="ck25tph2e0015zgtvh56f3osb" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/7/" data-id="ck26552b300162ctv558ogjpb" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -257,7 +257,8 @@
 <p>(2) 将jdk-7u67-linux-x64.tar.gz解压到/opt/modules目录下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost Desktop]<span class="comment"># tar -zxvf jdk-7u67-linux-x64.tar.gz -C /opt/modules</span></span><br></pre></td></tr></table></figure>
 
-<p>(3) 添加环境变量<br>设置JDK的环境变量 JAVA_HOME。需要修改配置文件/etc/profile，追加</p>
+<p>(3) 添加环境变量</p>
+<p>设置JDK的环境变量 JAVA_HOME。需要修改配置文件/etc/profile，追加</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=<span class="string">"/opt/modules/jdk1.7.0_67"</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
 
 <p>修改完毕后，执行 source /etc/profile</p>
@@ -291,7 +292,7 @@
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
-        <span class="nav-previous"><a href="/categories/hadoop/6/" rel="prev"><span class="meta-nav">←</span> Hadoop环境搭建-首页</a></span>
+        <span class="nav-previous"><a href="/categories/hadoop/0009/" rel="prev"><span class="meta-nav">←</span> Hadoop环境搭建-第三部分 伪分布式模式安装</a></span>
     
     
 </nav><!-- .nav-single -->
@@ -336,19 +337,19 @@
           </li>
         
           <li>
-            <a href="/categories/hexo/4/">hexo</a>
-          </li>
-        
-          <li>
             <a href="/categories/%E7%BD%91%E7%BB%9C/3/">网络-记</a>
           </li>
         
           <li>
-            <a href="/categories/hadoop/8/">Hadoop环境搭建-第四部分 完全分布式模式安装</a>
+            <a href="/categories/hexo/4/">hexo</a>
           </li>
         
           <li>
-            <a href="/categories/hadoop/9/">Hadoop环境搭建-第五部分 Hadoop HA安装</a>
+            <a href="/categories/hadoop/0008/">Hadoop环境搭建-第二部分 Hadoop本地模式安装</a>
+          </li>
+        
+          <li>
+            <a href="/categories/linux/1/">linux-记</a>
           </li>
         
       </ul>
