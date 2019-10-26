@@ -18,16 +18,24 @@
   
   <title>Hadoop环境搭建-第三部分 伪分布式模式安装 | 王鹏</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本系列首页：Hadoop环境搭建 第一部分、linux环境安装第一步、配置Vmware NAT网络一、Vmware网络模式介绍参考：https:&#x2F;&#x2F;blog.csdn.net&#x2F;collection4u&#x2F;article&#x2F;details&#x2F;14127671 二、NAT模式配置1、aabbc1$ vim">
+  <meta name="description" content="本系列首页：Hadoop环境搭建 第一部分、Hadoop伪分布式模式安装第一步、伪分布式Hadoop部署过程一、复制实验虚拟机(本地模式中有具体步骤，不再列出)二、重新配置实验机网络(本地模式中有具体步骤，不再列出)Hadoop本地模式安装 三、Hadoop所用的用户设置1、创建一个名字为hadoop的普通用户12[root@bigdata-senior01 Desktop]# useradd h">
 <meta name="keywords" content="实践">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hadoop环境搭建-第三部分 伪分布式模式安装">
 <meta property="og:url" content="https:&#x2F;&#x2F;wpblog.top&#x2F;categories&#x2F;hadoop&#x2F;1009&#x2F;index.html">
 <meta property="og:site_name" content="王鹏">
-<meta property="og:description" content="本系列首页：Hadoop环境搭建 第一部分、linux环境安装第一步、配置Vmware NAT网络一、Vmware网络模式介绍参考：https:&#x2F;&#x2F;blog.csdn.net&#x2F;collection4u&#x2F;article&#x2F;details&#x2F;14127671 二、NAT模式配置1、aabbc1$ vim">
+<meta property="og:description" content="本系列首页：Hadoop环境搭建 第一部分、Hadoop伪分布式模式安装第一步、伪分布式Hadoop部署过程一、复制实验虚拟机(本地模式中有具体步骤，不再列出)二、重新配置实验机网络(本地模式中有具体步骤，不再列出)Hadoop本地模式安装 三、Hadoop所用的用户设置1、创建一个名字为hadoop的普通用户12[root@bigdata-senior01 Desktop]# useradd h">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-25T14:22:05.169Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;wpblog.top&#x2F;css&#x2F;images&#x2F;hadoop环境搭建&#x2F;12-core.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;wpblog.top&#x2F;css&#x2F;images&#x2F;hadoop环境搭建&#x2F;13-hdfs.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;wpblog.top&#x2F;css&#x2F;images&#x2F;hadoop环境搭建&#x2F;14-格式化.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;wpblog.top&#x2F;css&#x2F;images&#x2F;hadoop环境搭建&#x2F;15-current.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;wpblog.top&#x2F;css&#x2F;images&#x2F;hadoop环境搭建&#x2F;16-vession.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;wpblog.top&#x2F;css&#x2F;images&#x2F;hadoop环境搭建&#x2F;17-jps.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;wpblog.top&#x2F;css&#x2F;images&#x2F;hadoop环境搭建&#x2F;18-文件内容.png">
+<meta property="og:updated_time" content="2019-10-26T13:56:10.837Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;wpblog.top&#x2F;css&#x2F;images&#x2F;hadoop环境搭建&#x2F;12-core.png">
   
   
     <link rel="icon" href="css/images/f1.ico">
@@ -88,15 +96,99 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1009/" data-id="ck268p37j000lx4tvf70yhgat" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1009/" data-id="ck27onnhb000r54tv1lyd0wkv" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
         <p>本系列首页：<a href="/categories/hadoop/1006/">Hadoop环境搭建</a></p>
-<h2 id="第一部分、linux环境安装"><a href="#第一部分、linux环境安装" class="headerlink" title="第一部分、linux环境安装"></a>第一部分、linux环境安装</h2><h3 id="第一步、配置Vmware-NAT网络"><a href="#第一步、配置Vmware-NAT网络" class="headerlink" title="第一步、配置Vmware NAT网络"></a>第一步、配置Vmware NAT网络</h3><h4 id="一、Vmware网络模式介绍"><a href="#一、Vmware网络模式介绍" class="headerlink" title="一、Vmware网络模式介绍"></a>一、Vmware网络模式介绍</h4><p>参考：<a href="https://blog.csdn.net/collection4u/article/details/14127671" target="_blank" rel="noopener">https://blog.csdn.net/collection4u/article/details/14127671</a></p>
-<h4 id="二、NAT模式配置"><a href="#二、NAT模式配置" class="headerlink" title="二、NAT模式配置"></a>二、NAT模式配置</h4><h5 id="1、aabbc"><a href="#1、aabbc" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
+<h2 id="第一部分、Hadoop伪分布式模式安装"><a href="#第一部分、Hadoop伪分布式模式安装" class="headerlink" title="第一部分、Hadoop伪分布式模式安装"></a>第一部分、Hadoop伪分布式模式安装</h2><h3 id="第一步、伪分布式Hadoop部署过程"><a href="#第一步、伪分布式Hadoop部署过程" class="headerlink" title="第一步、伪分布式Hadoop部署过程"></a>第一步、伪分布式Hadoop部署过程</h3><h4 id="一、复制实验虚拟机-本地模式中有具体步骤，不再列出"><a href="#一、复制实验虚拟机-本地模式中有具体步骤，不再列出" class="headerlink" title="一、复制实验虚拟机(本地模式中有具体步骤，不再列出)"></a>一、复制实验虚拟机(本地模式中有具体步骤，不再列出)</h4><h4 id="二、重新配置实验机网络-本地模式中有具体步骤，不再列出"><a href="#二、重新配置实验机网络-本地模式中有具体步骤，不再列出" class="headerlink" title="二、重新配置实验机网络(本地模式中有具体步骤，不再列出)"></a>二、重新配置实验机网络(本地模式中有具体步骤，不再列出)</h4><p><a href="/categories/hadoop/1006/">Hadoop本地模式安装</a></p>
+<h4 id="三、Hadoop所用的用户设置"><a href="#三、Hadoop所用的用户设置" class="headerlink" title="三、Hadoop所用的用户设置"></a>三、Hadoop所用的用户设置</h4><h5 id="1、创建一个名字为hadoop的普通用户"><a href="#1、创建一个名字为hadoop的普通用户" class="headerlink" title="1、创建一个名字为hadoop的普通用户"></a>1、创建一个名字为hadoop的普通用户</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># useradd hadoop</span></span><br><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># passwd hadoop</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2、给hadoop用户sudo权限"><a href="#2、给hadoop用户sudo权限" class="headerlink" title="2、给hadoop用户sudo权限"></a>2、给hadoop用户sudo权限</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># vim /etc/sudoers</span></span><br></pre></td></tr></table></figure>
+
+<p>设置权限，学习环境可以将hadoop用户的权限设置的大一些，但是生产环境一定要注意普通用户的权限限制。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root       ALL=(ALL)       ALL</span><br><span class="line">hadoop ALL=(root) NOPASSWD:ALL</span><br></pre></td></tr></table></figure>
+
+<p>注意：如果root用户无权修改sudoers文件，先手动为root用户添加写权限。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># chmod u+w /etc/sudoers</span></span><br></pre></td></tr></table></figure>
+
+
+<h5 id="3、切换到hadoop用户"><a href="#3、切换到hadoop用户" class="headerlink" title="3、切换到hadoop用户"></a>3、切换到hadoop用户</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># su - hadoop</span></span><br><span class="line">[hadoop@bigdata-senior01 ~]$</span><br></pre></td></tr></table></figure>
+
+<h5 id="4、将hadoop文件夹的所有者指定为hadoop用户"><a href="#4、将hadoop文件夹的所有者指定为hadoop用户" class="headerlink" title="4、将hadoop文件夹的所有者指定为hadoop用户"></a>4、将hadoop文件夹的所有者指定为hadoop用户</h5><p>如果存放hadoop的目录的所有者不是hadoop，之后hadoop运行中可能会有权限问题，那么就讲所有者改为hadoop。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@bigdata-senior01 ~]$ sudo chown -R hadoop:hadoop /opt/modules</span><br></pre></td></tr></table></figure>
+
+<h4 id="四、解压Hadoop目录文件"><a href="#四、解压Hadoop目录文件" class="headerlink" title="四、解压Hadoop目录文件"></a>四、解压Hadoop目录文件</h4><h5 id="1、解压hadoop-2-5-0-tar-gz到-opt-modules目录下。"><a href="#1、解压hadoop-2-5-0-tar-gz到-opt-modules目录下。" class="headerlink" title="1、解压hadoop-2.5.0.tar.gz到/opt/modules目录下。"></a>1、解压hadoop-2.5.0.tar.gz到/opt/modules目录下。</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@bigdata-senior01 ~]$ tar -zxvf /opt/hadoop-2.5.0.tar.gz -C /opt/modules/</span><br></pre></td></tr></table></figure>
+
+<h4 id="二、配置Hadoop"><a href="#二、配置Hadoop" class="headerlink" title="二、配置Hadoop"></a>二、配置Hadoop</h4><h5 id="1、配置Hadoop环境变量"><a href="#1、配置Hadoop环境变量" class="headerlink" title="1、配置Hadoop环境变量"></a>1、配置Hadoop环境变量</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@bigdata-senior01 ~]$ sudo vim /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>追加配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HADOOP_HOME=<span class="string">"/opt/modules/hadoop-2.5.0"</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$HADOOP_HOME</span>/bin:<span class="variable">$HADOOP_HOME</span>/sbin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+
+<p>执行：source /etc/profile 使得配置生效</p>
+<p>验证HADOOP_HOME参数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@bigdata-senior01 ~]$ <span class="built_in">echo</span> <span class="variable">$HADOOP_HOME</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2、配置-hadoop-env-sh、mapred-env-sh、yarn-env-sh文件的JAVA-HOME参数"><a href="#2、配置-hadoop-env-sh、mapred-env-sh、yarn-env-sh文件的JAVA-HOME参数" class="headerlink" title="2、配置 hadoop-env.sh、mapred-env.sh、yarn-env.sh文件的JAVA_HOME参数"></a>2、配置 hadoop-env.sh、mapred-env.sh、yarn-env.sh文件的JAVA_HOME参数</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@bigdata-senior01 ~]$ <span class="built_in">cd</span> /opt/modules/hadoop-2.5.0/</span><br><span class="line">[hadoop@bigdata-senior01 hadoop-2.5.0]$ sudo vim etc/hadoop/hadoop-env.sh</span><br><span class="line">[hadoop@bigdata-senior01 hadoop-2.5.0]$ sudo vim etc/hadoop/mapred-env.sh</span><br><span class="line">[hadoop@bigdata-senior01 hadoop-2.5.0]$ sudo vim etc/hadoop/yarn-env.sh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">修改三个文件中的JAVA_HOME参数为：</span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=<span class="string">"/opt/modules/jdk1.7.0_67"</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="3、配置core-site-xml"><a href="#3、配置core-site-xml" class="headerlink" title="3、配置core-site.xml"></a>3、配置core-site.xml</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@bigdata-senior01 hadoop-2.5.0]$ sudo vim etc/hadoop/core-site.xml</span><br></pre></td></tr></table></figure>
+<img src="/css/images/hadoop环境搭建/12-core.png">
+
+<p>（1） fs.defaultFS参数配置的是HDFS的地址。</p>
+<p>（2） hadoop.tmp.dir配置的是Hadoop临时目录，比如HDFS的NameNode数据默认都存放这个目录下，查看*-default.xml等默认配置文件，就可以看到很多依赖${hadoop.tmp.dir}的配置。</p>
+<p>默认的hadoop.tmp.dir是/tmp/hadoop-${user.name},此时有个问题就是NameNode会将HDFS的元数据存储在这个/tmp目录下，如果操作系统重启了，系统会清空/tmp目录下的东西，导致NameNode元数据丢失，是个非常严重的问题，所有我们应该修改这个路径。</p>
+<p>创建临时目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@bigdata-senior01 hadoop-2.5.0]$ sudo mkdir -p /opt/data/tmp</span><br></pre></td></tr></table></figure>
+
+<p>将临时目录的所有者修改为hadoop</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@bigdata-senior01 hadoop-2.5.0]$ sudo chown -R hadoop:hadoop /opt/data/tmp</span><br></pre></td></tr></table></figure>
+
+<h4 id="二、配置、格式化、启动HDFS"><a href="#二、配置、格式化、启动HDFS" class="headerlink" title="二、配置、格式化、启动HDFS"></a>二、配置、格式化、启动HDFS</h4><h5 id="1、配置hdfs-site-xml"><a href="#1、配置hdfs-site-xml" class="headerlink" title="1、配置hdfs-site.xml"></a>1、配置hdfs-site.xml</h5><img src="/css/images/hadoop环境搭建/13-hdfs.png">
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@bigdata-senior01 hadoop-2.5.0]$ vim etc/hadoop/hdfs-site.xml</span><br></pre></td></tr></table></figure>
+
+<p>dfs.replication配置的是HDFS存储时的备份数量，因为这里是伪分布式环境只有一个节点，所以这里设置为1。</p>
+<h5 id="2、格式化HDFS"><a href="#2、格式化HDFS" class="headerlink" title="2、格式化HDFS"></a>2、格式化HDFS</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@bigdata-senior01 hadoop-2.5.0]$ bin/hdfs namenode -format</span><br></pre></td></tr></table></figure>
+<img src="/css/images/hadoop环境搭建/14-格式化.png">
+
+<p>格式化是对HDFS这个分布式文件系统中的DataNode进行分块，统计所有分块后的初始元数据的存储在NameNode中。</p>
+<p>格式化后，查看core-site.xml里hadoop.tmp.dir（本例是/opt/data目录）指定的目录下是否有了dfs目录，如果有，说明格式化成功。</p>
+<p>注意：</p>
+<p>(1) 格式化时，这里注意hadoop.tmp.dir目录的权限问题，应该hadoop普通用户有读写权限才行，可以将/opt/data的所有者改为hadoop。 [hadoop@bigdata-senior01 hadoop-2.5.0]$ sudo chown -R hadoop:hadoop /opt/data</p>
+<p>(2) 查看NameNode格式化后的目录。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@bigdata-senior01 hadoop-2.5.0]$ ll /opt/data/tmp/dfs/name/current</span><br></pre></td></tr></table></figure>
+<img src="/css/images/hadoop环境搭建/15-current.png">
+
+<p>fsimage是NameNode元数据在内存满了后，持久化保存到的文件。fsimage*.md5 是校验文件，用于校验fsimage的完整性。seen_txid 是hadoop的版本</p>
+<p>vession文件里保存：</p>
+<p>namespaceID：NameNode的唯一ID。</p>
+<p>clusterID:集群ID，NameNode和DataNode的集群ID应该一致，表明是一个集群。</p>
+<img src="/css/images/hadoop环境搭建/16-vession.png">
+
+<h5 id="3、启动NameNode"><a href="#3、启动NameNode" class="headerlink" title="3、启动NameNode"></a>3、启动NameNode</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@bigdata-senior01 hadoop-2.5.0]$ sbin/hadoop-daemon.sh start namenode</span><br><span class="line">starting namenode, logging to /opt/modules/hadoop-2.5.0/logs/hadoop-hadoop-namenode-bigdata-senior01.chybinmy.com.out</span><br></pre></td></tr></table></figure>
+
+<h5 id="4、启动DataNode"><a href="#4、启动DataNode" class="headerlink" title="4、启动DataNode"></a>4、启动DataNode</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@bigdata-senior01 hadoop-2.5.0]$ sbin/hadoop-daemon.sh start datanode</span><br><span class="line">starting datanode, logging to /opt/modules/hadoop-2.5.0/logs/hadoop-hadoop-datanode-bigdata-senior01.chybinmy.com.out</span><br></pre></td></tr></table></figure>
+
+<h5 id="5、启动SecondaryNameNode"><a href="#5、启动SecondaryNameNode" class="headerlink" title="5、启动SecondaryNameNode"></a>5、启动SecondaryNameNode</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@bigdata-senior01 hadoop-2.5.0]$ sbin/hadoop-daemon.sh start secondarynamenode</span><br><span class="line">starting secondarynamenode, logging to /opt/modules/hadoop-2.5.0/logs/hadoop-hadoop-secondarynamenode-bigdata-senior01.chybinmy.com.out</span><br></pre></td></tr></table></figure>
+
+<h5 id="6、JPS命令查看是否已经启动成功，有结果就是启动成功了。"><a href="#6、JPS命令查看是否已经启动成功，有结果就是启动成功了。" class="headerlink" title="6、JPS命令查看是否已经启动成功，有结果就是启动成功了。"></a>6、JPS命令查看是否已经启动成功，有结果就是启动成功了。</h5><img src="/css/images/hadoop环境搭建/17-jps.png">
+
+<h5 id="7、HDFS上测试创建目录、上传、下载文件"><a href="#7、HDFS上测试创建目录、上传、下载文件" class="headerlink" title="7、HDFS上测试创建目录、上传、下载文件"></a>7、HDFS上测试创建目录、上传、下载文件</h5><p>HDFS上创建目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@bigdata-senior01 hadoop-2.5.0]$</span><br></pre></td></tr></table></figure>
+
+<p>上传本地文件到HDFS上</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@bigdata-senior01 hadoop-2.5.0]$</span><br></pre></td></tr></table></figure>
+
+<p>读取HDFS上的文件内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@bigdata-senior01 hadoop-2.5.0]$</span><br></pre></td></tr></table></figure>
+<img src="/css/images/hadoop环境搭建/18-文件内容.png">
+
+<p>从HDFS上下载文件到本地</p>
+<h4 id="三、配置、启动YARN"><a href="#三、配置、启动YARN" class="headerlink" title="三、配置、启动YARN"></a>三、配置、启动YARN</h4><h5 id="1、配置mapred-site-xml"><a href="#1、配置mapred-site-xml" class="headerlink" title="1、配置mapred-site.xml"></a>1、配置mapred-site.xml</h5><h5 id="2、配置yarn-site-xml"><a href="#2、配置yarn-site-xml" class="headerlink" title="2、配置yarn-site.xml"></a>2、配置yarn-site.xml</h5><h5 id="3、启动Resourcemanager"><a href="#3、启动Resourcemanager" class="headerlink" title="3、启动Resourcemanager"></a>3、启动Resourcemanager</h5><h5 id="4、启动nodemanager"><a href="#4、启动nodemanager" class="headerlink" title="4、启动nodemanager"></a>4、启动nodemanager</h5><h5 id="5、查看是否启动成功"><a href="#5、查看是否启动成功" class="headerlink" title="5、查看是否启动成功"></a>5、查看是否启动成功</h5><h5 id="6、YARN的Web页面"><a href="#6、YARN的Web页面" class="headerlink" title="6、YARN的Web页面"></a>6、YARN的Web页面</h5><h4 id="四、运行MapReduce-Job"><a href="#四、运行MapReduce-Job" class="headerlink" title="四、运行MapReduce Job"></a>四、运行MapReduce Job</h4><h5 id="1、创建测试用的Input文件"><a href="#1、创建测试用的Input文件" class="headerlink" title="1、创建测试用的Input文件"></a>1、创建测试用的Input文件</h5><h5 id="2、运行WordCount-MapReduce-Job"><a href="#2、运行WordCount-MapReduce-Job" class="headerlink" title="2、运行WordCount MapReduce Job"></a>2、运行WordCount MapReduce Job</h5><h5 id="3、查看输出结果目录"><a href="#3、查看输出结果目录" class="headerlink" title="3、查看输出结果目录"></a>3、查看输出结果目录</h5><h4 id="五、停止Hadoop"><a href="#五、停止Hadoop" class="headerlink" title="五、停止Hadoop"></a>五、停止Hadoop</h4><h4 id="六、Hadoop各个功能模块的理解"><a href="#六、Hadoop各个功能模块的理解" class="headerlink" title="六、Hadoop各个功能模块的理解"></a>六、Hadoop各个功能模块的理解</h4><h5 id="1、HDFS模块"><a href="#1、HDFS模块" class="headerlink" title="1、HDFS模块"></a>1、HDFS模块</h5><h5 id="2、YARN模块"><a href="#2、YARN模块" class="headerlink" title="2、YARN模块"></a>2、YARN模块</h5><h5 id="3、MapReduce模块"><a href="#3、MapReduce模块" class="headerlink" title="3、MapReduce模块"></a>3、MapReduce模块</h5><h3 id="第二步、开启历史服务"><a href="#第二步、开启历史服务" class="headerlink" title="第二步、开启历史服务"></a>第二步、开启历史服务</h3><h4 id="一、历史服务介绍"><a href="#一、历史服务介绍" class="headerlink" title="一、历史服务介绍"></a>一、历史服务介绍</h4><h4 id="二、开启历史服务"><a href="#二、开启历史服务" class="headerlink" title="二、开启历史服务"></a>二、开启历史服务</h4><h4 id="三、Web查看job执行历史"><a href="#三、Web查看job执行历史" class="headerlink" title="三、Web查看job执行历史"></a>三、Web查看job执行历史</h4><h4 id="四、历史服务介绍"><a href="#四、历史服务介绍" class="headerlink" title="四、历史服务介绍"></a>四、历史服务介绍</h4><h5 id="1、运行一个mapreduce任务"><a href="#1、运行一个mapreduce任务" class="headerlink" title="1、运行一个mapreduce任务"></a>1、运行一个mapreduce任务</h5><h5 id="2、job执行中"><a href="#2、job执行中" class="headerlink" title="2、job执行中"></a>2、job执行中</h5><h5 id="3、查看job历史"><a href="#3、查看job历史" class="headerlink" title="3、查看job历史"></a>3、查看job历史</h5><h4 id="四、开启日志聚集"><a href="#四、开启日志聚集" class="headerlink" title="四、开启日志聚集"></a>四、开启日志聚集</h4><h5 id="1、日志聚集介绍"><a href="#1、日志聚集介绍" class="headerlink" title="1、日志聚集介绍"></a>1、日志聚集介绍</h5><h5 id="2、开启日志聚集"><a href="#2、开启日志聚集" class="headerlink" title="2、开启日志聚集"></a>2、开启日志聚集</h5><h5 id="3、测试日志聚集"><a href="#3、测试日志聚集" class="headerlink" title="3、测试日志聚集"></a>3、测试日志聚集</h5>
       
     </div><!-- .entry-content -->
 
@@ -124,10 +216,10 @@
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
-        <span class="nav-previous"><a href="/categories/hadoop/1002/" rel="prev"><span class="meta-nav">←</span> hadoop-记</a></span>
+        <span class="nav-previous"><a href="/categories/hadoop/1008/" rel="prev"><span class="meta-nav">←</span> Hadoop环境搭建-第二部分 Hadoop本地模式安装</a></span>
     
     
-        <span class="nav-next"><a href="/categories/hadoop/1008/" rel="next">Hadoop环境搭建-第二部分 Hadoop本地模式安装 <span class="meta-nav">→</span></a></span>
+        <span class="nav-next"><a href="/categories/hadoop/1007/" rel="next">Hadoop环境搭建-第一部分：linux环境安装 <span class="meta-nav">→</span></a></span>
     
 </nav><!-- .nav-single -->
 
@@ -179,11 +271,11 @@
           </li>
         
           <li>
-            <a href="/categories/hadoop/1011/">Hadoop环境搭建-第五部分 Hadoop HA安装</a>
+            <a href="/categories/hadoop/1010/">Hadoop环境搭建-第四部分 完全分布式模式安装</a>
           </li>
         
           <li>
-            <a href="/categories/hadoop/1010/">Hadoop环境搭建-第四部分 完全分布式模式安装</a>
+            <a href="/categories/hadoop/1006/">Hadoop环境搭建-首页</a>
           </li>
         
       </ul>
