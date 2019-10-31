@@ -18,15 +18,15 @@
   
   <title>linux-记 | 王鹏</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="rpm软件包管理器   命令  描述    rpm -qa   列出所有安装过的包   yum软件仓库 命令描述 yum repolist all列出所有仓库 yum list all列出仓库中所有软件包 yum into 软件包名称查看软件包信息 yum install 软件包名称安装软件包 yum reinstall 软件包名称重新安装软件包 yum update 软件包名称升级软件包 yu">
+  <meta name="description" content="一. 重置root管理员密码1. 查询系统版本1cat &#x2F;etc&#x2F;redhat-release 2. reboot重启主机，出现引导界面时按下e键进入内核编辑界面3. 在linux16这行参数的最后面追加rd.break，然后按下ctrl+X组合键来运行修改过的内核程序。4. 依次输入一下命令12345678mount -o remount,rw &#x2F;sysrootchroot &#x2F;sysrootpa">
 <meta name="keywords" content="记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux-记">
 <meta property="og:url" content="https:&#x2F;&#x2F;wpblog.top&#x2F;categories&#x2F;linux&#x2F;1001&#x2F;index.html">
 <meta property="og:site_name" content="王鹏">
-<meta property="og:description" content="rpm软件包管理器   命令  描述    rpm -qa   列出所有安装过的包   yum软件仓库 命令描述 yum repolist all列出所有仓库 yum list all列出仓库中所有软件包 yum into 软件包名称查看软件包信息 yum install 软件包名称安装软件包 yum reinstall 软件包名称重新安装软件包 yum update 软件包名称升级软件包 yu">
+<meta property="og:description" content="一. 重置root管理员密码1. 查询系统版本1cat &#x2F;etc&#x2F;redhat-release 2. reboot重启主机，出现引导界面时按下e键进入内核编辑界面3. 在linux16这行参数的最后面追加rd.break，然后按下ctrl+X组合键来运行修改过的内核程序。4. 依次输入一下命令12345678mount -o remount,rw &#x2F;sysrootchroot &#x2F;sysrootpa">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-25T14:17:00.853Z">
+<meta property="og:updated_time" content="2019-10-31T05:37:30.313Z">
 <meta name="twitter:card" content="summary">
   
   
@@ -88,41 +88,42 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/1001/" data-id="ck27onnh6000j54tv612w1ujx" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/1001/" data-id="ck2ea1ykz0000l4tvg2ib2901" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <ol>
-<li>rpm软件包管理器<table border="1">
-<tr>
- <th>命令</th>
- <th>描述</th>
-</tr>
-<tr>
- <td>rpm -qa </td>
- <td>列出所有安装过的包</td>
-</tr>
-</table></li>
-<li>yum软件仓库<table border="1">
-<tr><th>命令</th><th>描述</th></tr>
-<tr><td>yum repolist all</td><td>列出所有仓库</td></tr>
-<tr><td>yum list all</td><td>列出仓库中所有软件包</td></tr>
-<tr><td>yum into 软件包名称</td><td>查看软件包信息</td></tr>
-<tr><td>yum install 软件包名称</td><td>安装软件包</td></tr>
-<tr><td>yum reinstall 软件包名称</td><td>重新安装软件包</td></tr>
-<tr><td>yum update 软件包名称</td><td>升级软件包</td></tr>
-<tr><td>yum remove 软件包名称</td><td>移除软件包</td></tr>
-<tr><td>yum clean all </td><td>清除所有仓库缓存</td></tr>
-<tr><td>yum check-update </td><td>检查可更新的软件包</td></tr>
-<tr><td>yum grouplist</td><td>查看系统中已经安装的软件包组</td></tr>
-<tr><td>yum groupinstall 软件包组</td><td>安装指定的软件包组</td></tr>
-<tr><td>yum groupremove 软件包组</td><td>移除指定的软件包组</td></tr>
-<tr><td>yum groupinfo 软件包组</td><td>查询指定的软件包组信息</td></tr>
-</table></li>
-</ol>
+        <h3 id="一-重置root管理员密码"><a href="#一-重置root管理员密码" class="headerlink" title="一. 重置root管理员密码"></a>一. 重置root管理员密码</h3><h4 id="1-查询系统版本"><a href="#1-查询系统版本" class="headerlink" title="1. 查询系统版本"></a>1. 查询系统版本</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/redhat-release</span><br></pre></td></tr></table></figure>
+<h4 id="2-reboot重启主机，出现引导界面时按下e键进入内核编辑界面"><a href="#2-reboot重启主机，出现引导界面时按下e键进入内核编辑界面" class="headerlink" title="2. reboot重启主机，出现引导界面时按下e键进入内核编辑界面"></a>2. reboot重启主机，出现引导界面时按下e键进入内核编辑界面</h4><h4 id="3-在linux16这行参数的最后面追加rd-break，然后按下ctrl-X组合键来运行修改过的内核程序。"><a href="#3-在linux16这行参数的最后面追加rd-break，然后按下ctrl-X组合键来运行修改过的内核程序。" class="headerlink" title="3. 在linux16这行参数的最后面追加rd.break，然后按下ctrl+X组合键来运行修改过的内核程序。"></a>3. 在linux16这行参数的最后面追加rd.break，然后按下ctrl+X组合键来运行修改过的内核程序。</h4><h4 id="4-依次输入一下命令"><a href="#4-依次输入一下命令" class="headerlink" title="4. 依次输入一下命令"></a>4. 依次输入一下命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mount -o remount,rw /sysroot</span><br><span class="line">chroot /sysroot</span><br><span class="line">passwd</span><br><span class="line"><span class="comment"># 这里输入新的root密码</span></span><br><span class="line"><span class="comment"># 这里再输入一次</span></span><br><span class="line">touch /.autorelabel</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
 
+<h3 id="二-rpm软件包管理器"><a href="#二-rpm软件包管理器" class="headerlink" title="二. rpm软件包管理器"></a>二. rpm软件包管理器</h3><table border="1">
+  <tr>
+    <th>命令</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td>rpm -qa </td>
+    <td>列出所有安装过的包</td>
+  </tr>
+</table>
+
+<h3 id="三-yum软件仓库"><a href="#三-yum软件仓库" class="headerlink" title="三. yum软件仓库"></a>三. yum软件仓库</h3><table border="1">
+  <tr><th>命令</th><th>描述</th></tr>
+  <tr><td>yum repolist all</td><td>列出所有仓库</td></tr>
+  <tr><td>yum list all</td><td>列出仓库中所有软件包</td></tr>
+  <tr><td>yum into 软件包名称</td><td>查看软件包信息</td></tr>
+  <tr><td>yum install 软件包名称</td><td>安装软件包</td></tr>
+  <tr><td>yum reinstall 软件包名称</td><td>重新安装软件包</td></tr>
+  <tr><td>yum update 软件包名称</td><td>升级软件包</td></tr>
+  <tr><td>yum remove 软件包名称</td><td>移除软件包</td></tr>
+  <tr><td>yum clean all </td><td>清除所有仓库缓存</td></tr>
+  <tr><td>yum check-update </td><td>检查可更新的软件包</td></tr>
+  <tr><td>yum grouplist</td><td>查看系统中已经安装的软件包组</td></tr>
+  <tr><td>yum groupinstall 软件包组</td><td>安装指定的软件包组</td></tr>
+  <tr><td>yum groupremove 软件包组</td><td>移除指定的软件包组</td></tr>
+  <tr><td>yum groupinfo 软件包组</td><td>查询指定的软件包组信息</td></tr>
+</table>
       
     </div><!-- .entry-content -->
 
@@ -150,10 +151,10 @@
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
-        <span class="nav-previous"><a href="/categories/hadoop/1002/" rel="prev"><span class="meta-nav">←</span> hadoop-记</a></span>
+        <span class="nav-previous"><a href="/categories/hadoop/1006/" rel="prev"><span class="meta-nav">←</span> Hadoop环境搭建-首页</a></span>
     
     
-        <span class="nav-next"><a href="/categories/hadoop/1008/" rel="next">Hadoop环境搭建-第二部分 Hadoop本地模式安装 <span class="meta-nav">→</span></a></span>
+        <span class="nav-next"><a href="/categories/hadoop/1002/" rel="next">hadoop-记 <span class="meta-nav">→</span></a></span>
     
 </nav><!-- .nav-single -->
 
@@ -197,19 +198,19 @@
           </li>
         
           <li>
-            <a href="/categories/hexo/1004/">hexo</a>
-          </li>
-        
-          <li>
             <a href="/categories/%E7%BD%91%E7%BB%9C/1003/">网络-记</a>
           </li>
         
           <li>
-            <a href="/categories/hadoop/1010/">Hadoop环境搭建-第四部分 完全分布式模式安装</a>
+            <a href="/categories/hexo/1004/">hexo</a>
           </li>
         
           <li>
             <a href="/categories/hadoop/1006/">Hadoop环境搭建-首页</a>
+          </li>
+        
+          <li>
+            <a href="/categories/linux/1001/">linux-记</a>
           </li>
         
       </ul>
