@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="王鹏">
 <meta property="og:description" content="一. 重置root管理员密码 查询系统版本1cat &#x2F;etc&#x2F;redhat-release reboot重启主机，出现引导界面时按下e键进入内核编辑界面 在linux16这行参数的最后面追加rd.break，然后按下ctrl+X组合键来运行修改过的内核程序。 依次输入一下命令12345678mount -o remount,rw &#x2F;sysrootchroot &#x2F;sysrootpasswd# 这里输">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-31T08:14:33.499Z">
+<meta property="og:updated_time" content="2019-10-31T14:26:20.523Z">
 <meta name="twitter:card" content="summary">
   
   
@@ -88,7 +88,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/1001/" data-id="ck2esug4d0013mctvg0tb4jz3" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/1001/" data-id="ck2esy42y0011y8tv85jj9s6r" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -306,43 +306,54 @@
 </ol>
 <h3 id="八-工作目录切换命令"><a href="#八-工作目录切换命令" class="headerlink" title="八. 工作目录切换命令"></a>八. 工作目录切换命令</h3><ol>
 <li><p>pwd</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pwd</span> [选项]</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>cd</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> [目录名称]</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>ls</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls [选项] [文件]</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
 <h3 id="九-文本文件编辑命令"><a href="#九-文本文件编辑命令" class="headerlink" title="九. 文本文件编辑命令"></a>九. 文本文件编辑命令</h3><ol>
 <li><p>cat</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat [选项] [文件]</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>more</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">more [选项] [文件]</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>head</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">head [选项] [文件]</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>tail</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail [选项] [文件]</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>tr</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tr [原始字符] [目标字符]</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>wc</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wc [参数] 文本</span><br></pre></td></tr></table></figure>
+
 </li>
+</ol>
+<table border="1">
+  <tr><th>参数</th><th>作用</th></tr>
+  <tr><td>-l</td><td>只显示行数</td></tr>
+  <tr><td>-w</td><td>只显示单词书</td></tr>
+  <tr><td>-c</td><td>只显示字节数</td></tr>
+</table>
+
+
+<ol start="7">
 <li><p>stat</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">stat</span> 文件名称</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>cut</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cut [参数] 文本</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>diff</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diff [参数] 文件</span><br></pre></td></tr></table></figure></li>
 </ol>
 
       
@@ -419,15 +430,15 @@
           </li>
         
           <li>
-            <a href="/categories/%E7%BD%91%E7%BB%9C/1003/">网络-记</a>
-          </li>
-        
-          <li>
             <a href="/categories/hexo/1004/">hexo</a>
           </li>
         
           <li>
-            <a href="/categories/hadoop/1008/">Hadoop环境搭建-第二部分 Hadoop本地模式安装</a>
+            <a href="/categories/%E7%BD%91%E7%BB%9C/1003/">网络-记</a>
+          </li>
+        
+          <li>
+            <a href="/categories/hadoop/1010/">Hadoop环境搭建-第四部分 完全分布式模式安装</a>
           </li>
         
           <li>
