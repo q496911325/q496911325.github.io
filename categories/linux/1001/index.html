@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="王鹏">
 <meta property="og:description" content="一. 重置root管理员密码 查询系统版本1cat &#x2F;etc&#x2F;redhat-release reboot重启主机，出现引导界面时按下e键进入内核编辑界面 在linux16这行参数的最后面追加rd.break，然后按下ctrl+X组合键来运行修改过的内核程序。 依次输入一下命令12345678mount -o remount,rw &#x2F;sysrootchroot &#x2F;sysrootpasswd# 这里输">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-31T05:38:59.912Z">
+<meta property="og:updated_time" content="2019-10-31T08:14:33.499Z">
 <meta name="twitter:card" content="summary">
   
   
@@ -88,7 +88,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/1001/" data-id="ck2ea3zin00001wtvdq283389" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/1001/" data-id="ck2esug4d0013mctvg0tb4jz3" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -111,13 +111,17 @@
     <td>rpm -qa </td>
     <td>列出所有安装过的包</td>
   </tr>
+  <tr>
+    <td>rpm -qa | grep sql</td>
+    <td>列出包含指定sql的包</td>
+  </tr>
 </table>
 
 <h3 id="三-yum软件仓库"><a href="#三-yum软件仓库" class="headerlink" title="三. yum软件仓库"></a>三. yum软件仓库</h3><table border="1">
   <tr><th>命令</th><th>描述</th></tr>
   <tr><td>yum repolist all</td><td>列出所有仓库</td></tr>
   <tr><td>yum list all</td><td>列出仓库中所有软件包</td></tr>
-  <tr><td>yum into 软件包名称</td><td>查看软件包信息</td></tr>
+  <tr><td>yum info 软件包名称</td><td>查看软件包信息</td></tr>
   <tr><td>yum install 软件包名称</td><td>安装软件包</td></tr>
   <tr><td>yum reinstall 软件包名称</td><td>重新安装软件包</td></tr>
   <tr><td>yum update 软件包名称</td><td>升级软件包</td></tr>
@@ -129,6 +133,218 @@
   <tr><td>yum groupremove 软件包组</td><td>移除指定的软件包组</td></tr>
   <tr><td>yum groupinfo 软件包组</td><td>查询指定的软件包组信息</td></tr>
 </table>
+
+<h3 id="四-systemd初始化进程"><a href="#四-systemd初始化进程" class="headerlink" title="四. systemd初始化进程"></a>四. systemd初始化进程</h3><ol>
+<li><p>systemd与System V init的区别以及作用</p>
+<table border="1">
+<tr><th>System V init运行级别</th><th>systemd目录名称</th><th>作用</th></tr>
+<tr><td>0</td><td>runlevel0</td><td>关机</td></tr>
+<tr><td>1</td><td>runlevel1</td><td>单用户模式</td></tr>
+<tr><td>2</td><td>runlevel2</td><td>等同于级别3</td></tr>
+<tr><td>3</td><td>runlevel3</td><td>多用户的文本界面</td></tr>
+<tr><td>4</td><td>runlevel4</td><td>等同于级别3</td></tr>
+<tr><td>5</td><td>runlevel5</td><td>多用户的图形界面</td></tr>
+<tr><td>6</td><td>runlevel6</td><td>重启</td></tr>
+<tr><td>emergency</td><td>emergency.target</td><td>紧急Shell</td></tr>
+</table>
+</li>
+<li><p>systemctl管理服务的启动、重启、停止、重载、查看状态等常用命令</p>
+<table border="1">
+<tr><th>System V init命令</th><th>systemctl命令</th><th>作用</th></tr>
+<tr><td>service foo start</td><td>systemctl start foo.service</td><td>启动服务</td></tr>
+<tr><td>service foo restart</td><td>systemctl restart foo.service</td><td>重启服务</td></tr>
+<tr><td>service foo stop</td><td>systemctl stop foo.service</td><td>停止服务</td></tr>
+<tr><td>service foo reload</td><td>systemctl reload foo.service</td><td>重新加载配置文件(不终止服务)</td></tr>
+<tr><td>service foo status</td><td>systemctl status foo.service</td><td>查看服务状态</td></tr>
+</table>
+</li>
+<li><p>systemctl设置服务开机启动、不启动、查看各级别下服务启动状态等常用命令</p>
+<table border="1">
+<tr><th>System V init命令</th><th>systemctl命令</th><th>作用</th></tr>
+<tr><td>chkconfig foo on</td><td>systemctl enable foo.service</td><td>开机自动启动</td></tr>
+<tr><td>chkconfig foo off</td><td>systemctl disable foo.service</td><td>开机不自动启动</td></tr>
+<tr><td>chkconfig foo</td><td>systemctl is-enable foo.service</td><td>查看特定服务是否为开机自动启动</td></tr>
+<tr><td>chkconfig --list</td><td>systemctl list-unit-files --type=service</td><td>查看各个级别下服务的启动和禁用情况</td></tr>
+</table>
+
+</li>
+</ol>
+<h3 id="五-执行查看帮助命令"><a href="#五-执行查看帮助命令" class="headerlink" title="五. 执行查看帮助命令"></a>五. 执行查看帮助命令</h3><ol>
+<li><p>man命令中常用按键以及用途</p>
+<table border="1">
+<tr><th>按键</th><th>用途</th></tr>
+<tr><td>空格</td><td>向下翻一页</td></tr>
+<tr><td>PaGe down</td><td>向下翻一页</td></tr>
+<tr><td>PaGe up</td><td>向上翻一页</td></tr>
+<tr><td>home</td><td>首页</td></tr>
+<tr><td>end</td><td>尾页</td></tr>
+<tr><td>/</td><td>从上至下搜索某个关键词，如"/linux"</td></tr>
+<tr><td>?</td><td>从下至上搜索某个关键词，如"?linux"</td></tr>
+<tr><td>n</td><td>定位到下一个搜索到的关键词</td></tr>
+<tr><td>N</td><td>定位到上一个搜索到的关键词</td></tr>
+<tr><td>q</td><td>退出帮助文档</td></tr>
+</table>
+</li>
+<li><p>man命令帮助信息的结构以及意义</p>
+<table border="1">
+<tr><th>结构名称</th><th>代表意义</th></tr>
+<tr><td>NAME</td><td>命令的名称</td></tr>
+<tr><td>SYNOPSIS</td><td>参数的大致使用方法</td></tr>
+<tr><td>DESCRIPTION</td><td>介绍说明</td></tr>
+<tr><td>EXAMPLES</td><td>演示(附带简单说明)</td></tr>
+<tr><td>OVERVIEW</td><td>概述</td></tr>
+<tr><td>DEFAULTS</td><td>默认的功能</td></tr>
+<tr><td>OPTIONS</td><td>具体的可用选项(带介绍)</td></tr>
+<tr><td>ENVIRONMENT</td><td>环境变量</td></tr>
+<tr><td>FILES</td><td>用到的文件</td></tr>
+<tr><td>SEE ALSO</td><td>相关的资料</td></tr>
+<tr><td>HISTORY</td><td>维护历史与联系方式</td></tr>
+</table>
+
+</li>
+</ol>
+<h3 id="六-常用系统工作命令"><a href="#六-常用系统工作命令" class="headerlink" title="六. 常用系统工作命令"></a>六. 常用系统工作命令</h3><ol>
+<li><p>echo</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>date</p>
+<table border="1">
+<tr><th>参数</th><th>作用</th></tr>
+<tr><td>%t</td><td>跳格[Tab 键]</td></tr>
+<tr><td>%Y</td><td>年</td></tr>
+<tr><td>%m</td><td>月</td></tr>
+<tr><td>%d</td><td>日</td></tr>
+<tr><td>%H</td><td>小时(00-23)</td></tr>
+<tr><td>%I</td><td>小时(00-12)</td></tr>
+<tr><td>%M</td><td>分钟</td></tr>
+<tr><td>%S</td><td>秒</td></tr>
+<tr><td>%j</td><td>今年中的第几天</td></tr>
+<tr><td>-s</td><td>设置时间</td></tr>
+</table>
+</li>
+<li><p>reboot</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>poweroff</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">poweroff</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>wget</p>
+<table border="1">
+<tr><th>参数</th><th>作用</th></tr>
+<tr><td>-b</td><td>后台下载模式</td></tr>
+<tr><td>-P</td><td>下载到指定目录</td></tr>
+<tr><td>-t</td><td>最大尝试次数</td></tr>
+<tr><td>-c</td><td>断点续传</td></tr>
+<tr><td>-p</td><td>下载页面内所有资源，包括图片、视频等</td></tr>
+<tr><td>-r</td><td>递归下载</td></tr>
+</table>
+</li>
+<li><p>ps</p>
+<table border="1">
+<tr><th>参数</th><th>作用</th></tr>
+<tr><td>-b</td><td>后台下载模式</td></tr>
+<tr><td>-P</td><td>下载到指定目录</td></tr>
+<tr><td>-t</td><td>最大尝试次数</td></tr>
+</table>
+
+</li>
+</ol>
+<p>常见的进程状态：R运行、S中断、D不可中断、Z僵死与T停止</p>
+<table border="1">
+  <tr><th>状态列名</th><th>描述</th></tr>
+  <tr><td>USER</td><td>进程的所有者</td></tr>
+  <tr><td>PID</td><td>进程ID号</td></tr>
+  <tr><td>%CPU</td><td>运算器占用率</td></tr>
+  <tr><td>%MEM</td><td>内存占用率</td></tr>
+  <tr><td>VSZ</td><td>虚拟内存使用量(KB)</td></tr>
+  <tr><td>RSS</td><td>占用的固定内存量(KB)</td></tr>
+  <tr><td>TTY</td><td>所在终端</td></tr>
+  <tr><td>STAT</td><td>进程状态</td></tr>
+  <tr><td>START</td><td>被启动的时间</td></tr>
+  <tr><td>TIME</td><td>实际使用CPU的时间</td></tr>
+  <tr><td>COMMAND</td><td>命令名称与参数</td></tr>
+</table>
+
+<ol start="7">
+<li><p>top<br>第1行：系统时间、运行时间、登录终端数、系统负载(3个数值分别为1/5/15内的平均值，数值越小意味着负载越低)<br>第2行：进程总数、运行中的进程数、睡眠中的进程数、停止的进程数、僵死的进程数<br>第3行：用户占用资源%、系统内核占用资源%、改变过优先级的进程资源%、空闲的资源%等<br>第4行：物理内存总量、内存使用量、内存空闲量、作为内存缓存的内存量<br>第5行：虚拟内存总量、虚拟内存使用量、虚拟内存空闲量、已被提前加载的内存量</p>
+</li>
+<li><p>pidof </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pidof [参数] [服务名称]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>kill</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> [参数] [进程PID]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>killall</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall [参数] [进程名称]</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="七-系统状态监测命令"><a href="#七-系统状态监测命令" class="headerlink" title="七. 系统状态监测命令"></a>七. 系统状态监测命令</h3><ol>
+<li><p>ifconfig</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig [网络设备] [参数]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>uname</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname [-a]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>uptime</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当前系统时间、系统已运行时间、启用终端数量以及平均负载值(1/5/15分钟内的压力情况)等</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>free</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free [-h]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>who</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">who [参数]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>last </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">last [参数]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>history</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">history</span> [-c]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>sosreport</p>
+</li>
+</ol>
+<h3 id="八-工作目录切换命令"><a href="#八-工作目录切换命令" class="headerlink" title="八. 工作目录切换命令"></a>八. 工作目录切换命令</h3><ol>
+<li><p>pwd</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cd</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ls</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="九-文本文件编辑命令"><a href="#九-文本文件编辑命令" class="headerlink" title="九. 文本文件编辑命令"></a>九. 文本文件编辑命令</h3><ol>
+<li><p>cat</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>more</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>head</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>tail</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>tr</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>wc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>stat</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cut</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>diff</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure></li>
+</ol>
+
       
     </div><!-- .entry-content -->
 
@@ -156,10 +372,10 @@
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
-        <span class="nav-previous"><a href="/categories/hexo/1004/" rel="prev"><span class="meta-nav">←</span> hexo</a></span>
+        <span class="nav-previous"><a href="/categories/hadoop/1009/" rel="prev"><span class="meta-nav">←</span> Hadoop环境搭建-第三部分 伪分布式模式安装</a></span>
     
     
-        <span class="nav-next"><a href="/categories/hadoop/1002/" rel="next">hadoop-记 <span class="meta-nav">→</span></a></span>
+        <span class="nav-next"><a href="/categories/hadoop/1007/" rel="next">Hadoop环境搭建-第一部分：linux环境安装 <span class="meta-nav">→</span></a></span>
     
 </nav><!-- .nav-single -->
 
@@ -211,11 +427,11 @@
           </li>
         
           <li>
-            <a href="/categories/linux/1001/">linux-记</a>
+            <a href="/categories/hadoop/1008/">Hadoop环境搭建-第二部分 Hadoop本地模式安装</a>
           </li>
         
           <li>
-            <a href="/categories/hadoop/1002/">hadoop-记</a>
+            <a href="/categories/hadoop/1011/">Hadoop环境搭建-第五部分 Hadoop HA安装</a>
           </li>
         
       </ul>

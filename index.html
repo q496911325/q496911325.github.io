@@ -89,7 +89,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/1005/" data-id="ck2ea3zj2000c1wtv59bzfxgu" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/1005/" data-id="ck2esug1z0007mctv4bmm60rh" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -139,7 +139,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/%E7%BD%91%E7%BB%9C/1003/" data-id="ck2ea3ziz00071wtvbmm3d1uh" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/%E7%BD%91%E7%BB%9C/1003/" data-id="ck2esug240008mctv5ois3p3s" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -189,7 +189,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hexo/1004/" data-id="ck2ea3zj3000e1wtv1e4f4y8l" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hexo/1004/" data-id="ck2esug2i000emctvcmzp53x3" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -225,7 +225,7 @@
 
 
   
-    <article id="post-1-linux-记" class="post-1-linux-记 post type-post status-publish format-standard hentry">
+    <article id="post-8-Hadoop环境搭建-第二部分 本地模式安装" class="post-8-Hadoop环境搭建-第二部分 本地模式安装 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -233,110 +233,68 @@
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/categories/linux/1001/">linux-记</a>
+      <a class="article-title" href="/categories/hadoop/1008/">Hadoop环境搭建-第二部分 Hadoop本地模式安装</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/1001/" data-id="ck2ea3zin00001wtvdq283389" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1008/" data-id="ck2esug2e000cmctv7uww0c5x" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h3 id="一-重置root管理员密码"><a href="#一-重置root管理员密码" class="headerlink" title="一. 重置root管理员密码"></a>一. 重置root管理员密码</h3><ol>
-<li>查询系统版本<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/redhat-release</span><br></pre></td></tr></table></figure></li>
-<li>reboot重启主机，出现引导界面时按下e键进入内核编辑界面</li>
-<li>在linux16这行参数的最后面追加rd.break，然后按下ctrl+X组合键来运行修改过的内核程序。</li>
-<li>依次输入一下命令<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mount -o remount,rw /sysroot</span><br><span class="line">chroot /sysroot</span><br><span class="line">passwd</span><br><span class="line"><span class="comment"># 这里输入新的root密码</span></span><br><span class="line"><span class="comment"># 这里再输入一次</span></span><br><span class="line">touch /.autorelabel</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+        <p>本系列首页：<a href="/categories/hadoop/1006/">Hadoop环境搭建</a></p>
+<h2 id="第二部分、Hadoop本地模式安装"><a href="#第二部分、Hadoop本地模式安装" class="headerlink" title="第二部分、Hadoop本地模式安装"></a>第二部分、Hadoop本地模式安装</h2><h3 id="第一步、本地模式部署"><a href="#第一步、本地模式部署" class="headerlink" title="第一步、本地模式部署"></a>第一步、本地模式部署</h3><h4 id="一、复制实验虚拟机-两种方法-任选一种就好"><a href="#一、复制实验虚拟机-两种方法-任选一种就好" class="headerlink" title="一、复制实验虚拟机(两种方法 任选一种就好)"></a>一、复制实验虚拟机(两种方法 任选一种就好)</h4><h5 id="1、克隆"><a href="#1、克隆" class="headerlink" title="1、克隆"></a>1、克隆</h5><p>右键模板系统model-管理-克隆，进入克隆虚拟机向导</p>
+<img src="/css/images/hadoop环境搭建1/1-欢迎.png">
+<img src="/css/images/hadoop环境搭建1/2-克隆源.png">
+<img src="/css/images/hadoop环境搭建1/3-类型.png">
+<img src="/css/images/hadoop环境搭建1/4-名称.png">
 
-</li>
-</ol>
-<h3 id="二-rpm软件包管理器"><a href="#二-rpm软件包管理器" class="headerlink" title="二. rpm软件包管理器"></a>二. rpm软件包管理器</h3><table border="1">
-  <tr>
-    <th>命令</th>
-    <th>描述</th>
-  </tr>
-  <tr>
-    <td>rpm -qa </td>
-    <td>列出所有安装过的包</td>
-  </tr>
-</table>
+<h5 id="2、复制"><a href="#2、复制" class="headerlink" title="2、复制"></a>2、复制</h5><p>找到model文件夹，ctrl+c复制整个文件夹，ctrl+v粘贴，修改新的文件夹名为BigData01，并进入文件打开model.vmx</p>
+<img src="/css/images/hadoop环境搭建1/5-复制.png">
+<img src="/css/images/hadoop环境搭建1/6-打开.png">
 
-<h3 id="三-yum软件仓库"><a href="#三-yum软件仓库" class="headerlink" title="三. yum软件仓库"></a>三. yum软件仓库</h3><table border="1">
-  <tr><th>命令</th><th>描述</th></tr>
-  <tr><td>yum repolist all</td><td>列出所有仓库</td></tr>
-  <tr><td>yum list all</td><td>列出仓库中所有软件包</td></tr>
-  <tr><td>yum into 软件包名称</td><td>查看软件包信息</td></tr>
-  <tr><td>yum install 软件包名称</td><td>安装软件包</td></tr>
-  <tr><td>yum reinstall 软件包名称</td><td>重新安装软件包</td></tr>
-  <tr><td>yum update 软件包名称</td><td>升级软件包</td></tr>
-  <tr><td>yum remove 软件包名称</td><td>移除软件包</td></tr>
-  <tr><td>yum clean all </td><td>清除所有仓库缓存</td></tr>
-  <tr><td>yum check-update </td><td>检查可更新的软件包</td></tr>
-  <tr><td>yum grouplist</td><td>查看系统中已经安装的软件包组</td></tr>
-  <tr><td>yum groupinstall 软件包组</td><td>安装指定的软件包组</td></tr>
-  <tr><td>yum groupremove 软件包组</td><td>移除指定的软件包组</td></tr>
-  <tr><td>yum groupinfo 软件包组</td><td>查询指定的软件包组信息</td></tr>
-</table>
+<p>重命名虚拟机中新打开的model为BigData01，开启此虚拟机，选择我已复制虚拟机</p>
+<img src="/css/images/hadoop环境搭建1/7-虚拟机.png">
+<img src="/css/images/hadoop环境搭建1/7-复制虚拟机.png">
+
+<h4 id="二、重新配置实验机网络"><a href="#二、重新配置实验机网络" class="headerlink" title="二、重新配置实验机网络"></a>二、重新配置实验机网络</h4><p>修改网卡名称：</p>
+<p>在BigData01机器上编辑网卡信息。执行vim /etc/udev/rules.d/70-persistent-net.rules命令。因为是从model机器克隆来的，所以会保留model的网卡eth0，并且再添加一个网卡eth1。并且eth0的Mac地址和model的地址是一样的，Mac地址不允许相同，所以要删除eth0，只保留eth1网卡，并且要将eth1改名为eth0。将修改后的eth0的mac地址复制下来，修改network-scripts文件中的HWADDR属性。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># vim /etc/sysconfig/network-scripts/ifcfg-eth0</span></span><br></pre></td></tr></table></figure>
+<img src="/css/images/hadoop环境搭建1/8-HWADDR.png">
+
+<p>修改完成后reboot重启，再查看网卡信息，只剩下了eth0，配置完成。</p>
+<img src="/css/images/hadoop环境搭建1/9-Edit.png">
+<img src="/css/images/hadoop环境搭建1/10-网卡.png">
+
+
+<h4 id="三、本地模式介绍"><a href="#三、本地模式介绍" class="headerlink" title="三、本地模式介绍"></a>三、本地模式介绍</h4><p>本地模式是最简单的模式，所有模块都运行与一个JVM进程中，使用的本地文件系统，而不是HDFS，本地模式主要是用于本地开发过程中的运行调试用。下载hadoop安装包后不用任何设置，默认的就是本地模式。</p>
+<h4 id="四、解压hadoop后就是直接可以使用"><a href="#四、解压hadoop后就是直接可以使用" class="headerlink" title="四、解压hadoop后就是直接可以使用"></a>四、解压hadoop后就是直接可以使用</h4><h5 id="1、创建一个存放本地模式hadoop的目录"><a href="#1、创建一个存放本地模式hadoop的目录" class="headerlink" title="1、创建一个存放本地模式hadoop的目录"></a>1、创建一个存放本地模式hadoop的目录</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># mkdir /opt/modules/hadoopstandalone</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2、解压hadoop文件"><a href="#2、解压hadoop文件" class="headerlink" title="2、解压hadoop文件"></a>2、解压hadoop文件</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># tar -zxvf /opt/hadoop-2.5.0.tar.gz  -C /opt/modules/hadoopstandalone/</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="3、确保JAVA-HOME环境变量已经配置好"><a href="#3、确保JAVA-HOME环境变量已经配置好" class="headerlink" title="3、确保JAVA_HOME环境变量已经配置好"></a>3、确保JAVA_HOME环境变量已经配置好</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># echo $&#123;JAVA_HOME&#125;</span></span><br><span class="line">/opt/modules/jdk1.7.0_67</span><br></pre></td></tr></table></figure>
+
+<h4 id="五、运行MapReduce程序，验证"><a href="#五、运行MapReduce程序，验证" class="headerlink" title="五、运行MapReduce程序，验证"></a>五、运行MapReduce程序，验证</h4><p>我们这里用hadoop自带的wordcount例子来在本地模式下测试跑mapreduce。</p>
+<h5 id="1、准备mapreduce输入文件wc-input-cat写完保存可以用ctrl-d，写完可以用vim检查一下"><a href="#1、准备mapreduce输入文件wc-input-cat写完保存可以用ctrl-d，写完可以用vim检查一下" class="headerlink" title="1、准备mapreduce输入文件wc.input(cat写完保存可以用ctrl+d，写完可以用vim检查一下)"></a>1、准备mapreduce输入文件wc.input(cat写完保存可以用ctrl+d，写完可以用vim检查一下)</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># mkdir /opt/data</span></span><br><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># cat &gt; /opt/data/wc.input</span></span><br><span class="line">hadoop mapreduce hive</span><br><span class="line">hbase spark storm</span><br><span class="line">sqoop hadoop hive</span><br><span class="line">spark hadoop</span><br></pre></td></tr></table></figure>
+
+<h5 id="2、运行hadoop自带的mapreduce-Demo"><a href="#2、运行hadoop自带的mapreduce-Demo" class="headerlink" title="2、运行hadoop自带的mapreduce Demo"></a>2、运行hadoop自带的mapreduce Demo</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># cd /opt/modules/hadoopstandalone/hadoop-2.5.0/</span></span><br><span class="line">[root@bigdata-senior01 hadoop-2.5.0]<span class="comment"># bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.5.0.jar  wordcount  /opt/data/wc.input  output2</span></span><br></pre></td></tr></table></figure>
+<img src="/css/images/hadoop环境搭建1/11-job.png">
+这里可以看到job ID中有local字样，说明是运行在本地模式下的。
+
+<h5 id="3、查看输出文件"><a href="#3、查看输出文件" class="headerlink" title="3、查看输出文件"></a>3、查看输出文件</h5><p>本地模式下，mapreduce的输出是输出到本地。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 hadoop-2.5.0]<span class="comment"># ll output2</span></span><br><span class="line">total 4</span><br><span class="line">-rw-r--r-- 1 root root 60 oct 25 23:42 part-r-00000</span><br><span class="line">-rw-r--r-- 1 root root 0   oct 25 23:42 _SUCCESS</span><br></pre></td></tr></table></figure>
+
+<p>输出目录中有_SUCCESS文件说明JOB运行成功，part-r-00000是输出结果文件。  </p>
+
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/categories/linux/1001/">
-    <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
-        2019-10-22
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/linux/">linux</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0/" rel="tag">记</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-2-hadoop-记" class="post-2-hadoop-记 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/categories/hadoop/1002/">hadoop-记</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1002/" data-id="ck2ea3zj000081wtvcwfj03kr" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p><a href="https://www.baidu.com" target="_blank" rel="noopener">王鹏</a></p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/categories/hadoop/1002/">
+    <a href="/categories/hadoop/1008/">
     <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
         2019-10-22
     </time>
@@ -349,7 +307,7 @@
 
     
   <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0/" rel="tag">记</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a></li></ul>
 
     </footer>
 </article>
@@ -375,7 +333,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1011/" data-id="ck2ea3zit00021wtv4v2jb0gf" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1011/" data-id="ck2esug1v0006mctvcm4zflh3" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -417,6 +375,57 @@
 
 
   
+    <article id="post-2-hadoop-记" class="post-2-hadoop-记 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/categories/hadoop/1002/">hadoop-记</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1002/" data-id="ck2esug1e0002mctv7nyy60k7" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p><a href="https://www.baidu.com" target="_blank" rel="noopener">王鹏</a></p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/categories/hadoop/1002/">
+    <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
+        2019-10-22
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/hadoop/">hadoop</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0/" rel="tag">记</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-10-Hadoop环境搭建-第四部分 完全分布式模式安装" class="post-10-Hadoop环境搭建-第四部分 完全分布式模式安装 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -432,7 +441,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1010/" data-id="ck2ea3zix00061wtv1hzu0cce" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1010/" data-id="ck2esug0o0000mctvb5uxav6o" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -484,7 +493,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1006/" data-id="ck2ea3zj6000j1wtv33xw35u9" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1006/" data-id="ck2esug2q000jmctvd1g4bpvx" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -558,7 +567,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1009/" data-id="ck2ea3zj8000l1wtvbd78g1xm" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1009/" data-id="ck2esug2z000lmctvdckp43hu" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -679,7 +688,7 @@
 
 
   
-    <article id="post-8-Hadoop环境搭建-第二部分 本地模式安装" class="post-8-Hadoop环境搭建-第二部分 本地模式安装 post type-post status-publish format-standard hentry">
+    <article id="post-1-linux-记" class="post-1-linux-记 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -687,68 +696,275 @@
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/categories/hadoop/1008/">Hadoop环境搭建-第二部分 Hadoop本地模式安装</a>
+      <a class="article-title" href="/categories/linux/1001/">linux-记</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1008/" data-id="ck2ea3zjb000p1wtv13lqfmsu" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/1001/" data-id="ck2esug4d0013mctvg0tb4jz3" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>本系列首页：<a href="/categories/hadoop/1006/">Hadoop环境搭建</a></p>
-<h2 id="第二部分、Hadoop本地模式安装"><a href="#第二部分、Hadoop本地模式安装" class="headerlink" title="第二部分、Hadoop本地模式安装"></a>第二部分、Hadoop本地模式安装</h2><h3 id="第一步、本地模式部署"><a href="#第一步、本地模式部署" class="headerlink" title="第一步、本地模式部署"></a>第一步、本地模式部署</h3><h4 id="一、复制实验虚拟机-两种方法-任选一种就好"><a href="#一、复制实验虚拟机-两种方法-任选一种就好" class="headerlink" title="一、复制实验虚拟机(两种方法 任选一种就好)"></a>一、复制实验虚拟机(两种方法 任选一种就好)</h4><h5 id="1、克隆"><a href="#1、克隆" class="headerlink" title="1、克隆"></a>1、克隆</h5><p>右键模板系统model-管理-克隆，进入克隆虚拟机向导</p>
-<img src="/css/images/hadoop环境搭建1/1-欢迎.png">
-<img src="/css/images/hadoop环境搭建1/2-克隆源.png">
-<img src="/css/images/hadoop环境搭建1/3-类型.png">
-<img src="/css/images/hadoop环境搭建1/4-名称.png">
+        <h3 id="一-重置root管理员密码"><a href="#一-重置root管理员密码" class="headerlink" title="一. 重置root管理员密码"></a>一. 重置root管理员密码</h3><ol>
+<li>查询系统版本<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/redhat-release</span><br></pre></td></tr></table></figure></li>
+<li>reboot重启主机，出现引导界面时按下e键进入内核编辑界面</li>
+<li>在linux16这行参数的最后面追加rd.break，然后按下ctrl+X组合键来运行修改过的内核程序。</li>
+<li>依次输入一下命令<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mount -o remount,rw /sysroot</span><br><span class="line">chroot /sysroot</span><br><span class="line">passwd</span><br><span class="line"><span class="comment"># 这里输入新的root密码</span></span><br><span class="line"><span class="comment"># 这里再输入一次</span></span><br><span class="line">touch /.autorelabel</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
 
-<h5 id="2、复制"><a href="#2、复制" class="headerlink" title="2、复制"></a>2、复制</h5><p>找到model文件夹，ctrl+c复制整个文件夹，ctrl+v粘贴，修改新的文件夹名为BigData01，并进入文件打开model.vmx</p>
-<img src="/css/images/hadoop环境搭建1/5-复制.png">
-<img src="/css/images/hadoop环境搭建1/6-打开.png">
+</li>
+</ol>
+<h3 id="二-rpm软件包管理器"><a href="#二-rpm软件包管理器" class="headerlink" title="二. rpm软件包管理器"></a>二. rpm软件包管理器</h3><table border="1">
+  <tr>
+    <th>命令</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td>rpm -qa </td>
+    <td>列出所有安装过的包</td>
+  </tr>
+  <tr>
+    <td>rpm -qa | grep sql</td>
+    <td>列出包含指定sql的包</td>
+  </tr>
+</table>
 
-<p>重命名虚拟机中新打开的model为BigData01，开启此虚拟机，选择我已复制虚拟机</p>
-<img src="/css/images/hadoop环境搭建1/7-虚拟机.png">
-<img src="/css/images/hadoop环境搭建1/7-复制虚拟机.png">
+<h3 id="三-yum软件仓库"><a href="#三-yum软件仓库" class="headerlink" title="三. yum软件仓库"></a>三. yum软件仓库</h3><table border="1">
+  <tr><th>命令</th><th>描述</th></tr>
+  <tr><td>yum repolist all</td><td>列出所有仓库</td></tr>
+  <tr><td>yum list all</td><td>列出仓库中所有软件包</td></tr>
+  <tr><td>yum info 软件包名称</td><td>查看软件包信息</td></tr>
+  <tr><td>yum install 软件包名称</td><td>安装软件包</td></tr>
+  <tr><td>yum reinstall 软件包名称</td><td>重新安装软件包</td></tr>
+  <tr><td>yum update 软件包名称</td><td>升级软件包</td></tr>
+  <tr><td>yum remove 软件包名称</td><td>移除软件包</td></tr>
+  <tr><td>yum clean all </td><td>清除所有仓库缓存</td></tr>
+  <tr><td>yum check-update </td><td>检查可更新的软件包</td></tr>
+  <tr><td>yum grouplist</td><td>查看系统中已经安装的软件包组</td></tr>
+  <tr><td>yum groupinstall 软件包组</td><td>安装指定的软件包组</td></tr>
+  <tr><td>yum groupremove 软件包组</td><td>移除指定的软件包组</td></tr>
+  <tr><td>yum groupinfo 软件包组</td><td>查询指定的软件包组信息</td></tr>
+</table>
 
-<h4 id="二、重新配置实验机网络"><a href="#二、重新配置实验机网络" class="headerlink" title="二、重新配置实验机网络"></a>二、重新配置实验机网络</h4><p>修改网卡名称：</p>
-<p>在BigData01机器上编辑网卡信息。执行vim /etc/udev/rules.d/70-persistent-net.rules命令。因为是从model机器克隆来的，所以会保留model的网卡eth0，并且再添加一个网卡eth1。并且eth0的Mac地址和model的地址是一样的，Mac地址不允许相同，所以要删除eth0，只保留eth1网卡，并且要将eth1改名为eth0。将修改后的eth0的mac地址复制下来，修改network-scripts文件中的HWADDR属性。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># vim /etc/sysconfig/network-scripts/ifcfg-eth0</span></span><br></pre></td></tr></table></figure>
-<img src="/css/images/hadoop环境搭建1/8-HWADDR.png">
+<h3 id="四-systemd初始化进程"><a href="#四-systemd初始化进程" class="headerlink" title="四. systemd初始化进程"></a>四. systemd初始化进程</h3><ol>
+<li><p>systemd与System V init的区别以及作用</p>
+<table border="1">
+<tr><th>System V init运行级别</th><th>systemd目录名称</th><th>作用</th></tr>
+<tr><td>0</td><td>runlevel0</td><td>关机</td></tr>
+<tr><td>1</td><td>runlevel1</td><td>单用户模式</td></tr>
+<tr><td>2</td><td>runlevel2</td><td>等同于级别3</td></tr>
+<tr><td>3</td><td>runlevel3</td><td>多用户的文本界面</td></tr>
+<tr><td>4</td><td>runlevel4</td><td>等同于级别3</td></tr>
+<tr><td>5</td><td>runlevel5</td><td>多用户的图形界面</td></tr>
+<tr><td>6</td><td>runlevel6</td><td>重启</td></tr>
+<tr><td>emergency</td><td>emergency.target</td><td>紧急Shell</td></tr>
+</table>
+</li>
+<li><p>systemctl管理服务的启动、重启、停止、重载、查看状态等常用命令</p>
+<table border="1">
+<tr><th>System V init命令</th><th>systemctl命令</th><th>作用</th></tr>
+<tr><td>service foo start</td><td>systemctl start foo.service</td><td>启动服务</td></tr>
+<tr><td>service foo restart</td><td>systemctl restart foo.service</td><td>重启服务</td></tr>
+<tr><td>service foo stop</td><td>systemctl stop foo.service</td><td>停止服务</td></tr>
+<tr><td>service foo reload</td><td>systemctl reload foo.service</td><td>重新加载配置文件(不终止服务)</td></tr>
+<tr><td>service foo status</td><td>systemctl status foo.service</td><td>查看服务状态</td></tr>
+</table>
+</li>
+<li><p>systemctl设置服务开机启动、不启动、查看各级别下服务启动状态等常用命令</p>
+<table border="1">
+<tr><th>System V init命令</th><th>systemctl命令</th><th>作用</th></tr>
+<tr><td>chkconfig foo on</td><td>systemctl enable foo.service</td><td>开机自动启动</td></tr>
+<tr><td>chkconfig foo off</td><td>systemctl disable foo.service</td><td>开机不自动启动</td></tr>
+<tr><td>chkconfig foo</td><td>systemctl is-enable foo.service</td><td>查看特定服务是否为开机自动启动</td></tr>
+<tr><td>chkconfig --list</td><td>systemctl list-unit-files --type=service</td><td>查看各个级别下服务的启动和禁用情况</td></tr>
+</table>
 
-<p>修改完成后reboot重启，再查看网卡信息，只剩下了eth0，配置完成。</p>
-<img src="/css/images/hadoop环境搭建1/9-Edit.png">
-<img src="/css/images/hadoop环境搭建1/10-网卡.png">
+</li>
+</ol>
+<h3 id="五-执行查看帮助命令"><a href="#五-执行查看帮助命令" class="headerlink" title="五. 执行查看帮助命令"></a>五. 执行查看帮助命令</h3><ol>
+<li><p>man命令中常用按键以及用途</p>
+<table border="1">
+<tr><th>按键</th><th>用途</th></tr>
+<tr><td>空格</td><td>向下翻一页</td></tr>
+<tr><td>PaGe down</td><td>向下翻一页</td></tr>
+<tr><td>PaGe up</td><td>向上翻一页</td></tr>
+<tr><td>home</td><td>首页</td></tr>
+<tr><td>end</td><td>尾页</td></tr>
+<tr><td>/</td><td>从上至下搜索某个关键词，如"/linux"</td></tr>
+<tr><td>?</td><td>从下至上搜索某个关键词，如"?linux"</td></tr>
+<tr><td>n</td><td>定位到下一个搜索到的关键词</td></tr>
+<tr><td>N</td><td>定位到上一个搜索到的关键词</td></tr>
+<tr><td>q</td><td>退出帮助文档</td></tr>
+</table>
+</li>
+<li><p>man命令帮助信息的结构以及意义</p>
+<table border="1">
+<tr><th>结构名称</th><th>代表意义</th></tr>
+<tr><td>NAME</td><td>命令的名称</td></tr>
+<tr><td>SYNOPSIS</td><td>参数的大致使用方法</td></tr>
+<tr><td>DESCRIPTION</td><td>介绍说明</td></tr>
+<tr><td>EXAMPLES</td><td>演示(附带简单说明)</td></tr>
+<tr><td>OVERVIEW</td><td>概述</td></tr>
+<tr><td>DEFAULTS</td><td>默认的功能</td></tr>
+<tr><td>OPTIONS</td><td>具体的可用选项(带介绍)</td></tr>
+<tr><td>ENVIRONMENT</td><td>环境变量</td></tr>
+<tr><td>FILES</td><td>用到的文件</td></tr>
+<tr><td>SEE ALSO</td><td>相关的资料</td></tr>
+<tr><td>HISTORY</td><td>维护历史与联系方式</td></tr>
+</table>
 
+</li>
+</ol>
+<h3 id="六-常用系统工作命令"><a href="#六-常用系统工作命令" class="headerlink" title="六. 常用系统工作命令"></a>六. 常用系统工作命令</h3><ol>
+<li><p>echo</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>date</p>
+<table border="1">
+<tr><th>参数</th><th>作用</th></tr>
+<tr><td>%t</td><td>跳格[Tab 键]</td></tr>
+<tr><td>%Y</td><td>年</td></tr>
+<tr><td>%m</td><td>月</td></tr>
+<tr><td>%d</td><td>日</td></tr>
+<tr><td>%H</td><td>小时(00-23)</td></tr>
+<tr><td>%I</td><td>小时(00-12)</td></tr>
+<tr><td>%M</td><td>分钟</td></tr>
+<tr><td>%S</td><td>秒</td></tr>
+<tr><td>%j</td><td>今年中的第几天</td></tr>
+<tr><td>-s</td><td>设置时间</td></tr>
+</table>
+</li>
+<li><p>reboot</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>poweroff</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">poweroff</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>wget</p>
+<table border="1">
+<tr><th>参数</th><th>作用</th></tr>
+<tr><td>-b</td><td>后台下载模式</td></tr>
+<tr><td>-P</td><td>下载到指定目录</td></tr>
+<tr><td>-t</td><td>最大尝试次数</td></tr>
+<tr><td>-c</td><td>断点续传</td></tr>
+<tr><td>-p</td><td>下载页面内所有资源，包括图片、视频等</td></tr>
+<tr><td>-r</td><td>递归下载</td></tr>
+</table>
+</li>
+<li><p>ps</p>
+<table border="1">
+<tr><th>参数</th><th>作用</th></tr>
+<tr><td>-b</td><td>后台下载模式</td></tr>
+<tr><td>-P</td><td>下载到指定目录</td></tr>
+<tr><td>-t</td><td>最大尝试次数</td></tr>
+</table>
 
-<h4 id="三、本地模式介绍"><a href="#三、本地模式介绍" class="headerlink" title="三、本地模式介绍"></a>三、本地模式介绍</h4><p>本地模式是最简单的模式，所有模块都运行与一个JVM进程中，使用的本地文件系统，而不是HDFS，本地模式主要是用于本地开发过程中的运行调试用。下载hadoop安装包后不用任何设置，默认的就是本地模式。</p>
-<h4 id="四、解压hadoop后就是直接可以使用"><a href="#四、解压hadoop后就是直接可以使用" class="headerlink" title="四、解压hadoop后就是直接可以使用"></a>四、解压hadoop后就是直接可以使用</h4><h5 id="1、创建一个存放本地模式hadoop的目录"><a href="#1、创建一个存放本地模式hadoop的目录" class="headerlink" title="1、创建一个存放本地模式hadoop的目录"></a>1、创建一个存放本地模式hadoop的目录</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># mkdir /opt/modules/hadoopstandalone</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>常见的进程状态：R运行、S中断、D不可中断、Z僵死与T停止</p>
+<table border="1">
+  <tr><th>状态列名</th><th>描述</th></tr>
+  <tr><td>USER</td><td>进程的所有者</td></tr>
+  <tr><td>PID</td><td>进程ID号</td></tr>
+  <tr><td>%CPU</td><td>运算器占用率</td></tr>
+  <tr><td>%MEM</td><td>内存占用率</td></tr>
+  <tr><td>VSZ</td><td>虚拟内存使用量(KB)</td></tr>
+  <tr><td>RSS</td><td>占用的固定内存量(KB)</td></tr>
+  <tr><td>TTY</td><td>所在终端</td></tr>
+  <tr><td>STAT</td><td>进程状态</td></tr>
+  <tr><td>START</td><td>被启动的时间</td></tr>
+  <tr><td>TIME</td><td>实际使用CPU的时间</td></tr>
+  <tr><td>COMMAND</td><td>命令名称与参数</td></tr>
+</table>
 
-<h5 id="2、解压hadoop文件"><a href="#2、解压hadoop文件" class="headerlink" title="2、解压hadoop文件"></a>2、解压hadoop文件</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># tar -zxvf /opt/hadoop-2.5.0.tar.gz  -C /opt/modules/hadoopstandalone/</span></span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li><p>top<br>第1行：系统时间、运行时间、登录终端数、系统负载(3个数值分别为1/5/15内的平均值，数值越小意味着负载越低)<br>第2行：进程总数、运行中的进程数、睡眠中的进程数、停止的进程数、僵死的进程数<br>第3行：用户占用资源%、系统内核占用资源%、改变过优先级的进程资源%、空闲的资源%等<br>第4行：物理内存总量、内存使用量、内存空闲量、作为内存缓存的内存量<br>第5行：虚拟内存总量、虚拟内存使用量、虚拟内存空闲量、已被提前加载的内存量</p>
+</li>
+<li><p>pidof </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pidof [参数] [服务名称]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>kill</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> [参数] [进程PID]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>killall</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall [参数] [进程名称]</span><br></pre></td></tr></table></figure>
 
-<h5 id="3、确保JAVA-HOME环境变量已经配置好"><a href="#3、确保JAVA-HOME环境变量已经配置好" class="headerlink" title="3、确保JAVA_HOME环境变量已经配置好"></a>3、确保JAVA_HOME环境变量已经配置好</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># echo $&#123;JAVA_HOME&#125;</span></span><br><span class="line">/opt/modules/jdk1.7.0_67</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="七-系统状态监测命令"><a href="#七-系统状态监测命令" class="headerlink" title="七. 系统状态监测命令"></a>七. 系统状态监测命令</h3><ol>
+<li><p>ifconfig</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig [网络设备] [参数]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>uname</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname [-a]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>uptime</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当前系统时间、系统已运行时间、启用终端数量以及平均负载值(1/5/15分钟内的压力情况)等</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>free</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free [-h]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>who</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">who [参数]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>last </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">last [参数]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>history</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">history</span> [-c]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>sosreport</p>
+</li>
+</ol>
+<h3 id="八-工作目录切换命令"><a href="#八-工作目录切换命令" class="headerlink" title="八. 工作目录切换命令"></a>八. 工作目录切换命令</h3><ol>
+<li><p>pwd</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cd</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ls</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
 
-<h4 id="五、运行MapReduce程序，验证"><a href="#五、运行MapReduce程序，验证" class="headerlink" title="五、运行MapReduce程序，验证"></a>五、运行MapReduce程序，验证</h4><p>我们这里用hadoop自带的wordcount例子来在本地模式下测试跑mapreduce。</p>
-<h5 id="1、准备mapreduce输入文件wc-input-cat写完保存可以用ctrl-d，写完可以用vim检查一下"><a href="#1、准备mapreduce输入文件wc-input-cat写完保存可以用ctrl-d，写完可以用vim检查一下" class="headerlink" title="1、准备mapreduce输入文件wc.input(cat写完保存可以用ctrl+d，写完可以用vim检查一下)"></a>1、准备mapreduce输入文件wc.input(cat写完保存可以用ctrl+d，写完可以用vim检查一下)</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># mkdir /opt/data</span></span><br><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># cat &gt; /opt/data/wc.input</span></span><br><span class="line">hadoop mapreduce hive</span><br><span class="line">hbase spark storm</span><br><span class="line">sqoop hadoop hive</span><br><span class="line">spark hadoop</span><br></pre></td></tr></table></figure>
-
-<h5 id="2、运行hadoop自带的mapreduce-Demo"><a href="#2、运行hadoop自带的mapreduce-Demo" class="headerlink" title="2、运行hadoop自带的mapreduce Demo"></a>2、运行hadoop自带的mapreduce Demo</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># cd /opt/modules/hadoopstandalone/hadoop-2.5.0/</span></span><br><span class="line">[root@bigdata-senior01 hadoop-2.5.0]<span class="comment"># bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.5.0.jar  wordcount  /opt/data/wc.input  output2</span></span><br></pre></td></tr></table></figure>
-<img src="/css/images/hadoop环境搭建1/11-job.png">
-这里可以看到job ID中有local字样，说明是运行在本地模式下的。
-
-<h5 id="3、查看输出文件"><a href="#3、查看输出文件" class="headerlink" title="3、查看输出文件"></a>3、查看输出文件</h5><p>本地模式下，mapreduce的输出是输出到本地。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 hadoop-2.5.0]<span class="comment"># ll output2</span></span><br><span class="line">total 4</span><br><span class="line">-rw-r--r-- 1 root root 60 oct 25 23:42 part-r-00000</span><br><span class="line">-rw-r--r-- 1 root root 0   oct 25 23:42 _SUCCESS</span><br></pre></td></tr></table></figure>
-
-<p>输出目录中有_SUCCESS文件说明JOB运行成功，part-r-00000是输出结果文件。  </p>
+</li>
+</ol>
+<h3 id="九-文本文件编辑命令"><a href="#九-文本文件编辑命令" class="headerlink" title="九. 文本文件编辑命令"></a>九. 文本文件编辑命令</h3><ol>
+<li><p>cat</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>more</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>head</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>tail</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>tr</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>wc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>stat</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cut</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>diff</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure></li>
+</ol>
 
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/categories/hadoop/1008/">
+    <a href="/categories/linux/1001/">
     <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
         2019-10-22
     </time>
@@ -756,12 +972,12 @@
     
   <span class="article-delim">&#8226;</span>
   <div class="article-category">
-  <a class="article-category-link" href="/categories/hadoop/">hadoop</a>
+  <a class="article-category-link" href="/categories/linux/">linux</a>
   </div>
 
     
   <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0/" rel="tag">记</a></li></ul>
 
     </footer>
 </article>
@@ -822,11 +1038,11 @@
           </li>
         
           <li>
-            <a href="/categories/linux/1001/">linux-记</a>
+            <a href="/categories/hadoop/1008/">Hadoop环境搭建-第二部分 Hadoop本地模式安装</a>
           </li>
         
           <li>
-            <a href="/categories/hadoop/1002/">hadoop-记</a>
+            <a href="/categories/hadoop/1011/">Hadoop环境搭建-第五部分 Hadoop HA安装</a>
           </li>
         
       </ul>
