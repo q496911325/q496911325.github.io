@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> -->
+  
+  
+  <meta name="description" content="王鹏的博客" />
+  
+
+  
+  <meta name="keywords" content="博客,王鹏,王鹏的博客,大数据,hadoop" />
+  
+  
+  
+  
+  
+  
+  <title>部署虚拟环境安装linux系统 | 王鹏</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一. 重置root管理员密码 查询系统版本1cat &#x2F;etc&#x2F;redhat-release reboot重启主机，出现引导界面时按下e键进入内核编辑界面 在linux16这行参数的最后面追加rd.break，然后按下ctrl+X组合键来运行修改过的内核程序。 依次输入一下命令12345678mount -o remount,rw &#x2F;sysrootchroot &#x2F;sysrootpasswd# 这里输">
+<meta name="keywords" content="博客,王鹏,王鹏的博客,大数据,hadoop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="部署虚拟环境安装linux系统">
+<meta property="og:url" content="https:&#x2F;&#x2F;wpblog.top&#x2F;categories&#x2F;linux&#x2F;9001&#x2F;index.html">
+<meta property="og:site_name" content="王鹏">
+<meta property="og:description" content="一. 重置root管理员密码 查询系统版本1cat &#x2F;etc&#x2F;redhat-release reboot重启主机，出现引导界面时按下e键进入内核编辑界面 在linux16这行参数的最后面追加rd.break，然后按下ctrl+X组合键来运行修改过的内核程序。 依次输入一下命令12345678mount -o remount,rw &#x2F;sysrootchroot &#x2F;sysrootpasswd# 这里输">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-03T01:42:51.277Z">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="css/images/f1.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <!--<script src='//push.zhanzhang.baidu.com/push.js'></script>-->
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="王鹏" rel="home">王鹏</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">每个人心中都有一个桃花源，找准方向，无畏前行，终有一天我们会到达。</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/tags">标签</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories">分类</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-9001-部署虚拟环境安装linux系统" class="post-9001-部署虚拟环境安装linux系统 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      部署虚拟环境安装linux系统
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9001/" data-id="ck2ic0f3i0008x4tvacwg0p40" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h3 id="一-重置root管理员密码"><a href="#一-重置root管理员密码" class="headerlink" title="一. 重置root管理员密码"></a>一. 重置root管理员密码</h3><ol>
+<li>查询系统版本<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/redhat-release</span><br></pre></td></tr></table></figure></li>
+<li>reboot重启主机，出现引导界面时按下e键进入内核编辑界面</li>
+<li>在linux16这行参数的最后面追加rd.break，然后按下ctrl+X组合键来运行修改过的内核程序。</li>
+<li>依次输入一下命令<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mount -o remount,rw /sysroot</span><br><span class="line">chroot /sysroot</span><br><span class="line">passwd</span><br><span class="line"><span class="comment"># 这里输入新的root密码</span></span><br><span class="line"><span class="comment"># 这里再输入一次</span></span><br><span class="line">touch /.autorelabel</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="二-rpm软件包管理器"><a href="#二-rpm软件包管理器" class="headerlink" title="二. rpm软件包管理器"></a>二. rpm软件包管理器</h3><table border="1">
+  <tr>
+    <th>命令</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td>rpm -qa </td>
+    <td>列出所有安装过的包</td>
+  </tr>
+  <tr>
+    <td>rpm -qa | grep sql</td>
+    <td>列出包含指定sql的包</td>
+  </tr>
+</table>
+
+<h3 id="三-yum软件仓库"><a href="#三-yum软件仓库" class="headerlink" title="三. yum软件仓库"></a>三. yum软件仓库</h3><table border="1">
+  <tr><th>命令</th><th>描述</th></tr>
+  <tr><td>yum repolist all</td><td>列出所有仓库</td></tr>
+  <tr><td>yum list all</td><td>列出仓库中所有软件包</td></tr>
+  <tr><td>yum info 软件包名称</td><td>查看软件包信息</td></tr>
+  <tr><td>yum install 软件包名称</td><td>安装软件包</td></tr>
+  <tr><td>yum reinstall 软件包名称</td><td>重新安装软件包</td></tr>
+  <tr><td>yum update 软件包名称</td><td>升级软件包</td></tr>
+  <tr><td>yum remove 软件包名称</td><td>移除软件包</td></tr>
+  <tr><td>yum clean all </td><td>清除所有仓库缓存</td></tr>
+  <tr><td>yum check-update </td><td>检查可更新的软件包</td></tr>
+  <tr><td>yum grouplist</td><td>查看系统中已经安装的软件包组</td></tr>
+  <tr><td>yum groupinstall 软件包组</td><td>安装指定的软件包组</td></tr>
+  <tr><td>yum groupremove 软件包组</td><td>移除指定的软件包组</td></tr>
+  <tr><td>yum groupinfo 软件包组</td><td>查询指定的软件包组信息</td></tr>
+</table>
+
+<h3 id="四-systemd初始化进程"><a href="#四-systemd初始化进程" class="headerlink" title="四. systemd初始化进程"></a>四. systemd初始化进程</h3><ol>
+<li><p>systemd与System V init的区别以及作用</p>
+<table border="1">
+<tr><th>System V init运行级别</th><th>systemd目录名称</th><th>作用</th></tr>
+<tr><td>0</td><td>runlevel0</td><td>关机</td></tr>
+<tr><td>1</td><td>runlevel1</td><td>单用户模式</td></tr>
+<tr><td>2</td><td>runlevel2</td><td>等同于级别3</td></tr>
+<tr><td>3</td><td>runlevel3</td><td>多用户的文本界面</td></tr>
+<tr><td>4</td><td>runlevel4</td><td>等同于级别3</td></tr>
+<tr><td>5</td><td>runlevel5</td><td>多用户的图形界面</td></tr>
+<tr><td>6</td><td>runlevel6</td><td>重启</td></tr>
+<tr><td>emergency</td><td>emergency.target</td><td>紧急Shell</td></tr>
+</table>
+</li>
+<li><p>systemctl管理服务的启动、重启、停止、重载、查看状态等常用命令</p>
+<table border="1">
+<tr><th>System V init命令</th><th>systemctl命令</th><th>作用</th></tr>
+<tr><td>service foo start</td><td>systemctl start foo.service</td><td>启动服务</td></tr>
+<tr><td>service foo restart</td><td>systemctl restart foo.service</td><td>重启服务</td></tr>
+<tr><td>service foo stop</td><td>systemctl stop foo.service</td><td>停止服务</td></tr>
+<tr><td>service foo reload</td><td>systemctl reload foo.service</td><td>重新加载配置文件(不终止服务)</td></tr>
+<tr><td>service foo status</td><td>systemctl status foo.service</td><td>查看服务状态</td></tr>
+</table>
+</li>
+<li><p>systemctl设置服务开机启动、不启动、查看各级别下服务启动状态等常用命令</p>
+<table border="1">
+<tr><th>System V init命令</th><th>systemctl命令</th><th>作用</th></tr>
+<tr><td>chkconfig foo on</td><td>systemctl enable foo.service</td><td>开机自动启动</td></tr>
+<tr><td>chkconfig foo off</td><td>systemctl disable foo.service</td><td>开机不自动启动</td></tr>
+<tr><td>chkconfig foo</td><td>systemctl is-enable foo.service</td><td>查看特定服务是否为开机自动启动</td></tr>
+<tr><td>chkconfig --list</td><td>systemctl list-unit-files --type=service</td><td>查看各个级别下服务的启动和禁用情况</td></tr>
+</table>
+</li>
+</ol>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/categories/linux/9001/">
+    <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
+        2019-10-22
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/categories/hadoop/1008/" rel="prev"><span class="meta-nav">←</span> Hadoop环境搭建-第二部分 Hadoop本地模式安装</a></span>
+    
+    
+        <span class="nav-next"><a href="/categories/linux/9002/" rel="next">新手必须掌握的Linux命令 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hadoop/">hadoop</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">3</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-content">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">最近更新</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/categories/hadoop/1010/">Hadoop环境搭建-第四部分 完全分布式模式安装</a>
+          </li>
+        
+          <li>
+            <a href="/categories/hadoop/1006/">Hadoop环境搭建-首页</a>
+          </li>
+        
+          <li>
+            <a href="/categories/hadoop/1011/">Hadoop环境搭建-第五部分 Hadoop HA安装</a>
+          </li>
+        
+          <li>
+            <a href="/categories/hadoop/1008/">Hadoop环境搭建-第二部分 Hadoop本地模式安装</a>
+          </li>
+        
+          <li>
+            <a href="/categories/linux/9001/">部署虚拟环境安装linux系统</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <h4>博客技术架构</h4>
+    <ul type="disc">
+           <li>&nbsp;&nbsp;托管平台：<a href="https://dev.tencent.com/" target="_blank">腾讯云开发者平台</a>&<a href="http://www.github.com" target="_blank">Github</a></li>
+           <li>&nbsp;&nbsp;博客框架：<a href="http://hexo.io/" target="_blank">Hexo</a></li>
+    </ul>
+    <br/>
+    <p>&copy; 2019 王鹏
+    All rights reserved.</p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

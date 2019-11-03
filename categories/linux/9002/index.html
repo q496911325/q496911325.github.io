@@ -16,17 +16,17 @@
   
   
   
-  <title>linux-记 | 王鹏</title>
+  <title>新手必须掌握的Linux命令 | 王鹏</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一. 重置root管理员密码 查询系统版本1cat &#x2F;etc&#x2F;redhat-release reboot重启主机，出现引导界面时按下e键进入内核编辑界面 在linux16这行参数的最后面追加rd.break，然后按下ctrl+X组合键来运行修改过的内核程序。 依次输入一下命令12345678mount -o remount,rw &#x2F;sysrootchroot &#x2F;sysrootpasswd# 这里输">
-<meta name="keywords" content="记">
+  <meta name="description" content="一. 执行查看帮助命令 man命令中常用按键以及用途  按键用途 空格向下翻一页 PaGe down向下翻一页 PaGe up向上翻一页 home首页 end尾页 &#x2F;从上至下搜索某个关键词，如&quot;&#x2F;linux&quot; ?从下至上搜索某个关键词，如&quot;?linux&quot; n定位到下一个搜索到的关键词 N定位到上一个搜索到的关键词 q退出帮助文档   man命令帮助信息的结构以及意义  结构名称代表意义 NAME命">
+<meta name="keywords" content="博客,王鹏,王鹏的博客,大数据,hadoop">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux-记">
-<meta property="og:url" content="https:&#x2F;&#x2F;wpblog.top&#x2F;categories&#x2F;linux&#x2F;1001&#x2F;index.html">
+<meta property="og:title" content="新手必须掌握的Linux命令">
+<meta property="og:url" content="https:&#x2F;&#x2F;wpblog.top&#x2F;categories&#x2F;linux&#x2F;9002&#x2F;index.html">
 <meta property="og:site_name" content="王鹏">
-<meta property="og:description" content="一. 重置root管理员密码 查询系统版本1cat &#x2F;etc&#x2F;redhat-release reboot重启主机，出现引导界面时按下e键进入内核编辑界面 在linux16这行参数的最后面追加rd.break，然后按下ctrl+X组合键来运行修改过的内核程序。 依次输入一下命令12345678mount -o remount,rw &#x2F;sysrootchroot &#x2F;sysrootpasswd# 这里输">
+<meta property="og:description" content="一. 执行查看帮助命令 man命令中常用按键以及用途  按键用途 空格向下翻一页 PaGe down向下翻一页 PaGe up向上翻一页 home首页 end尾页 &#x2F;从上至下搜索某个关键词，如&quot;&#x2F;linux&quot; ?从下至上搜索某个关键词，如&quot;?linux&quot; n定位到下一个搜索到的关键词 N定位到上一个搜索到的关键词 q退出帮助文档   man命令帮助信息的结构以及意义  结构名称代表意义 NAME命">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-01T08:51:49.283Z">
+<meta property="og:updated_time" content="2019-11-03T01:42:39.220Z">
 <meta name="twitter:card" content="summary">
   
   
@@ -73,7 +73,7 @@
 </header>
 
       <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-1-linux-记" class="post-1-linux-记 post type-post status-publish format-standard hentry">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-9002-新手必须掌握的Linux命令" class="post-9002-新手必须掌握的Linux命令 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -81,95 +81,20 @@
         
   
     <h1 class="entry-title article-title">
-      linux-记
+      新手必须掌握的Linux命令
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/1001/" data-id="ck2fx7yoi0012botvhjh6ht8q" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9002/" data-id="ck2ic0f3l000cx4tv7psk20bk" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h3 id="一-重置root管理员密码"><a href="#一-重置root管理员密码" class="headerlink" title="一. 重置root管理员密码"></a>一. 重置root管理员密码</h3><ol>
-<li>查询系统版本<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/redhat-release</span><br></pre></td></tr></table></figure></li>
-<li>reboot重启主机，出现引导界面时按下e键进入内核编辑界面</li>
-<li>在linux16这行参数的最后面追加rd.break，然后按下ctrl+X组合键来运行修改过的内核程序。</li>
-<li>依次输入一下命令<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mount -o remount,rw /sysroot</span><br><span class="line">chroot /sysroot</span><br><span class="line">passwd</span><br><span class="line"><span class="comment"># 这里输入新的root密码</span></span><br><span class="line"><span class="comment"># 这里再输入一次</span></span><br><span class="line">touch /.autorelabel</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="二-rpm软件包管理器"><a href="#二-rpm软件包管理器" class="headerlink" title="二. rpm软件包管理器"></a>二. rpm软件包管理器</h3><table border="1">
-  <tr>
-    <th>命令</th>
-    <th>描述</th>
-  </tr>
-  <tr>
-    <td>rpm -qa </td>
-    <td>列出所有安装过的包</td>
-  </tr>
-  <tr>
-    <td>rpm -qa | grep sql</td>
-    <td>列出包含指定sql的包</td>
-  </tr>
-</table>
-
-<h3 id="三-yum软件仓库"><a href="#三-yum软件仓库" class="headerlink" title="三. yum软件仓库"></a>三. yum软件仓库</h3><table border="1">
-  <tr><th>命令</th><th>描述</th></tr>
-  <tr><td>yum repolist all</td><td>列出所有仓库</td></tr>
-  <tr><td>yum list all</td><td>列出仓库中所有软件包</td></tr>
-  <tr><td>yum info 软件包名称</td><td>查看软件包信息</td></tr>
-  <tr><td>yum install 软件包名称</td><td>安装软件包</td></tr>
-  <tr><td>yum reinstall 软件包名称</td><td>重新安装软件包</td></tr>
-  <tr><td>yum update 软件包名称</td><td>升级软件包</td></tr>
-  <tr><td>yum remove 软件包名称</td><td>移除软件包</td></tr>
-  <tr><td>yum clean all </td><td>清除所有仓库缓存</td></tr>
-  <tr><td>yum check-update </td><td>检查可更新的软件包</td></tr>
-  <tr><td>yum grouplist</td><td>查看系统中已经安装的软件包组</td></tr>
-  <tr><td>yum groupinstall 软件包组</td><td>安装指定的软件包组</td></tr>
-  <tr><td>yum groupremove 软件包组</td><td>移除指定的软件包组</td></tr>
-  <tr><td>yum groupinfo 软件包组</td><td>查询指定的软件包组信息</td></tr>
-</table>
-
-<h3 id="四-systemd初始化进程"><a href="#四-systemd初始化进程" class="headerlink" title="四. systemd初始化进程"></a>四. systemd初始化进程</h3><ol>
-<li><p>systemd与System V init的区别以及作用</p>
-<table border="1">
-<tr><th>System V init运行级别</th><th>systemd目录名称</th><th>作用</th></tr>
-<tr><td>0</td><td>runlevel0</td><td>关机</td></tr>
-<tr><td>1</td><td>runlevel1</td><td>单用户模式</td></tr>
-<tr><td>2</td><td>runlevel2</td><td>等同于级别3</td></tr>
-<tr><td>3</td><td>runlevel3</td><td>多用户的文本界面</td></tr>
-<tr><td>4</td><td>runlevel4</td><td>等同于级别3</td></tr>
-<tr><td>5</td><td>runlevel5</td><td>多用户的图形界面</td></tr>
-<tr><td>6</td><td>runlevel6</td><td>重启</td></tr>
-<tr><td>emergency</td><td>emergency.target</td><td>紧急Shell</td></tr>
-</table>
-</li>
-<li><p>systemctl管理服务的启动、重启、停止、重载、查看状态等常用命令</p>
-<table border="1">
-<tr><th>System V init命令</th><th>systemctl命令</th><th>作用</th></tr>
-<tr><td>service foo start</td><td>systemctl start foo.service</td><td>启动服务</td></tr>
-<tr><td>service foo restart</td><td>systemctl restart foo.service</td><td>重启服务</td></tr>
-<tr><td>service foo stop</td><td>systemctl stop foo.service</td><td>停止服务</td></tr>
-<tr><td>service foo reload</td><td>systemctl reload foo.service</td><td>重新加载配置文件(不终止服务)</td></tr>
-<tr><td>service foo status</td><td>systemctl status foo.service</td><td>查看服务状态</td></tr>
-</table>
-</li>
-<li><p>systemctl设置服务开机启动、不启动、查看各级别下服务启动状态等常用命令</p>
-<table border="1">
-<tr><th>System V init命令</th><th>systemctl命令</th><th>作用</th></tr>
-<tr><td>chkconfig foo on</td><td>systemctl enable foo.service</td><td>开机自动启动</td></tr>
-<tr><td>chkconfig foo off</td><td>systemctl disable foo.service</td><td>开机不自动启动</td></tr>
-<tr><td>chkconfig foo</td><td>systemctl is-enable foo.service</td><td>查看特定服务是否为开机自动启动</td></tr>
-<tr><td>chkconfig --list</td><td>systemctl list-unit-files --type=service</td><td>查看各个级别下服务的启动和禁用情况</td></tr>
-</table>
-
-</li>
-</ol>
-<h3 id="五-执行查看帮助命令"><a href="#五-执行查看帮助命令" class="headerlink" title="五. 执行查看帮助命令"></a>五. 执行查看帮助命令</h3><ol>
+        <h3 id="一-执行查看帮助命令"><a href="#一-执行查看帮助命令" class="headerlink" title="一. 执行查看帮助命令"></a>一. 执行查看帮助命令</h3><ol>
 <li><p>man命令中常用按键以及用途</p>
 <table border="1">
 <tr><th>按键</th><th>用途</th></tr>
@@ -203,7 +128,7 @@
 
 </li>
 </ol>
-<h3 id="六-常用系统工作命令"><a href="#六-常用系统工作命令" class="headerlink" title="六. 常用系统工作命令"></a>六. 常用系统工作命令</h3><ol>
+<h3 id="二-常用系统工作命令"><a href="#二-常用系统工作命令" class="headerlink" title="二. 常用系统工作命令"></a>二. 常用系统工作命令</h3><ol>
 <li><p>echo</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [字符串|$变量]</span><br></pre></td></tr></table></figure>
 </li>
@@ -275,7 +200,7 @@
 
 </li>
 </ol>
-<h3 id="七-系统状态监测命令"><a href="#七-系统状态监测命令" class="headerlink" title="七. 系统状态监测命令"></a>七. 系统状态监测命令</h3><ol>
+<h3 id="三-系统状态监测命令"><a href="#三-系统状态监测命令" class="headerlink" title="三. 系统状态监测命令"></a>三. 系统状态监测命令</h3><ol>
 <li><p>ifconfig</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig [网络设备] [参数]</span><br></pre></td></tr></table></figure>
 </li>
@@ -300,7 +225,7 @@
 <li><p>sosreport</p>
 </li>
 </ol>
-<h3 id="八-工作目录切换命令"><a href="#八-工作目录切换命令" class="headerlink" title="八. 工作目录切换命令"></a>八. 工作目录切换命令</h3><ol>
+<h3 id="四-工作目录切换命令"><a href="#四-工作目录切换命令" class="headerlink" title="四. 工作目录切换命令"></a>四. 工作目录切换命令</h3><ol>
 <li><p>pwd</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pwd</span> [选项]</span><br></pre></td></tr></table></figure>
 </li>
@@ -312,7 +237,7 @@
 
 </li>
 </ol>
-<h3 id="九-文本文件编辑命令"><a href="#九-文本文件编辑命令" class="headerlink" title="九. 文本文件编辑命令"></a>九. 文本文件编辑命令</h3><ol>
+<h3 id="五-文本文件编辑命令"><a href="#五-文本文件编辑命令" class="headerlink" title="五. 文本文件编辑命令"></a>五. 文本文件编辑命令</h3><ol>
 <li><p>cat</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat [选项] [文件]</span><br></pre></td></tr></table></figure>
 </li>
@@ -348,14 +273,51 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cut [参数] 文本</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>diff</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diff [参数] 文件</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diff [参数] 文件</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="六-文件目录管理"><a href="#六-文件目录管理" class="headerlink" title="六. 文件目录管理"></a>六. 文件目录管理</h3><ol>
+<li><p>touch</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch [选项] 文件</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>mkdir</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diff [选项] 目录</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cp(复制文件或目录)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp [选项] 源文件 目标文件</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>mv(剪切文件或将文件重命名)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv [选项] 源文件 [目标路径|目标文件名]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>rm(删除文件或目录)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm [选项] 文件</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>dd(按照指定大小和个数的数据块来复制文件或转换文件)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd [参数]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>file(用于查看文件的类型)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file 文件名</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="七-打包压缩与搜索命令"><a href="#七-打包压缩与搜索命令" class="headerlink" title="七. 打包压缩与搜索命令"></a>七. 打包压缩与搜索命令</h3><ol>
+<li><p>tar(用于对文件进行打包压缩或解压)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar [选项] 文件</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>grep(用于在文本中执行关键词搜索，并显示匹配的结果)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep [选项] 文件</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>find(用于按照指定条件来查找文件)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find [查找路径] 寻找条件 操作</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/categories/linux/1001/">
+    <a href="/categories/linux/9002/">
     <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
         2019-10-22
     </time>
@@ -367,9 +329,6 @@
   </div>
 
     
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0/" rel="tag">记</a></li></ul>
-
     </footer>
 </article>
 
@@ -378,10 +337,10 @@
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
-        <span class="nav-previous"><a href="/categories/hadoop/1009/" rel="prev"><span class="meta-nav">←</span> Hadoop环境搭建-第三部分 伪分布式模式安装</a></span>
+        <span class="nav-previous"><a href="/categories/linux/9001/" rel="prev"><span class="meta-nav">←</span> 部署虚拟环境安装linux系统</a></span>
     
     
-        <span class="nav-next"><a href="/categories/hadoop/1007/" rel="next">Hadoop环境搭建-第一部分：linux环境安装 <span class="meta-nav">→</span></a></span>
+        <span class="nav-next"><a href="/categories/linux/9000/" rel="next">linux就该这么学 <span class="meta-nav">→</span></a></span>
     
 </nav><!-- .nav-single -->
 
@@ -400,7 +359,7 @@
   <aside class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hadoop/">hadoop</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hadoop/">hadoop</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">3</span></li></ul>
     </div>
   </aside>
 
@@ -409,7 +368,7 @@
   <aside class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-content">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%B0/" rel="tag">记</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </aside>
 
@@ -421,23 +380,23 @@
       <ul>
         
           <li>
-            <a href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/1005/">科学上网</a>
-          </li>
-        
-          <li>
-            <a href="/categories/%E7%BD%91%E7%BB%9C/1003/">网络-记</a>
-          </li>
-        
-          <li>
-            <a href="/categories/hexo/1004/">hexo</a>
-          </li>
-        
-          <li>
-            <a href="/categories/hadoop/1002/">hadoop-记</a>
-          </li>
-        
-          <li>
             <a href="/categories/hadoop/1010/">Hadoop环境搭建-第四部分 完全分布式模式安装</a>
+          </li>
+        
+          <li>
+            <a href="/categories/hadoop/1006/">Hadoop环境搭建-首页</a>
+          </li>
+        
+          <li>
+            <a href="/categories/hadoop/1011/">Hadoop环境搭建-第五部分 Hadoop HA安装</a>
+          </li>
+        
+          <li>
+            <a href="/categories/hadoop/1008/">Hadoop环境搭建-第二部分 Hadoop本地模式安装</a>
+          </li>
+        
+          <li>
+            <a href="/categories/linux/9001/">部署虚拟环境安装linux系统</a>
           </li>
         
       </ul>
