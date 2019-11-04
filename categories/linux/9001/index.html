@@ -18,15 +18,15 @@
   
   <title>部署虚拟环境安装linux系统 | 王鹏</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一. 重置root管理员密码 查询系统版本1cat &#x2F;etc&#x2F;redhat-release reboot重启主机，出现引导界面时按下e键进入内核编辑界面 在linux16这行参数的最后面追加rd.break，然后按下ctrl+X组合键来运行修改过的内核程序。 依次输入一下命令12345678mount -o remount,rw &#x2F;sysrootchroot &#x2F;sysrootpasswd# 这里输">
+  <meta name="description" content="首页路径：linux就该这么学 一. 重置root管理员密码 查询系统版本1cat &#x2F;etc&#x2F;redhat-release reboot重启主机，出现引导界面时按下e键进入内核编辑界面 在linux16这行参数的最后面追加rd.break，然后按下ctrl+X组合键来运行修改过的内核程序。 依次输入一下命令12345678mount -o remount,rw &#x2F;sysrootchroot &#x2F;sy">
 <meta name="keywords" content="博客,王鹏,王鹏的博客,大数据,hadoop">
 <meta property="og:type" content="article">
 <meta property="og:title" content="部署虚拟环境安装linux系统">
 <meta property="og:url" content="https:&#x2F;&#x2F;wpblog.top&#x2F;categories&#x2F;linux&#x2F;9001&#x2F;index.html">
 <meta property="og:site_name" content="王鹏">
-<meta property="og:description" content="一. 重置root管理员密码 查询系统版本1cat &#x2F;etc&#x2F;redhat-release reboot重启主机，出现引导界面时按下e键进入内核编辑界面 在linux16这行参数的最后面追加rd.break，然后按下ctrl+X组合键来运行修改过的内核程序。 依次输入一下命令12345678mount -o remount,rw &#x2F;sysrootchroot &#x2F;sysrootpasswd# 这里输">
+<meta property="og:description" content="首页路径：linux就该这么学 一. 重置root管理员密码 查询系统版本1cat &#x2F;etc&#x2F;redhat-release reboot重启主机，出现引导界面时按下e键进入内核编辑界面 在linux16这行参数的最后面追加rd.break，然后按下ctrl+X组合键来运行修改过的内核程序。 依次输入一下命令12345678mount -o remount,rw &#x2F;sysrootchroot &#x2F;sy">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-03T01:42:51.277Z">
+<meta property="og:updated_time" content="2019-11-04T06:49:25.802Z">
 <meta name="twitter:card" content="summary">
   
   
@@ -88,13 +88,14 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9001/" data-id="ck2ic0f3i0008x4tvacwg0p40" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9001/" data-id="ck2k2f9qp0007cctv12cjbvuo" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h3 id="一-重置root管理员密码"><a href="#一-重置root管理员密码" class="headerlink" title="一. 重置root管理员密码"></a>一. 重置root管理员密码</h3><ol>
+        <p>首页路径：<a href="/categories/linux/9000/">linux就该这么学</a></p>
+<h3 id="一-重置root管理员密码"><a href="#一-重置root管理员密码" class="headerlink" title="一. 重置root管理员密码"></a>一. 重置root管理员密码</h3><ol>
 <li>查询系统版本<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/redhat-release</span><br></pre></td></tr></table></figure></li>
 <li>reboot重启主机，出现引导界面时按下e键进入内核编辑界面</li>
 <li>在linux16这行参数的最后面追加rd.break，然后按下ctrl+X组合键来运行修改过的内核程序。</li>
@@ -103,18 +104,15 @@
 </li>
 </ol>
 <h3 id="二-rpm软件包管理器"><a href="#二-rpm软件包管理器" class="headerlink" title="二. rpm软件包管理器"></a>二. rpm软件包管理器</h3><table border="1">
-  <tr>
-    <th>命令</th>
-    <th>描述</th>
-  </tr>
-  <tr>
-    <td>rpm -qa </td>
-    <td>列出所有安装过的包</td>
-  </tr>
-  <tr>
-    <td>rpm -qa | grep sql</td>
-    <td>列出包含指定sql的包</td>
-  </tr>
+  <tr><th>命令</th><th>描述</th></tr>
+  <tr><td>rpm -ivh filename.rpm</td><td>安装软件的命令格式</td></tr>
+  <tr><td>rpm -Uvh filename.rpm</td><td>升级软件的命令格式</td></tr>
+  <tr><td>rpm -e filename.rpm</td><td>卸载软件的命令格式</td></tr>
+  <tr><td>rpm -qpi filename.rpm</td><td>查询软件描述信息的命令格式</td></tr>
+  <tr><td>rpm -qpl filename.rpm</td><td>列出软件文件信息的命令格式</td></tr>
+  <tr><td>rpm -qf filename</td><td></td>查询文件属于哪个RPM的命令格式</tr>
+  <tr><td>rpm -qa </td><td>列出所有安装过的包</td></tr>
+  <tr><td>rpm -qa | grep sql</td><td>列出包含指定sql的包</td></tr>
 </table>
 
 <h3 id="三-yum软件仓库"><a href="#三-yum软件仓库" class="headerlink" title="三. yum软件仓库"></a>三. yum软件仓库</h3><table border="1">
@@ -193,10 +191,10 @@
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
-        <span class="nav-previous"><a href="/categories/hadoop/1008/" rel="prev"><span class="meta-nav">←</span> Hadoop环境搭建-第二部分 Hadoop本地模式安装</a></span>
+        <span class="nav-previous"><a href="/categories/linux/9000/" rel="prev"><span class="meta-nav">←</span> linux就该这么学</a></span>
     
     
-        <span class="nav-next"><a href="/categories/linux/9002/" rel="next">新手必须掌握的Linux命令 <span class="meta-nav">→</span></a></span>
+        <span class="nav-next"><a href="/categories/hadoop/1010/" rel="next">Hadoop环境搭建-第四部分 完全分布式模式安装 <span class="meta-nav">→</span></a></span>
     
 </nav><!-- .nav-single -->
 
@@ -215,7 +213,7 @@
   <aside class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hadoop/">hadoop</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">3</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hadoop/">hadoop</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">5</span></li></ul>
     </div>
   </aside>
 
@@ -236,11 +234,7 @@
       <ul>
         
           <li>
-            <a href="/categories/hadoop/1010/">Hadoop环境搭建-第四部分 完全分布式模式安装</a>
-          </li>
-        
-          <li>
-            <a href="/categories/hadoop/1006/">Hadoop环境搭建-首页</a>
+            <a href="/categories/linux/9004/">Vim编辑器与Shell命令脚本</a>
           </li>
         
           <li>
@@ -248,7 +242,11 @@
           </li>
         
           <li>
-            <a href="/categories/hadoop/1008/">Hadoop环境搭建-第二部分 Hadoop本地模式安装</a>
+            <a href="/categories/hadoop/1006/">Hadoop环境搭建-首页</a>
+          </li>
+        
+          <li>
+            <a href="/categories/linux/9000/">linux就该这么学</a>
           </li>
         
           <li>
