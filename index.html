@@ -74,156 +74,6 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
-    <article id="post-8-Hadoop环境搭建-第二部分 本地模式安装" class="post-8-Hadoop环境搭建-第二部分 本地模式安装 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/categories/hadoop/1008/">Hadoop环境搭建-第二部分 Hadoop本地模式安装</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1008/" data-id="ck2k2lw5l000cpgtvbhp38iag" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>本系列首页：<a href="/categories/hadoop/1006/">Hadoop环境搭建</a></p>
-<h2 id="第二部分、Hadoop本地模式安装"><a href="#第二部分、Hadoop本地模式安装" class="headerlink" title="第二部分、Hadoop本地模式安装"></a>第二部分、Hadoop本地模式安装</h2><h3 id="第一步、本地模式部署"><a href="#第一步、本地模式部署" class="headerlink" title="第一步、本地模式部署"></a>第一步、本地模式部署</h3><h4 id="一、复制实验虚拟机-两种方法-任选一种就好"><a href="#一、复制实验虚拟机-两种方法-任选一种就好" class="headerlink" title="一、复制实验虚拟机(两种方法 任选一种就好)"></a>一、复制实验虚拟机(两种方法 任选一种就好)</h4><h5 id="1、克隆"><a href="#1、克隆" class="headerlink" title="1、克隆"></a>1、克隆</h5><p>右键模板系统model-管理-克隆，进入克隆虚拟机向导</p>
-<img src="/css/images/hadoop环境搭建1/1-欢迎.png">
-<img src="/css/images/hadoop环境搭建1/2-克隆源.png">
-<img src="/css/images/hadoop环境搭建1/3-类型.png">
-<img src="/css/images/hadoop环境搭建1/4-名称.png">
-
-<h5 id="2、复制"><a href="#2、复制" class="headerlink" title="2、复制"></a>2、复制</h5><p>找到model文件夹，ctrl+c复制整个文件夹，ctrl+v粘贴，修改新的文件夹名为BigData01，并进入文件打开model.vmx</p>
-<img src="/css/images/hadoop环境搭建1/5-复制.png">
-<img src="/css/images/hadoop环境搭建1/6-打开.png">
-
-<p>重命名虚拟机中新打开的model为BigData01，开启此虚拟机，选择我已复制虚拟机</p>
-<img src="/css/images/hadoop环境搭建1/7-虚拟机.png">
-<img src="/css/images/hadoop环境搭建1/7-复制虚拟机.png">
-
-<h4 id="二、重新配置实验机网络"><a href="#二、重新配置实验机网络" class="headerlink" title="二、重新配置实验机网络"></a>二、重新配置实验机网络</h4><p>修改网卡名称：</p>
-<p>在BigData01机器上编辑网卡信息。执行vim /etc/udev/rules.d/70-persistent-net.rules命令。因为是从model机器克隆来的，所以会保留model的网卡eth0，并且再添加一个网卡eth1。并且eth0的Mac地址和model的地址是一样的，Mac地址不允许相同，所以要删除eth0，只保留eth1网卡，并且要将eth1改名为eth0。将修改后的eth0的mac地址复制下来，修改network-scripts文件中的HWADDR属性。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># vim /etc/sysconfig/network-scripts/ifcfg-eth0</span></span><br></pre></td></tr></table></figure>
-<img src="/css/images/hadoop环境搭建1/8-HWADDR.png">
-
-<p>修改完成后reboot重启，再查看网卡信息，只剩下了eth0，配置完成。</p>
-<img src="/css/images/hadoop环境搭建1/9-Edit.png">
-<img src="/css/images/hadoop环境搭建1/10-网卡.png">
-
-
-<h4 id="三、本地模式介绍"><a href="#三、本地模式介绍" class="headerlink" title="三、本地模式介绍"></a>三、本地模式介绍</h4><p>本地模式是最简单的模式，所有模块都运行与一个JVM进程中，使用的本地文件系统，而不是HDFS，本地模式主要是用于本地开发过程中的运行调试用。下载hadoop安装包后不用任何设置，默认的就是本地模式。</p>
-<h4 id="四、解压hadoop后就是直接可以使用"><a href="#四、解压hadoop后就是直接可以使用" class="headerlink" title="四、解压hadoop后就是直接可以使用"></a>四、解压hadoop后就是直接可以使用</h4><h5 id="1、创建一个存放本地模式hadoop的目录"><a href="#1、创建一个存放本地模式hadoop的目录" class="headerlink" title="1、创建一个存放本地模式hadoop的目录"></a>1、创建一个存放本地模式hadoop的目录</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># mkdir /opt/modules/hadoopstandalone</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="2、解压hadoop文件"><a href="#2、解压hadoop文件" class="headerlink" title="2、解压hadoop文件"></a>2、解压hadoop文件</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># tar -zxvf /opt/hadoop-2.5.0.tar.gz  -C /opt/modules/hadoopstandalone/</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="3、确保JAVA-HOME环境变量已经配置好"><a href="#3、确保JAVA-HOME环境变量已经配置好" class="headerlink" title="3、确保JAVA_HOME环境变量已经配置好"></a>3、确保JAVA_HOME环境变量已经配置好</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># echo $&#123;JAVA_HOME&#125;</span></span><br><span class="line">/opt/modules/jdk1.7.0_67</span><br></pre></td></tr></table></figure>
-
-<h4 id="五、运行MapReduce程序，验证"><a href="#五、运行MapReduce程序，验证" class="headerlink" title="五、运行MapReduce程序，验证"></a>五、运行MapReduce程序，验证</h4><p>我们这里用hadoop自带的wordcount例子来在本地模式下测试跑mapreduce。</p>
-<h5 id="1、准备mapreduce输入文件wc-input-cat写完保存可以用ctrl-d，写完可以用vim检查一下"><a href="#1、准备mapreduce输入文件wc-input-cat写完保存可以用ctrl-d，写完可以用vim检查一下" class="headerlink" title="1、准备mapreduce输入文件wc.input(cat写完保存可以用ctrl+d，写完可以用vim检查一下)"></a>1、准备mapreduce输入文件wc.input(cat写完保存可以用ctrl+d，写完可以用vim检查一下)</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># mkdir /opt/data</span></span><br><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># cat &gt; /opt/data/wc.input</span></span><br><span class="line">hadoop mapreduce hive</span><br><span class="line">hbase spark storm</span><br><span class="line">sqoop hadoop hive</span><br><span class="line">spark hadoop</span><br></pre></td></tr></table></figure>
-
-<h5 id="2、运行hadoop自带的mapreduce-Demo"><a href="#2、运行hadoop自带的mapreduce-Demo" class="headerlink" title="2、运行hadoop自带的mapreduce Demo"></a>2、运行hadoop自带的mapreduce Demo</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># cd /opt/modules/hadoopstandalone/hadoop-2.5.0/</span></span><br><span class="line">[root@bigdata-senior01 hadoop-2.5.0]<span class="comment"># bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.5.0.jar  wordcount  /opt/data/wc.input  output2</span></span><br></pre></td></tr></table></figure>
-<img src="/css/images/hadoop环境搭建1/11-job.png">
-这里可以看到job ID中有local字样，说明是运行在本地模式下的。
-
-<h5 id="3、查看输出文件"><a href="#3、查看输出文件" class="headerlink" title="3、查看输出文件"></a>3、查看输出文件</h5><p>本地模式下，mapreduce的输出是输出到本地。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 hadoop-2.5.0]<span class="comment"># ll output2</span></span><br><span class="line">total 4</span><br><span class="line">-rw-r--r-- 1 root root 60 oct 25 23:42 part-r-00000</span><br><span class="line">-rw-r--r-- 1 root root 0   oct 25 23:42 _SUCCESS</span><br></pre></td></tr></table></figure>
-
-<p>输出目录中有_SUCCESS文件说明JOB运行成功，part-r-00000是输出结果文件。  </p>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/categories/hadoop/1008/">
-    <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
-        2019-10-22
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/hadoop/">hadoop</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-11-Hadoop环境搭建-第五部分 Hadoop HA安装" class="post-11-Hadoop环境搭建-第五部分 Hadoop HA安装 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/categories/hadoop/1011/">Hadoop环境搭建-第五部分 Hadoop HA安装</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1011/" data-id="ck2k2lw550000pgtv69ttgqfh" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>本系列首页：<a href="/categories/hadoop/1006/">Hadoop环境搭建</a></p>
-<h2 id="第五部分、Hadoop-HA安装"><a href="#第五部分、Hadoop-HA安装" class="headerlink" title="第五部分、Hadoop HA安装"></a>第五部分、Hadoop HA安装</h2><h3 id="第一步、环境配置"><a href="#第一步、环境配置" class="headerlink" title="第一步、环境配置"></a>第一步、环境配置</h3><h4 id="一、配置网络"><a href="#一、配置网络" class="headerlink" title="一、配置网络"></a>一、配置网络</h4><h5 id="1、aabbc"><a href="#1、aabbc" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><h5 id="1、aabbc-1"><a href="#1、aabbc-1" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><h4 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h4><h5 id="1、aabbc-2"><a href="#1、aabbc-2" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
-
-<h4 id="二、-1"><a href="#二、-1" class="headerlink" title="二、"></a>二、</h4><h5 id="1、aabbc-3"><a href="#1、aabbc-3" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
-
-<h4 id="二、-2"><a href="#二、-2" class="headerlink" title="二、"></a>二、</h4><h5 id="1、aabbc-4"><a href="#1、aabbc-4" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
-
-<h4 id="二、-3"><a href="#二、-3" class="headerlink" title="二、"></a>二、</h4><h5 id="1、aabbc-5"><a href="#1、aabbc-5" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/categories/hadoop/1011/">
-    <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
-        2019-10-22
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/hadoop/">hadoop</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
     <article id="post-9-Hadoop环境搭建-第三部分 伪分布式模式安装" class="post-9-Hadoop环境搭建-第三部分 伪分布式模式安装 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -239,7 +89,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1009/" data-id="ck2k2lw5g0006pgtv35n59so7" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1009/" data-id="ck2y67aor000ccotv79je9lp6" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -360,6 +210,63 @@
 
 
   
+    <article id="post-11-Hadoop环境搭建-第五部分 Hadoop HA安装" class="post-11-Hadoop环境搭建-第五部分 Hadoop HA安装 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/categories/hadoop/1011/">Hadoop环境搭建-第五部分 Hadoop HA安装</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1011/" data-id="ck2y67ao90000cotv1l6d2gu9" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>本系列首页：<a href="/categories/hadoop/1006/">Hadoop环境搭建</a></p>
+<h2 id="第五部分、Hadoop-HA安装"><a href="#第五部分、Hadoop-HA安装" class="headerlink" title="第五部分、Hadoop HA安装"></a>第五部分、Hadoop HA安装</h2><h3 id="第一步、环境配置"><a href="#第一步、环境配置" class="headerlink" title="第一步、环境配置"></a>第一步、环境配置</h3><h4 id="一、配置网络"><a href="#一、配置网络" class="headerlink" title="一、配置网络"></a>一、配置网络</h4><h5 id="1、aabbc"><a href="#1、aabbc" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><h5 id="1、aabbc-1"><a href="#1、aabbc-1" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><h4 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h4><h5 id="1、aabbc-2"><a href="#1、aabbc-2" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
+
+<h4 id="二、-1"><a href="#二、-1" class="headerlink" title="二、"></a>二、</h4><h5 id="1、aabbc-3"><a href="#1、aabbc-3" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
+
+<h4 id="二、-2"><a href="#二、-2" class="headerlink" title="二、"></a>二、</h4><h5 id="1、aabbc-4"><a href="#1、aabbc-4" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
+
+<h4 id="二、-3"><a href="#二、-3" class="headerlink" title="二、"></a>二、</h4><h5 id="1、aabbc-5"><a href="#1、aabbc-5" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/categories/hadoop/1011/">
+    <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
+        2019-10-22
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/hadoop/">hadoop</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-6-Hadoop环境搭建-首页" class="post-6-Hadoop环境搭建-首页 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -375,7 +282,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1006/" data-id="ck2k2lw5h0007pgtvdxlg9fr1" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1006/" data-id="ck2y67aol0005cotv16sm61e1" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -449,7 +356,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9000/" data-id="ck2k2lw5i0008pgtv4tj1fzqm" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9000/" data-id="ck2y67aom0006cotvd6m7gj63" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -485,58 +392,6 @@
 
 
   
-    <article id="post-10-Hadoop环境搭建-第四部分 完全分布式模式安装" class="post-10-Hadoop环境搭建-第四部分 完全分布式模式安装 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/categories/hadoop/1010/">Hadoop环境搭建-第四部分 完全分布式模式安装</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1010/" data-id="ck2k2lw5c0002pgtvdk9268zm" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>本系列首页：<a href="/categories/hadoop/1006/">Hadoop环境搭建</a></p>
-<h2 id="第一部分、linux环境安装"><a href="#第一部分、linux环境安装" class="headerlink" title="第一部分、linux环境安装"></a>第一部分、linux环境安装</h2><h3 id="第一步、配置Vmware-NAT网络"><a href="#第一步、配置Vmware-NAT网络" class="headerlink" title="第一步、配置Vmware NAT网络"></a>第一步、配置Vmware NAT网络</h3><h4 id="一、Vmware网络模式介绍"><a href="#一、Vmware网络模式介绍" class="headerlink" title="一、Vmware网络模式介绍"></a>一、Vmware网络模式介绍</h4><p>参考：<a href="https://blog.csdn.net/collection4u/article/details/14127671" target="_blank" rel="noopener">https://blog.csdn.net/collection4u/article/details/14127671</a></p>
-<h4 id="二、NAT模式配置"><a href="#二、NAT模式配置" class="headerlink" title="二、NAT模式配置"></a>二、NAT模式配置</h4><h5 id="1、aabbc"><a href="#1、aabbc" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/categories/hadoop/1010/">
-    <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
-        2019-10-22
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/hadoop/">hadoop</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
     <article id="post-9001-部署虚拟环境安装linux系统" class="post-9001-部署虚拟环境安装linux系统 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -552,7 +407,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9001/" data-id="ck2k2lw5m000epgtv9r0pb581" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9001/" data-id="ck2y67aon0007cotvcve3ckiw" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -671,7 +526,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9002/" data-id="ck2k2lw5o000jpgtvfzmcc4kh" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9002/" data-id="ck2y67aoq000bcotv0kew2ben" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -922,7 +777,7 @@
 
 
   
-    <article id="post-9003-管道符、重定向与环境变量 - 副本" class="post-9003-管道符、重定向与环境变量 - 副本 post type-post status-publish format-standard hentry">
+    <article id="post-10-Hadoop环境搭建-第四部分 完全分布式模式安装" class="post-10-Hadoop环境搭建-第四部分 完全分布式模式安装 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -930,77 +785,27 @@
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/categories/linux/9003/">第三章：管道符、重定向与环境变量</a>
+      <a class="article-title" href="/categories/hadoop/1010/">Hadoop环境搭建-第四部分 完全分布式模式安装</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9003/" data-id="ck2k2lw5q000mpgtvfu1uh6wv" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1010/" data-id="ck2y67aoh0002cotvgqrt1evo" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>本系列首页路径：<a href="/categories/linux/9000/">linux就该这么学</a></p>
-<h3 id="一-输入输出重定向"><a href="#一-输入输出重定向" class="headerlink" title="一. 输入输出重定向"></a>一. 输入输出重定向</h3><ol>
-<li><p>输出重定向</p>
-<table border="1">
-<tr><th>符号</th><th>作用</th></tr>
-<tr><td>></td><td>将标准输出重定向到一个文件中(清空原有文件的数据)</td></tr>
-<tr><td>2></td><td>将错误输出重定向到一个文件中(清空原有文件的数据)</td></tr>
-<tr><td>>></td><td>将标准输出重定向到一个文件中(追加到原有内容的后面)</td></tr>
-<tr><td>2>></td><td>将错误输出重定向到一个文件中(追加到原有内容的后面)</td></tr>
-<tr><td>&></td><td>将标准输出与错误输出共同写入到一个文件中(清空原有文件的数据)</td></tr>
-<tr><td>&>></td><td>将标准输出与错误输出共同写入到一个文件中(追加到原有内容的后面)</td></tr>
-</table>
-</li>
-<li><p>输入重定向</p>
-<table border="1">
-<tr><th>符号</th><th>作用</th></tr>
-<tr><td>命令 < 文件</td><td>将文件作为命令的标准输入</td></tr>
-<tr><td>命令 << 分界符</td><td>从标准输入中读入，知道遇见分界符才停止</td></tr>
-</table>
-
-</li>
-</ol>
-<h3 id="二-管道命令符"><a href="#二-管道命令符" class="headerlink" title="二. 管道命令符"></a>二. 管道命令符</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">命令A | 命令B</span><br></pre></td></tr></table></figure>
-
-<h3 id="三-命令行的通配符"><a href="#三-命令行的通配符" class="headerlink" title="三. 命令行的通配符"></a>三. 命令行的通配符</h3><table border="1">
-  <tr><th>符号</th><th>作用</th></tr>
-  <tr><td>*</td><td>匹配0或多个字符</td></tr>
-  <tr><td>?</td><td>匹配单个字符</td></tr>
-  <tr><td>[0-9]或者[a-z]</td><td>匹配0~9任意单个数字或者a~z任意单个字符</td></tr>
-</table>
-
-<h3 id="四-常用的转义字符"><a href="#四-常用的转义字符" class="headerlink" title="四. 常用的转义字符"></a>四. 常用的转义字符</h3><table border="1">
-  <tr><th>符号</th><th>作用</th></tr>
-  <tr><td>\</td><td>使反斜杠后面的一个变量变为单纯的字符串</td></tr>
-  <tr><td>' '</td><td>转义其中所有的变量为单纯的字符串</td></tr>
-  <tr><td>" "</td><td>保留其中的变量属性，不进行转义处理</td></tr>
-  <tr><td>` `</td><td>把其中的命令执行后返回结果</td></tr>
-</table>
-
-<h3 id="五-重要的环境变量"><a href="#五-重要的环境变量" class="headerlink" title="五. 重要的环境变量"></a>五. 重要的环境变量</h3><table border="1">
-  <tr><th>变量名称</th><th>作用</th></tr>
-  <tr><td>HOME</td><td>用户的主目录(即家目录)</td></tr>
-  <tr><td>SHELL</td><td>用户在使用的SHELL解释器名称</td></tr>
-  <tr><td>HISTSIZE</td><td>输出的历史命令记录条数</td></tr>
-  <tr><td>HISTFILESIZE</td><td>保存的历史命令记录条数</td></tr>
-  <tr><td>MAIL</td><td>邮件保存路径</td></tr>
-  <tr><td>LANG</td><td>系统语言、语系名称</td></tr>
-  <tr><td>RANDOM</td><td>生成一个随机数字</td></tr>
-  <tr><td>PS1</td><td>Bash解释器的提示符</td></tr>
-  <tr><td>PATH</td><td>定义解释器搜索用户执行命令的路径</td></tr>
-  <tr><td>EDITOR</td><td>用户默认的文本编辑器</td></tr>
-</table>
-
+        <p>本系列首页：<a href="/categories/hadoop/1006/">Hadoop环境搭建</a></p>
+<h2 id="第一部分、linux环境安装"><a href="#第一部分、linux环境安装" class="headerlink" title="第一部分、linux环境安装"></a>第一部分、linux环境安装</h2><h3 id="第一步、配置Vmware-NAT网络"><a href="#第一步、配置Vmware-NAT网络" class="headerlink" title="第一步、配置Vmware NAT网络"></a>第一步、配置Vmware NAT网络</h3><h4 id="一、Vmware网络模式介绍"><a href="#一、Vmware网络模式介绍" class="headerlink" title="一、Vmware网络模式介绍"></a>一、Vmware网络模式介绍</h4><p>参考：<a href="https://blog.csdn.net/collection4u/article/details/14127671" target="_blank" rel="noopener">https://blog.csdn.net/collection4u/article/details/14127671</a></p>
+<h4 id="二、NAT模式配置"><a href="#二、NAT模式配置" class="headerlink" title="二、NAT模式配置"></a>二、NAT模式配置</h4><h5 id="1、aabbc"><a href="#1、aabbc" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/categories/linux/9003/">
+    <a href="/categories/hadoop/1010/">
     <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
         2019-10-22
     </time>
@@ -1008,10 +813,162 @@
     
   <span class="article-delim">&#8226;</span>
   <div class="article-category">
-  <a class="article-category-link" href="/categories/linux/">linux</a>
+  <a class="article-category-link" href="/categories/hadoop/">hadoop</a>
   </div>
 
     
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-8-Hadoop环境搭建-第二部分 本地模式安装" class="post-8-Hadoop环境搭建-第二部分 本地模式安装 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/categories/hadoop/1008/">Hadoop环境搭建-第二部分 Hadoop本地模式安装</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1008/" data-id="ck2y67aot000hcotvdnag8bfo" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>本系列首页：<a href="/categories/hadoop/1006/">Hadoop环境搭建</a></p>
+<h2 id="第二部分、Hadoop本地模式安装"><a href="#第二部分、Hadoop本地模式安装" class="headerlink" title="第二部分、Hadoop本地模式安装"></a>第二部分、Hadoop本地模式安装</h2><h3 id="第一步、本地模式部署"><a href="#第一步、本地模式部署" class="headerlink" title="第一步、本地模式部署"></a>第一步、本地模式部署</h3><h4 id="一、复制实验虚拟机-两种方法-任选一种就好"><a href="#一、复制实验虚拟机-两种方法-任选一种就好" class="headerlink" title="一、复制实验虚拟机(两种方法 任选一种就好)"></a>一、复制实验虚拟机(两种方法 任选一种就好)</h4><h5 id="1、克隆"><a href="#1、克隆" class="headerlink" title="1、克隆"></a>1、克隆</h5><p>右键模板系统model-管理-克隆，进入克隆虚拟机向导</p>
+<img src="/css/images/hadoop环境搭建1/1-欢迎.png">
+<img src="/css/images/hadoop环境搭建1/2-克隆源.png">
+<img src="/css/images/hadoop环境搭建1/3-类型.png">
+<img src="/css/images/hadoop环境搭建1/4-名称.png">
+
+<h5 id="2、复制"><a href="#2、复制" class="headerlink" title="2、复制"></a>2、复制</h5><p>找到model文件夹，ctrl+c复制整个文件夹，ctrl+v粘贴，修改新的文件夹名为BigData01，并进入文件打开model.vmx</p>
+<img src="/css/images/hadoop环境搭建1/5-复制.png">
+<img src="/css/images/hadoop环境搭建1/6-打开.png">
+
+<p>重命名虚拟机中新打开的model为BigData01，开启此虚拟机，选择我已复制虚拟机</p>
+<img src="/css/images/hadoop环境搭建1/7-虚拟机.png">
+<img src="/css/images/hadoop环境搭建1/7-复制虚拟机.png">
+
+<h4 id="二、重新配置实验机网络"><a href="#二、重新配置实验机网络" class="headerlink" title="二、重新配置实验机网络"></a>二、重新配置实验机网络</h4><p>修改网卡名称：</p>
+<p>在BigData01机器上编辑网卡信息。执行vim /etc/udev/rules.d/70-persistent-net.rules命令。因为是从model机器克隆来的，所以会保留model的网卡eth0，并且再添加一个网卡eth1。并且eth0的Mac地址和model的地址是一样的，Mac地址不允许相同，所以要删除eth0，只保留eth1网卡，并且要将eth1改名为eth0。将修改后的eth0的mac地址复制下来，修改network-scripts文件中的HWADDR属性。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># vim /etc/sysconfig/network-scripts/ifcfg-eth0</span></span><br></pre></td></tr></table></figure>
+<img src="/css/images/hadoop环境搭建1/8-HWADDR.png">
+
+<p>修改完成后reboot重启，再查看网卡信息，只剩下了eth0，配置完成。</p>
+<img src="/css/images/hadoop环境搭建1/9-Edit.png">
+<img src="/css/images/hadoop环境搭建1/10-网卡.png">
+
+
+<h4 id="三、本地模式介绍"><a href="#三、本地模式介绍" class="headerlink" title="三、本地模式介绍"></a>三、本地模式介绍</h4><p>本地模式是最简单的模式，所有模块都运行与一个JVM进程中，使用的本地文件系统，而不是HDFS，本地模式主要是用于本地开发过程中的运行调试用。下载hadoop安装包后不用任何设置，默认的就是本地模式。</p>
+<h4 id="四、解压hadoop后就是直接可以使用"><a href="#四、解压hadoop后就是直接可以使用" class="headerlink" title="四、解压hadoop后就是直接可以使用"></a>四、解压hadoop后就是直接可以使用</h4><h5 id="1、创建一个存放本地模式hadoop的目录"><a href="#1、创建一个存放本地模式hadoop的目录" class="headerlink" title="1、创建一个存放本地模式hadoop的目录"></a>1、创建一个存放本地模式hadoop的目录</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># mkdir /opt/modules/hadoopstandalone</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2、解压hadoop文件"><a href="#2、解压hadoop文件" class="headerlink" title="2、解压hadoop文件"></a>2、解压hadoop文件</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># tar -zxvf /opt/hadoop-2.5.0.tar.gz  -C /opt/modules/hadoopstandalone/</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="3、确保JAVA-HOME环境变量已经配置好"><a href="#3、确保JAVA-HOME环境变量已经配置好" class="headerlink" title="3、确保JAVA_HOME环境变量已经配置好"></a>3、确保JAVA_HOME环境变量已经配置好</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># echo $&#123;JAVA_HOME&#125;</span></span><br><span class="line">/opt/modules/jdk1.7.0_67</span><br></pre></td></tr></table></figure>
+
+<h4 id="五、运行MapReduce程序，验证"><a href="#五、运行MapReduce程序，验证" class="headerlink" title="五、运行MapReduce程序，验证"></a>五、运行MapReduce程序，验证</h4><p>我们这里用hadoop自带的wordcount例子来在本地模式下测试跑mapreduce。</p>
+<h5 id="1、准备mapreduce输入文件wc-input-cat写完保存可以用ctrl-d，写完可以用vim检查一下"><a href="#1、准备mapreduce输入文件wc-input-cat写完保存可以用ctrl-d，写完可以用vim检查一下" class="headerlink" title="1、准备mapreduce输入文件wc.input(cat写完保存可以用ctrl+d，写完可以用vim检查一下)"></a>1、准备mapreduce输入文件wc.input(cat写完保存可以用ctrl+d，写完可以用vim检查一下)</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># mkdir /opt/data</span></span><br><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># cat &gt; /opt/data/wc.input</span></span><br><span class="line">hadoop mapreduce hive</span><br><span class="line">hbase spark storm</span><br><span class="line">sqoop hadoop hive</span><br><span class="line">spark hadoop</span><br></pre></td></tr></table></figure>
+
+<h5 id="2、运行hadoop自带的mapreduce-Demo"><a href="#2、运行hadoop自带的mapreduce-Demo" class="headerlink" title="2、运行hadoop自带的mapreduce Demo"></a>2、运行hadoop自带的mapreduce Demo</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 Desktop]<span class="comment"># cd /opt/modules/hadoopstandalone/hadoop-2.5.0/</span></span><br><span class="line">[root@bigdata-senior01 hadoop-2.5.0]<span class="comment"># bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.5.0.jar  wordcount  /opt/data/wc.input  output2</span></span><br></pre></td></tr></table></figure>
+<img src="/css/images/hadoop环境搭建1/11-job.png">
+这里可以看到job ID中有local字样，说明是运行在本地模式下的。
+
+<h5 id="3、查看输出文件"><a href="#3、查看输出文件" class="headerlink" title="3、查看输出文件"></a>3、查看输出文件</h5><p>本地模式下，mapreduce的输出是输出到本地。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@bigdata-senior01 hadoop-2.5.0]<span class="comment"># ll output2</span></span><br><span class="line">total 4</span><br><span class="line">-rw-r--r-- 1 root root 60 oct 25 23:42 part-r-00000</span><br><span class="line">-rw-r--r-- 1 root root 0   oct 25 23:42 _SUCCESS</span><br></pre></td></tr></table></figure>
+
+<p>输出目录中有_SUCCESS文件说明JOB运行成功，part-r-00000是输出结果文件。  </p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/categories/hadoop/1008/">
+    <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
+        2019-10-22
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/hadoop/">hadoop</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-9100-JavaSE轻松入门基础视频教程" class="post-9100-JavaSE轻松入门基础视频教程 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/categories/java/9100/">JavaSE轻松入门基础视频教程</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/java/9100/" data-id="ck2y67aov000jcotv79obdula" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h3 id="一-Java语言介绍"><a href="#一-Java语言介绍" class="headerlink" title="一. Java语言介绍"></a>一. Java语言介绍</h3><p>1.Java的特性<br>面向对象、可移植性(JVM)、健壮性、分布式、多线程</p>
+<p>2.Java的工作方式<br>java源文件(.java格式结尾)—经过java编译器的编译—字节码文件(.class结尾)—&gt;被类装载器装载到java虚拟机(JVM)—被JVM解释给操作系统—操作系统来执行</p>
+<p>3.Java开发系统的构成<br>Java虚拟机(JVM)：指令集、寄存器、堆栈、垃圾处理器、方法区域组成<br>类库：标准类库(由官方提供，可以直接使用类库中的类)、开发者自己的类<br>包：本质上是文件夹的形式，用于组织项目文件。<br>JRE：Java运行时环境(Java Runtime Environment)<br>JDK：Java开发套件(Java Development)</p>
+<p>4.Java技术的应用<br>JavaME：目前市场份额很小，IOS/Android现在是主流<br>JavaSE：标准版，用于桌面软件的编程<br>JavaEE：为企业级开发提供一整套的解决方案</p>
+<h3 id="二-搭建JAVA开发环境"><a href="#二-搭建JAVA开发环境" class="headerlink" title="二. 搭建JAVA开发环境"></a>二. 搭建JAVA开发环境</h3><p>1.配置JDK环境变量<br>JAVA_HOME<br>PATH</p>
+<p>my name is 王鹏<br>\u006d\u0079\u0020<br>\u006e\u0061\u006d\u0065\u0020<br>\u0069\u0073\u0020<br>\u738b\u9e4f</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/categories/java/9100/">
+    <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
+        2019-10-22
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a></li></ul>
+
     </footer>
 </article>
 
@@ -1036,7 +993,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9004/" data-id="ck2k2lw5u000rpgtv07kt5796" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9004/" data-id="ck2y67aox000ocotva68pawnk" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -1102,7 +1059,7 @@
   <aside class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hadoop/">hadoop</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hadoop/">hadoop</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">5</span></li></ul>
     </div>
   </aside>
 
@@ -1111,7 +1068,7 @@
   <aside class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-content">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </aside>
 
@@ -1123,15 +1080,11 @@
       <ul>
         
           <li>
-            <a href="/categories/hadoop/1008/">Hadoop环境搭建-第二部分 Hadoop本地模式安装</a>
+            <a href="/categories/hadoop/1009/">Hadoop环境搭建-第三部分 伪分布式模式安装</a>
           </li>
         
           <li>
             <a href="/categories/hadoop/1011/">Hadoop环境搭建-第五部分 Hadoop HA安装</a>
-          </li>
-        
-          <li>
-            <a href="/categories/hadoop/1009/">Hadoop环境搭建-第三部分 伪分布式模式安装</a>
           </li>
         
           <li>
@@ -1140,6 +1093,10 @@
         
           <li>
             <a href="/categories/linux/9000/">linux就该这么学</a>
+          </li>
+        
+          <li>
+            <a href="/categories/linux/9001/">第一章：部署虚拟环境安装linux系统</a>
           </li>
         
       </ul>
