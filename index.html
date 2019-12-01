@@ -74,7 +74,7 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
-    <article id="post-9004-Vim编辑器与Shell命令脚本" class="post-9004-Vim编辑器与Shell命令脚本 post type-post status-publish format-standard hentry">
+    <article id="post-1011-Hadoop环境搭建-第五部分 Hadoop HA安装" class="post-1011-Hadoop环境搭建-第五部分 Hadoop HA安装 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -82,121 +82,32 @@
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/categories/linux/9004/">第四章：Vim编辑器与Shell命令脚本</a>
+      <a class="article-title" href="/categories/hadoop/1011/">Hadoop环境搭建-第五部分 Hadoop HA安装</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9004/" data-id="ck3mv0cz2000en8tv2zltd11j" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1011/" data-id="ck3mv2ede000evktv2tcuh7ep" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>本系列首页路径：<a href="/categories/linux/9000/">linux就该这么学</a></p>
-<h3 id="一-Vim文本编辑器"><a href="#一-Vim文本编辑器" class="headerlink" title="一. Vim文本编辑器"></a>一. Vim文本编辑器</h3><ol>
-<li><p>三种模式<br>命令模式：控制光标移动，可对文本进行复制、粘贴、删除和查找等工作<br>输入模式：正常的文本录入<br>末行模式：保存或退出文档，以及设置编辑环境</p>
-</li>
-<li><p>命令模式中常用命令</p>
-<table border="1">
-<tr><th>命令</th><th>作用</th></tr>
-<tr><td>dd</td><td>将标准输出重定向到一个文件中(清空原有文件的数据)</td></tr>
-<tr><td>5dd</td><td>将错误输出重定向到一个文件中(清空原有文件的数据)</td></tr>
-<tr><td>yy</td><td>将标准输出重定向到一个文件中(追加到原有内容的后面)</td></tr>
-<tr><td>5yy></td><td>将错误输出重定向到一个文件中(追加到原有内容的后面)</td></tr>
-<tr><td>n</td><td>将标准输出与错误输出共同写入到一个文件中(清空原有文件的数据)</td></tr>
-<tr><td>N</td><td>将标准输出与错误输出共同写入到一个文件中(追加到原有内容的后面)</td></tr>
-<tr><td>u</td><td>将标准输出与错误输出共同写入到一个文件中(追加到原有内容的后面)</td></tr>
-<tr><td>p</td><td>将标准输出与错误输出共同写入到一个文件中(追加到原有内容的后面)</td></tr>
-</table>
-</li>
-<li><p>末行模式中可用的命令</p>
-<table border="1">
-<tr><th>命令</th><th>作用</th></tr>
-<tr><td>:w</td><td>保存</td></tr>
-<tr><td>:q</td><td>退出</td></tr>
-<tr><td>:q!</td><td>强制退出(放弃对文档的修改内容)</td></tr>
-<tr><td>:wq!</td><td>强制保存退出</td></tr>
-<tr><td>set nu</td><td>显示行号</td></tr>
-<tr><td>set nonu</td><td>不显示行号</td></tr>
-<tr><td>:命令</td><td>执行该命令</td></tr>
-<tr><td>:整数</td><td>跳转到该行</td></tr>
-<tr><td>:s/one/two</td><td>将当前光标所在行的第一个one替换成two</td></tr>
-<tr><td>:s/one/two/g</td><td>将当前光标所在行的所有one替换成two</td></tr>
-<tr><td>:%s/one/two/g</td><td>将全文中的所有one替换成two</td></tr>
-<tr><td>?字符串</td><td>在文本中从下至上搜索该字符串</td></tr>
-<tr><td>/字符串</td><td>在文本中从上至下搜索该字符串</td></tr>
-</table>
+        <p>本系列首页：<a href="/categories/hadoop/1006/">Hadoop环境搭建</a></p>
+<h2 id="第五部分、Hadoop-HA安装"><a href="#第五部分、Hadoop-HA安装" class="headerlink" title="第五部分、Hadoop HA安装"></a>第五部分、Hadoop HA安装</h2><h3 id="第一步、环境配置"><a href="#第一步、环境配置" class="headerlink" title="第一步、环境配置"></a>第一步、环境配置</h3><h4 id="一、配置网络"><a href="#一、配置网络" class="headerlink" title="一、配置网络"></a>一、配置网络</h4><h5 id="1、aabbc"><a href="#1、aabbc" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><h5 id="1、aabbc-1"><a href="#1、aabbc-1" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><h4 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h4><h5 id="1、aabbc-2"><a href="#1、aabbc-2" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
 
-</li>
-</ol>
-<h3 id="二-配置主机名称"><a href="#二-配置主机名称" class="headerlink" title="二. 配置主机名称"></a>二. 配置主机名称</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hostname</span><br></pre></td></tr></table></figure>
+<h4 id="二、-1"><a href="#二、-1" class="headerlink" title="二、"></a>二、</h4><h5 id="1、aabbc-3"><a href="#1、aabbc-3" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
 
-<h3 id="三-配置网卡信息"><a href="#三-配置网卡信息" class="headerlink" title="三. 配置网卡信息"></a>三. 配置网卡信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-enoxxxxxx</span><br><span class="line"></span><br><span class="line">设备类型：TYPE=Ethernet</span><br><span class="line">地址分配模式：BOOTPROTO=static</span><br><span class="line">网卡名称：NAME=eno16777736</span><br><span class="line">是否启动：ONBOOT=yes</span><br><span class="line">IP地址：IPADDR=192.168.10.10</span><br><span class="line">子网掩码：NETMASK=255.255.255.0</span><br><span class="line">网关地址：GATEWAY=192.168.10.1</span><br><span class="line">DNS地址：DNS1=192.168.10.1</span><br><span class="line"></span><br><span class="line">systemctl restart network</span><br></pre></td></tr></table></figure>
+<h4 id="二、-2"><a href="#二、-2" class="headerlink" title="二、"></a>二、</h4><h5 id="1、aabbc-4"><a href="#1、aabbc-4" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
 
-<h3 id="四-配置Yum软件仓库"><a href="#四-配置Yum软件仓库" class="headerlink" title="四. 配置Yum软件仓库"></a>四. 配置Yum软件仓库</h3><h3 id="五-编写SHELL脚本"><a href="#五-编写SHELL脚本" class="headerlink" title="五. 编写SHELL脚本"></a>五. 编写SHELL脚本</h3><p>##1. 接收用户的参数</p>
-<table border="1">
-  <tr><th>命令</th><th>作用</th></tr>
-  <tr><td>$0</td><td>当前shell脚本程序的名称</td></tr>
-  <tr><td>$#</td><td>总共有几个参数</td></tr>
-  <tr><td>$*</td><td>所有位置的参数值</td></tr>
-  <tr><td>$?</td><td>显示上一次命令的执行返回值 0表示没有错误 其他任何值表明有错误</td></tr>
-  <tr><td>$n</td><td>n=1...9</td></tr>
-  <tr><td>$$</td><td>这个脚本程序的PID</td></tr>
-  <tr><td>$@</td><td>跟$*类似，但是可以当作数组用</td></tr>
-</table>
-
-<p>##2. 判断用户的参数</p>
-<ol>
-<li><p>文件测试语句</p>
-<table border="1">
-<tr><th>命令</th><th>作用</th></tr>
-<tr><td>-d</td><td>测试文件是否为目录类型</td></tr>
-<tr><td>-e</td><td>测试文件是否存在</td></tr>
-<tr><td>-f</td><td>判断是否为一般文件</td></tr>
-<tr><td>-r</td><td>测试当前用户是否有权限读取</td></tr>
-<tr><td>-w</td><td>测试当前用户是否有权限写入</td></tr>
-<tr><td>-x</td><td>测试当前用户是否有权限执行</td></tr>
-</table>
-</li>
-<li><p>逻辑测试语句</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&amp;&amp; 前面命令执行成功才会执行后面的命令</span><br><span class="line">|| 前面命令执行失败才会执行后面的命令</span><br><span class="line">! 得到的值取反</span><br><span class="line">[ -e /opt/aa ] &amp;&amp; <span class="built_in">echo</span> <span class="string">"true"</span> || <span class="built_in">echo</span> <span class="string">"false"</span></span><br><span class="line">[ ! -e /opt/aa ] &amp;&amp; <span class="built_in">echo</span> <span class="string">"true"</span> || <span class="built_in">echo</span> <span class="string">"false"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>整数值比较语句</p>
-<table border="1">
-<tr><th>运算符</th><th>作用</th></tr>
-<tr><td>-eq</td><td>是否等于</td></tr>
-<tr><td>-ne</td><td>是否不等于</td></tr>
-<tr><td>-gt</td><td>是否大于</td></tr>
-<tr><td>-lt</td><td>是否小于</td></tr>
-<tr><td>-le</td><td>是否等于或小于</td></tr>
-<tr><td>-ge</td><td>是否大于或小于</td></tr>
-</table>
-</li>
-<li><p>字符串比较语句</p>
-<table border="1">
-<tr><th>运算符</th><th>作用</th></tr>
-<tr><td>=</td><td>比较字符串内容是否相同</td></tr>
-<tr><td>!=</td><td>比较字符串内容是否不同</td></tr>
-<tr><td>-z</td><td>判断字符串是否为空</td></tr>
-</table>
-</li>
-<li><p>流程控制语句</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"enter you score(0-100):"</span> GRADE</span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$GRADE</span> -ge 85 ] &amp;&amp; [ <span class="variable">$GRADE</span> -le 100 ] ; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"85-100"</span></span><br><span class="line"><span class="keyword">elif</span> [ <span class="variable">$GRADE</span> -ge 60 ] &amp;&amp; [ <span class="variable">$GRADE</span> -lt 85 ] ; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"60-85"</span></span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line"><span class="built_in">echo</span> <span class="string">"不及格或输入错误"</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>for</p>
-<p>while</p>
-<p>case</p>
-
+<h4 id="二、-3"><a href="#二、-3" class="headerlink" title="二、"></a>二、</h4><h5 id="1、aabbc-5"><a href="#1、aabbc-5" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/categories/linux/9004/">
+    <a href="/categories/hadoop/1011/">
     <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
         2019-10-22
     </time>
@@ -204,10 +115,13 @@
     
   <span class="article-delim">&#8226;</span>
   <div class="article-category">
-  <a class="article-category-link" href="/categories/linux/">linux</a>
+  <a class="article-category-link" href="/categories/hadoop/">hadoop</a>
   </div>
 
     
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a></li></ul>
+
     </footer>
 </article>
 
@@ -232,7 +146,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1006/" data-id="ck3mv0cyk0000n8tv1cgk6wxb" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1006/" data-id="ck3mv2ecy0000vktv3iebbbib" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -291,6 +205,58 @@
 
 
   
+    <article id="post-1010-Hadoop环境搭建-第四部分 完全分布式模式安装" class="post-1010-Hadoop环境搭建-第四部分 完全分布式模式安装 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/categories/hadoop/1010/">Hadoop环境搭建-第四部分 完全分布式模式安装</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1010/" data-id="ck3mv2ed80006vktvfwql63jq" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>本系列首页：<a href="/categories/hadoop/1006/">Hadoop环境搭建</a></p>
+<h2 id="第一部分、linux环境安装"><a href="#第一部分、linux环境安装" class="headerlink" title="第一部分、linux环境安装"></a>第一部分、linux环境安装</h2><h3 id="第一步、配置Vmware-NAT网络"><a href="#第一步、配置Vmware-NAT网络" class="headerlink" title="第一步、配置Vmware NAT网络"></a>第一步、配置Vmware NAT网络</h3><h4 id="一、Vmware网络模式介绍"><a href="#一、Vmware网络模式介绍" class="headerlink" title="一、Vmware网络模式介绍"></a>一、Vmware网络模式介绍</h4><p>参考：<a href="https://blog.csdn.net/collection4u/article/details/14127671" target="_blank" rel="noopener">https://blog.csdn.net/collection4u/article/details/14127671</a></p>
+<h4 id="二、NAT模式配置"><a href="#二、NAT模式配置" class="headerlink" title="二、NAT模式配置"></a>二、NAT模式配置</h4><h5 id="1、aabbc"><a href="#1、aabbc" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/categories/hadoop/1010/">
+    <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
+        2019-10-22
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/hadoop/">hadoop</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-1008-Hadoop环境搭建-第二部分 本地模式安装" class="post-1008-Hadoop环境搭建-第二部分 本地模式安装 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -306,7 +272,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1008/" data-id="ck3mv0cyw0006n8tvf0noeyog" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1008/" data-id="ck3mv2ed90007vktve5frbflj" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -384,6 +350,176 @@
 
 
   
+    <article id="post-9001-部署虚拟环境安装linux系统" class="post-9001-部署虚拟环境安装linux系统 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/categories/linux/9001/">第一章：部署虚拟环境安装linux系统</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9001/" data-id="ck3mv2eda0008vktv6gak062d" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>本系列首页路径：<a href="/categories/linux/9000/">linux就该这么学</a></p>
+<h3 id="一-重置root管理员密码"><a href="#一-重置root管理员密码" class="headerlink" title="一. 重置root管理员密码"></a>一. 重置root管理员密码</h3><ol>
+<li>查询系统版本<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/redhat-release</span><br></pre></td></tr></table></figure></li>
+<li>reboot重启主机，出现引导界面时按下e键进入内核编辑界面</li>
+<li>在linux16这行参数的最后面追加rd.break，然后按下ctrl+X组合键来运行修改过的内核程序。</li>
+<li>依次输入一下命令<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mount -o remount,rw /sysroot</span><br><span class="line">chroot /sysroot</span><br><span class="line">passwd</span><br><span class="line"><span class="comment"># 这里输入新的root密码</span></span><br><span class="line"><span class="comment"># 这里再输入一次</span></span><br><span class="line">touch /.autorelabel</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="二-rpm软件包管理器"><a href="#二-rpm软件包管理器" class="headerlink" title="二. rpm软件包管理器"></a>二. rpm软件包管理器</h3><table border="1">
+  <tr><th>命令</th><th>描述</th></tr>
+  <tr><td>rpm -ivh filename.rpm</td><td>安装软件的命令格式</td></tr>
+  <tr><td>rpm -Uvh filename.rpm</td><td>升级软件的命令格式</td></tr>
+  <tr><td>rpm -e filename.rpm</td><td>卸载软件的命令格式</td></tr>
+  <tr><td>rpm -qpi filename.rpm</td><td>查询软件描述信息的命令格式</td></tr>
+  <tr><td>rpm -qpl filename.rpm</td><td>列出软件文件信息的命令格式</td></tr>
+  <tr><td>rpm -qf filename</td><td></td>查询文件属于哪个RPM的命令格式</tr>
+  <tr><td>rpm -qa </td><td>列出所有安装过的包</td></tr>
+  <tr><td>rpm -qa | grep sql</td><td>列出包含指定sql的包</td></tr>
+</table>
+
+<h3 id="三-yum软件仓库"><a href="#三-yum软件仓库" class="headerlink" title="三. yum软件仓库"></a>三. yum软件仓库</h3><table border="1">
+  <tr><th>命令</th><th>描述</th></tr>
+  <tr><td>yum repolist all</td><td>列出所有仓库</td></tr>
+  <tr><td>yum list all</td><td>列出仓库中所有软件包</td></tr>
+  <tr><td>yum info 软件包名称</td><td>查看软件包信息</td></tr>
+  <tr><td>yum install 软件包名称</td><td>安装软件包</td></tr>
+  <tr><td>yum reinstall 软件包名称</td><td>重新安装软件包</td></tr>
+  <tr><td>yum update 软件包名称</td><td>升级软件包</td></tr>
+  <tr><td>yum remove 软件包名称</td><td>移除软件包</td></tr>
+  <tr><td>yum clean all </td><td>清除所有仓库缓存</td></tr>
+  <tr><td>yum check-update </td><td>检查可更新的软件包</td></tr>
+  <tr><td>yum grouplist</td><td>查看系统中已经安装的软件包组</td></tr>
+  <tr><td>yum groupinstall 软件包组</td><td>安装指定的软件包组</td></tr>
+  <tr><td>yum groupremove 软件包组</td><td>移除指定的软件包组</td></tr>
+  <tr><td>yum groupinfo 软件包组</td><td>查询指定的软件包组信息</td></tr>
+</table>
+
+<h3 id="四-systemd初始化进程"><a href="#四-systemd初始化进程" class="headerlink" title="四. systemd初始化进程"></a>四. systemd初始化进程</h3><ol>
+<li><p>systemd与System V init的区别以及作用</p>
+<table border="1">
+<tr><th>System V init运行级别</th><th>systemd目录名称</th><th>作用</th></tr>
+<tr><td>0</td><td>runlevel0</td><td>关机</td></tr>
+<tr><td>1</td><td>runlevel1</td><td>单用户模式</td></tr>
+<tr><td>2</td><td>runlevel2</td><td>等同于级别3</td></tr>
+<tr><td>3</td><td>runlevel3</td><td>多用户的文本界面</td></tr>
+<tr><td>4</td><td>runlevel4</td><td>等同于级别3</td></tr>
+<tr><td>5</td><td>runlevel5</td><td>多用户的图形界面</td></tr>
+<tr><td>6</td><td>runlevel6</td><td>重启</td></tr>
+<tr><td>emergency</td><td>emergency.target</td><td>紧急Shell</td></tr>
+</table>
+</li>
+<li><p>systemctl管理服务的启动、重启、停止、重载、查看状态等常用命令</p>
+<table border="1">
+<tr><th>System V init命令</th><th>systemctl命令</th><th>作用</th></tr>
+<tr><td>service foo start</td><td>systemctl start foo.service</td><td>启动服务</td></tr>
+<tr><td>service foo restart</td><td>systemctl restart foo.service</td><td>重启服务</td></tr>
+<tr><td>service foo stop</td><td>systemctl stop foo.service</td><td>停止服务</td></tr>
+<tr><td>service foo reload</td><td>systemctl reload foo.service</td><td>重新加载配置文件(不终止服务)</td></tr>
+<tr><td>service foo status</td><td>systemctl status foo.service</td><td>查看服务状态</td></tr>
+</table>
+</li>
+<li><p>systemctl设置服务开机启动、不启动、查看各级别下服务启动状态等常用命令</p>
+<table border="1">
+<tr><th>System V init命令</th><th>systemctl命令</th><th>作用</th></tr>
+<tr><td>chkconfig foo on</td><td>systemctl enable foo.service</td><td>开机自动启动</td></tr>
+<tr><td>chkconfig foo off</td><td>systemctl disable foo.service</td><td>开机不自动启动</td></tr>
+<tr><td>chkconfig foo</td><td>systemctl is-enable foo.service</td><td>查看特定服务是否为开机自动启动</td></tr>
+<tr><td>chkconfig --list</td><td>systemctl list-unit-files --type=service</td><td>查看各个级别下服务的启动和禁用情况</td></tr>
+</table>
+</li>
+</ol>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/categories/linux/9001/">
+    <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
+        2019-10-22
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-9000-linux就该这么学" class="post-9000-linux就该这么学 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/categories/linux/9000/">linux就该这么学</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9000/" data-id="ck3mv2edd000cvktv048g6th4" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>第一章：<a href="/categories/linux/9001/">部署虚拟环境安装linux系统</a><br>第二章：<a href="/categories/linux/9002/">新手必须掌握的Linux命令</a><br>第三章：<a href="/categories/linux/9003/">管道符、重定向与环境变量</a><br>第四章：<a href="/categories/linux/9004/">Vim编辑器与Shell命令脚本</a><br>第五章：<a href="/categories/linux/9005/">用户身份与文件权限</a><br>第六章：<a href="/categories/linux/9006/">存储结构与硬盘划分</a><br>第七章：<a href="/categories/linux/9007/">使用RAID与LVM磁盘阵列技术</a><br>第八章：<a href="/categories/linux/9008/">iptables与firewalld防火墙</a><br>第九章：<a href="/categories/linux/9009/">使用ssh服务管理远程主机</a><br>第十章：<a href="/categories/linux/9010/">使用Apache服务部署静态网站</a><br>第十一章：<a href="/categories/linux/9011/">使用vsftpd服务传输文件</a><br>第十二章：<a href="/categories/linux/9012/">使用Samba或NFS实现文件共享</a><br>第十三章：<a href="/categories/linux/9013/">使用BIND提供域名解析服务</a><br>第十四章：<a href="/categories/linux/9014/">使用DHCP动态管理主机地址</a><br>第十五章：<a href="/categories/linux/9015/">使用Postfix与Dovecot部署邮件系统</a><br>第十六章：<a href="/categories/linux/9016/">使用Squid部署代理缓存服务</a><br>第十七章：<a href="/categories/linux/9017/">使用iSCSI服务部署网络存储</a><br>第十八章：<a href="/categories/linux/9018/">使用MariaDB数据库管理系统</a><br>第十九章：<a href="/categories/linux/9019/">使用PXE+Kickstart无人值守安装服务</a><br>第二十章：<a href="/categories/linux/9020/">使用LNMP架构部署动态网站环境</a></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/categories/linux/9000/">
+    <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
+        2019-10-22
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-1009-Hadoop环境搭建-第三部分 伪分布式模式安装" class="post-1009-Hadoop环境搭建-第三部分 伪分布式模式安装 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -399,7 +535,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1009/" data-id="ck3mv0cyx0007n8tv3zfbe1a8" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1009/" data-id="ck3mv2ed40002vktv7d553ycw" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -535,7 +671,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9003/" data-id="ck3mv0cyy0008n8tvdtvi0tys" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9003/" data-id="ck3mv2edh000jvktvgvri78mb" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -621,115 +757,6 @@
 
 
   
-    <article id="post-1011-Hadoop环境搭建-第五部分 Hadoop HA安装" class="post-1011-Hadoop环境搭建-第五部分 Hadoop HA安装 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/categories/hadoop/1011/">Hadoop环境搭建-第五部分 Hadoop HA安装</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1011/" data-id="ck3mv0cz1000cn8tvb6nr4p82" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>本系列首页：<a href="/categories/hadoop/1006/">Hadoop环境搭建</a></p>
-<h2 id="第五部分、Hadoop-HA安装"><a href="#第五部分、Hadoop-HA安装" class="headerlink" title="第五部分、Hadoop HA安装"></a>第五部分、Hadoop HA安装</h2><h3 id="第一步、环境配置"><a href="#第一步、环境配置" class="headerlink" title="第一步、环境配置"></a>第一步、环境配置</h3><h4 id="一、配置网络"><a href="#一、配置网络" class="headerlink" title="一、配置网络"></a>一、配置网络</h4><h5 id="1、aabbc"><a href="#1、aabbc" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><h5 id="1、aabbc-1"><a href="#1、aabbc-1" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><h4 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h4><h5 id="1、aabbc-2"><a href="#1、aabbc-2" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
-
-<h4 id="二、-1"><a href="#二、-1" class="headerlink" title="二、"></a>二、</h4><h5 id="1、aabbc-3"><a href="#1、aabbc-3" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
-
-<h4 id="二、-2"><a href="#二、-2" class="headerlink" title="二、"></a>二、</h4><h5 id="1、aabbc-4"><a href="#1、aabbc-4" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
-
-<h4 id="二、-3"><a href="#二、-3" class="headerlink" title="二、"></a>二、</h4><h5 id="1、aabbc-5"><a href="#1、aabbc-5" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/categories/hadoop/1011/">
-    <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
-        2019-10-22
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/hadoop/">hadoop</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-1010-Hadoop环境搭建-第四部分 完全分布式模式安装" class="post-1010-Hadoop环境搭建-第四部分 完全分布式模式安装 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/categories/hadoop/1010/">Hadoop环境搭建-第四部分 完全分布式模式安装</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1010/" data-id="ck3mv0cys0002n8tv22329fwa" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>本系列首页：<a href="/categories/hadoop/1006/">Hadoop环境搭建</a></p>
-<h2 id="第一部分、linux环境安装"><a href="#第一部分、linux环境安装" class="headerlink" title="第一部分、linux环境安装"></a>第一部分、linux环境安装</h2><h3 id="第一步、配置Vmware-NAT网络"><a href="#第一步、配置Vmware-NAT网络" class="headerlink" title="第一步、配置Vmware NAT网络"></a>第一步、配置Vmware NAT网络</h3><h4 id="一、Vmware网络模式介绍"><a href="#一、Vmware网络模式介绍" class="headerlink" title="一、Vmware网络模式介绍"></a>一、Vmware网络模式介绍</h4><p>参考：<a href="https://blog.csdn.net/collection4u/article/details/14127671" target="_blank" rel="noopener">https://blog.csdn.net/collection4u/article/details/14127671</a></p>
-<h4 id="二、NAT模式配置"><a href="#二、NAT模式配置" class="headerlink" title="二、NAT模式配置"></a>二、NAT模式配置</h4><h5 id="1、aabbc"><a href="#1、aabbc" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/categories/hadoop/1010/">
-    <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
-        2019-10-22
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/hadoop/">hadoop</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
     <article id="post-9002-新手必须掌握的Linux命令" class="post-9002-新手必须掌握的Linux命令 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -745,7 +772,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9002/" data-id="ck3mv0cz4000jn8tv08rq0kk5" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9002/" data-id="ck3mv2edj000mvktvgpzibtoj" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -1000,7 +1027,7 @@
 
 
   
-    <article id="post-9000-linux就该这么学" class="post-9000-linux就该这么学 post type-post status-publish format-standard hentry">
+    <article id="post-9100-JavaSE轻松入门基础视频教程" class="post-9100-JavaSE轻松入门基础视频教程 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -1008,26 +1035,31 @@
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/categories/linux/9000/">linux就该这么学</a>
+      <a class="article-title" href="/categories/java/9100/">JavaSE轻松入门基础视频教程</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9000/" data-id="ck3mv0cz7000mn8tvd7lbglv0" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/java/9100/" data-id="ck3mv2edm000rvktvdonm94kn" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>第一章：<a href="/categories/linux/9001/">部署虚拟环境安装linux系统</a><br>第二章：<a href="/categories/linux/9002/">新手必须掌握的Linux命令</a><br>第三章：<a href="/categories/linux/9003/">管道符、重定向与环境变量</a><br>第四章：<a href="/categories/linux/9004/">Vim编辑器与Shell命令脚本</a><br>第五章：<a href="/categories/linux/9005/">用户身份与文件权限</a><br>第六章：<a href="/categories/linux/9006/">存储结构与硬盘划分</a><br>第七章：<a href="/categories/linux/9007/">使用RAID与LVM磁盘阵列技术</a><br>第八章：<a href="/categories/linux/9008/">iptables与firewalld防火墙</a><br>第九章：<a href="/categories/linux/9009/">使用ssh服务管理远程主机</a><br>第十章：<a href="/categories/linux/9010/">使用Apache服务部署静态网站</a><br>第十一章：<a href="/categories/linux/9011/">使用vsftpd服务传输文件</a><br>第十二章：<a href="/categories/linux/9012/">使用Samba或NFS实现文件共享</a><br>第十三章：<a href="/categories/linux/9013/">使用BIND提供域名解析服务</a><br>第十四章：<a href="/categories/linux/9014/">使用DHCP动态管理主机地址</a><br>第十五章：<a href="/categories/linux/9015/">使用Postfix与Dovecot部署邮件系统</a><br>第十六章：<a href="/categories/linux/9016/">使用Squid部署代理缓存服务</a><br>第十七章：<a href="/categories/linux/9017/">使用iSCSI服务部署网络存储</a><br>第十八章：<a href="/categories/linux/9018/">使用MariaDB数据库管理系统</a><br>第十九章：<a href="/categories/linux/9019/">使用PXE+Kickstart无人值守安装服务</a><br>第二十章：<a href="/categories/linux/9020/">使用LNMP架构部署动态网站环境</a></p>
+        <h3 id="一-Java语言介绍"><a href="#一-Java语言介绍" class="headerlink" title="一. Java语言介绍"></a>一. Java语言介绍</h3><p>1.Java的特性<br>面向对象、可移植性(JVM)、健壮性、分布式、多线程</p>
+<p>2.Java的工作方式<br>java源文件(.java格式结尾)—经过java编译器的编译—字节码文件(.class结尾)—&gt;被类装载器装载到java虚拟机(JVM)—被JVM解释给操作系统—操作系统来执行</p>
+<p>3.Java开发系统的构成<br>Java虚拟机(JVM)：指令集、寄存器、堆栈、垃圾处理器、方法区域组成<br>类库：标准类库(由官方提供，可以直接使用类库中的类)、开发者自己的类<br>包：本质上是文件夹的形式，用于组织项目文件。<br>JRE：Java运行时环境(Java Runtime Environment)<br>JDK：Java开发套件(Java Development)</p>
+<p>4.Java技术的应用<br>JavaME：目前市场份额很小，IOS/Android现在是主流<br>JavaSE：标准版，用于桌面软件的编程<br>JavaEE：为企业级开发提供一整套的解决方案</p>
+<h3 id="二-搭建JAVA开发环境"><a href="#二-搭建JAVA开发环境" class="headerlink" title="二. 搭建JAVA开发环境"></a>二. 搭建JAVA开发环境</h3><p>1.配置JDK环境变量<br>JAVA_HOME<br>PATH</p>
+<p>my name is 王鹏<br>\u006d\u0079\u0020<br>\u006e\u0061\u006d\u0065\u0020<br>\u0069\u0073\u0020<br>\u738b\u9e4f</p>
 
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/categories/linux/9000/">
+    <a href="/categories/java/9100/">
     <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
         2019-10-22
     </time>
@@ -1035,132 +1067,13 @@
     
   <span class="article-delim">&#8226;</span>
   <div class="article-category">
-  <a class="article-category-link" href="/categories/linux/">linux</a>
+  <a class="article-category-link" href="/categories/java/">java</a>
   </div>
 
     
   <span class="article-delim">&#8226;</span>
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a></li></ul>
 
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-9001-部署虚拟环境安装linux系统" class="post-9001-部署虚拟环境安装linux系统 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/categories/linux/9001/">第一章：部署虚拟环境安装linux系统</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9001/" data-id="ck3mv0cza000qn8tvdpk2ggo7" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>本系列首页路径：<a href="/categories/linux/9000/">linux就该这么学</a></p>
-<h3 id="一-重置root管理员密码"><a href="#一-重置root管理员密码" class="headerlink" title="一. 重置root管理员密码"></a>一. 重置root管理员密码</h3><ol>
-<li>查询系统版本<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/redhat-release</span><br></pre></td></tr></table></figure></li>
-<li>reboot重启主机，出现引导界面时按下e键进入内核编辑界面</li>
-<li>在linux16这行参数的最后面追加rd.break，然后按下ctrl+X组合键来运行修改过的内核程序。</li>
-<li>依次输入一下命令<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mount -o remount,rw /sysroot</span><br><span class="line">chroot /sysroot</span><br><span class="line">passwd</span><br><span class="line"><span class="comment"># 这里输入新的root密码</span></span><br><span class="line"><span class="comment"># 这里再输入一次</span></span><br><span class="line">touch /.autorelabel</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="二-rpm软件包管理器"><a href="#二-rpm软件包管理器" class="headerlink" title="二. rpm软件包管理器"></a>二. rpm软件包管理器</h3><table border="1">
-  <tr><th>命令</th><th>描述</th></tr>
-  <tr><td>rpm -ivh filename.rpm</td><td>安装软件的命令格式</td></tr>
-  <tr><td>rpm -Uvh filename.rpm</td><td>升级软件的命令格式</td></tr>
-  <tr><td>rpm -e filename.rpm</td><td>卸载软件的命令格式</td></tr>
-  <tr><td>rpm -qpi filename.rpm</td><td>查询软件描述信息的命令格式</td></tr>
-  <tr><td>rpm -qpl filename.rpm</td><td>列出软件文件信息的命令格式</td></tr>
-  <tr><td>rpm -qf filename</td><td></td>查询文件属于哪个RPM的命令格式</tr>
-  <tr><td>rpm -qa </td><td>列出所有安装过的包</td></tr>
-  <tr><td>rpm -qa | grep sql</td><td>列出包含指定sql的包</td></tr>
-</table>
-
-<h3 id="三-yum软件仓库"><a href="#三-yum软件仓库" class="headerlink" title="三. yum软件仓库"></a>三. yum软件仓库</h3><table border="1">
-  <tr><th>命令</th><th>描述</th></tr>
-  <tr><td>yum repolist all</td><td>列出所有仓库</td></tr>
-  <tr><td>yum list all</td><td>列出仓库中所有软件包</td></tr>
-  <tr><td>yum info 软件包名称</td><td>查看软件包信息</td></tr>
-  <tr><td>yum install 软件包名称</td><td>安装软件包</td></tr>
-  <tr><td>yum reinstall 软件包名称</td><td>重新安装软件包</td></tr>
-  <tr><td>yum update 软件包名称</td><td>升级软件包</td></tr>
-  <tr><td>yum remove 软件包名称</td><td>移除软件包</td></tr>
-  <tr><td>yum clean all </td><td>清除所有仓库缓存</td></tr>
-  <tr><td>yum check-update </td><td>检查可更新的软件包</td></tr>
-  <tr><td>yum grouplist</td><td>查看系统中已经安装的软件包组</td></tr>
-  <tr><td>yum groupinstall 软件包组</td><td>安装指定的软件包组</td></tr>
-  <tr><td>yum groupremove 软件包组</td><td>移除指定的软件包组</td></tr>
-  <tr><td>yum groupinfo 软件包组</td><td>查询指定的软件包组信息</td></tr>
-</table>
-
-<h3 id="四-systemd初始化进程"><a href="#四-systemd初始化进程" class="headerlink" title="四. systemd初始化进程"></a>四. systemd初始化进程</h3><ol>
-<li><p>systemd与System V init的区别以及作用</p>
-<table border="1">
-<tr><th>System V init运行级别</th><th>systemd目录名称</th><th>作用</th></tr>
-<tr><td>0</td><td>runlevel0</td><td>关机</td></tr>
-<tr><td>1</td><td>runlevel1</td><td>单用户模式</td></tr>
-<tr><td>2</td><td>runlevel2</td><td>等同于级别3</td></tr>
-<tr><td>3</td><td>runlevel3</td><td>多用户的文本界面</td></tr>
-<tr><td>4</td><td>runlevel4</td><td>等同于级别3</td></tr>
-<tr><td>5</td><td>runlevel5</td><td>多用户的图形界面</td></tr>
-<tr><td>6</td><td>runlevel6</td><td>重启</td></tr>
-<tr><td>emergency</td><td>emergency.target</td><td>紧急Shell</td></tr>
-</table>
-</li>
-<li><p>systemctl管理服务的启动、重启、停止、重载、查看状态等常用命令</p>
-<table border="1">
-<tr><th>System V init命令</th><th>systemctl命令</th><th>作用</th></tr>
-<tr><td>service foo start</td><td>systemctl start foo.service</td><td>启动服务</td></tr>
-<tr><td>service foo restart</td><td>systemctl restart foo.service</td><td>重启服务</td></tr>
-<tr><td>service foo stop</td><td>systemctl stop foo.service</td><td>停止服务</td></tr>
-<tr><td>service foo reload</td><td>systemctl reload foo.service</td><td>重新加载配置文件(不终止服务)</td></tr>
-<tr><td>service foo status</td><td>systemctl status foo.service</td><td>查看服务状态</td></tr>
-</table>
-</li>
-<li><p>systemctl设置服务开机启动、不启动、查看各级别下服务启动状态等常用命令</p>
-<table border="1">
-<tr><th>System V init命令</th><th>systemctl命令</th><th>作用</th></tr>
-<tr><td>chkconfig foo on</td><td>systemctl enable foo.service</td><td>开机自动启动</td></tr>
-<tr><td>chkconfig foo off</td><td>systemctl disable foo.service</td><td>开机不自动启动</td></tr>
-<tr><td>chkconfig foo</td><td>systemctl is-enable foo.service</td><td>查看特定服务是否为开机自动启动</td></tr>
-<tr><td>chkconfig --list</td><td>systemctl list-unit-files --type=service</td><td>查看各个级别下服务的启动和禁用情况</td></tr>
-</table>
-</li>
-</ol>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/categories/linux/9001/">
-    <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
-        2019-10-22
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/linux/">linux</a>
-  </div>
-
-    
     </footer>
 </article>
 
@@ -1208,7 +1121,7 @@
       <ul>
         
           <li>
-            <a href="/categories/linux/9004/">第四章：Vim编辑器与Shell命令脚本</a>
+            <a href="/categories/hadoop/1011/">Hadoop环境搭建-第五部分 Hadoop HA安装</a>
           </li>
         
           <li>
@@ -1216,15 +1129,15 @@
           </li>
         
           <li>
+            <a href="/categories/hadoop/1010/">Hadoop环境搭建-第四部分 完全分布式模式安装</a>
+          </li>
+        
+          <li>
             <a href="/categories/hadoop/1008/">Hadoop环境搭建-第二部分 Hadoop本地模式安装</a>
           </li>
         
           <li>
-            <a href="/categories/hadoop/1009/">Hadoop环境搭建-第三部分 伪分布式模式安装</a>
-          </li>
-        
-          <li>
-            <a href="/categories/linux/9003/">第三章：管道符、重定向与环境变量</a>
+            <a href="/categories/linux/9001/">第一章：部署虚拟环境安装linux系统</a>
           </li>
         
       </ul>

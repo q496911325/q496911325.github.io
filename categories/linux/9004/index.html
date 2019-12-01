@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="王鹏">
 <meta property="og:description" content="本系列首页路径：linux就该这么学 一. Vim文本编辑器 三种模式命令模式：控制光标移动，可对文本进行复制、粘贴、删除和查找等工作输入模式：正常的文本录入末行模式：保存或退出文档，以及设置编辑环境  命令模式中常用命令  命令作用 dd将标准输出重定向到一个文件中(清空原有文件的数据) 5dd将错误输出重定向到一个文件中(清空原有文件的数据) yy将标准输出重定向到一个文件中(追加到原有内容的">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-01T10:25:01.804Z">
+<meta property="og:updated_time" content="2019-12-01T10:27:37.800Z">
 <meta name="twitter:card" content="summary">
   
   
@@ -88,7 +88,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9004/" data-id="ck3mv0cz2000en8tv2zltd11j" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9004/" data-id="ck3mv2edn000tvktv04l13a01" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -135,20 +135,19 @@
 
 <h3 id="三-配置网卡信息"><a href="#三-配置网卡信息" class="headerlink" title="三. 配置网卡信息"></a>三. 配置网卡信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-enoxxxxxx</span><br><span class="line"></span><br><span class="line">设备类型：TYPE=Ethernet</span><br><span class="line">地址分配模式：BOOTPROTO=static</span><br><span class="line">网卡名称：NAME=eno16777736</span><br><span class="line">是否启动：ONBOOT=yes</span><br><span class="line">IP地址：IPADDR=192.168.10.10</span><br><span class="line">子网掩码：NETMASK=255.255.255.0</span><br><span class="line">网关地址：GATEWAY=192.168.10.1</span><br><span class="line">DNS地址：DNS1=192.168.10.1</span><br><span class="line"></span><br><span class="line">systemctl restart network</span><br></pre></td></tr></table></figure>
 
-<h3 id="四-配置Yum软件仓库"><a href="#四-配置Yum软件仓库" class="headerlink" title="四. 配置Yum软件仓库"></a>四. 配置Yum软件仓库</h3><h3 id="五-编写SHELL脚本"><a href="#五-编写SHELL脚本" class="headerlink" title="五. 编写SHELL脚本"></a>五. 编写SHELL脚本</h3><p>##1. 接收用户的参数</p>
+<h3 id="四-配置Yum软件仓库"><a href="#四-配置Yum软件仓库" class="headerlink" title="四. 配置Yum软件仓库"></a>四. 配置Yum软件仓库</h3><h3 id="五-编写SHELL脚本"><a href="#五-编写SHELL脚本" class="headerlink" title="五. 编写SHELL脚本"></a>五. 编写SHELL脚本</h3><ol>
+<li><p>接收用户的参数</p>
 <table border="1">
-  <tr><th>命令</th><th>作用</th></tr>
-  <tr><td>$0</td><td>当前shell脚本程序的名称</td></tr>
-  <tr><td>$#</td><td>总共有几个参数</td></tr>
-  <tr><td>$*</td><td>所有位置的参数值</td></tr>
-  <tr><td>$?</td><td>显示上一次命令的执行返回值 0表示没有错误 其他任何值表明有错误</td></tr>
-  <tr><td>$n</td><td>n=1...9</td></tr>
-  <tr><td>$$</td><td>这个脚本程序的PID</td></tr>
-  <tr><td>$@</td><td>跟$*类似，但是可以当作数组用</td></tr>
+<tr><th>命令</th><th>作用</th></tr>
+<tr><td>$0</td><td>当前shell脚本程序的名称</td></tr>
+<tr><td>$#</td><td>总共有几个参数</td></tr>
+<tr><td>$*</td><td>所有位置的参数值</td></tr>
+<tr><td>$?</td><td>显示上一次命令的执行返回值 0表示没有错误 其他任何值表明有错误</td></tr>
+<tr><td>$n</td><td>n=1...9</td></tr>
+<tr><td>$$</td><td>这个脚本程序的PID</td></tr>
+<tr><td>$@</td><td>跟$*类似，但是可以当作数组用</td></tr>
 </table>
-
-<p>##2. 判断用户的参数</p>
-<ol>
+</li>
 <li><p>文件测试语句</p>
 <table border="1">
 <tr><th>命令</th><th>作用</th></tr>
@@ -215,8 +214,10 @@
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
+        <span class="nav-previous"><a href="/categories/java/9100/" rel="prev"><span class="meta-nav">←</span> JavaSE轻松入门基础视频教程</a></span>
     
-        <span class="nav-next"><a href="/categories/hadoop/1006/" rel="next">Hadoop环境搭建-首页 <span class="meta-nav">→</span></a></span>
+    
+        <span class="nav-next"><a href="/categories/hadoop/9200/" rel="next">大数据开发hadoop精讲 <span class="meta-nav">→</span></a></span>
     
 </nav><!-- .nav-single -->
 
@@ -256,7 +257,7 @@
       <ul>
         
           <li>
-            <a href="/categories/linux/9004/">第四章：Vim编辑器与Shell命令脚本</a>
+            <a href="/categories/hadoop/1011/">Hadoop环境搭建-第五部分 Hadoop HA安装</a>
           </li>
         
           <li>
@@ -264,15 +265,15 @@
           </li>
         
           <li>
+            <a href="/categories/hadoop/1010/">Hadoop环境搭建-第四部分 完全分布式模式安装</a>
+          </li>
+        
+          <li>
             <a href="/categories/hadoop/1008/">Hadoop环境搭建-第二部分 Hadoop本地模式安装</a>
           </li>
         
           <li>
-            <a href="/categories/hadoop/1009/">Hadoop环境搭建-第三部分 伪分布式模式安装</a>
-          </li>
-        
-          <li>
-            <a href="/categories/linux/9003/">第三章：管道符、重定向与环境变量</a>
+            <a href="/categories/linux/9001/">第一章：部署虚拟环境安装linux系统</a>
           </li>
         
       </ul>
