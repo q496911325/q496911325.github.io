@@ -18,15 +18,15 @@
   
   <title>第四章：Vim编辑器与Shell命令脚本 | 王鹏</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本系列首页路径：linux就该这么学 一. 输入输出重定向 输出重定向  符号作用 &amp;gt;将标准输出重定向到一个文件中(清空原有文件的数据) 2&amp;gt;将错误输出重定向到一个文件中(清空原有文件的数据) &amp;gt;&amp;gt;将标准输出重定向到一个文件中(追加到原有内容的后面) 2&amp;gt;&amp;gt;将错误输出重定向到一个文件中(追加到原有内容的后面) &amp;&amp;gt;将标准输出与错误输出共同写入到一个文件中(清空原有文件的数据) &amp;&amp;gt;&amp;gt;将标准输出与错">
+  <meta name="description" content="本系列首页路径：linux就该这么学 一. Vim文本编辑器 三种模式命令模式：控制光标移动，可对文本进行复制、粘贴、删除和查找等工作输入模式：正常的文本录入末行模式：保存或退出文档，以及设置编辑环境  命令模式中常用命令  命令作用 dd将标准输出重定向到一个文件中(清空原有文件的数据) 5dd将错误输出重定向到一个文件中(清空原有文件的数据) yy将标准输出重定向到一个文件中(追加到原有内容的">
 <meta name="keywords" content="博客,王鹏,王鹏的博客,大数据,hadoop">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第四章：Vim编辑器与Shell命令脚本">
 <meta property="og:url" content="https:&#x2F;&#x2F;wpblog.top&#x2F;categories&#x2F;linux&#x2F;9004&#x2F;index.html">
 <meta property="og:site_name" content="王鹏">
-<meta property="og:description" content="本系列首页路径：linux就该这么学 一. 输入输出重定向 输出重定向  符号作用 &amp;gt;将标准输出重定向到一个文件中(清空原有文件的数据) 2&amp;gt;将错误输出重定向到一个文件中(清空原有文件的数据) &amp;gt;&amp;gt;将标准输出重定向到一个文件中(追加到原有内容的后面) 2&amp;gt;&amp;gt;将错误输出重定向到一个文件中(追加到原有内容的后面) &amp;&amp;gt;将标准输出与错误输出共同写入到一个文件中(清空原有文件的数据) &amp;&amp;gt;&amp;gt;将标准输出与错">
+<meta property="og:description" content="本系列首页路径：linux就该这么学 一. Vim文本编辑器 三种模式命令模式：控制光标移动，可对文本进行复制、粘贴、删除和查找等工作输入模式：正常的文本录入末行模式：保存或退出文档，以及设置编辑环境  命令模式中常用命令  命令作用 dd将标准输出重定向到一个文件中(清空原有文件的数据) 5dd将错误输出重定向到一个文件中(清空原有文件的数据) yy将标准输出重定向到一个文件中(追加到原有内容的">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-04T06:53:34.033Z">
+<meta property="og:updated_time" content="2019-11-29T06:19:56.262Z">
 <meta name="twitter:card" content="summary">
   
   
@@ -88,29 +88,51 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9004/" data-id="ck2y67aox000ocotva68pawnk" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9004/" data-id="ck3mdwn4m000qe0tvd1fs3t88" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
         <p>本系列首页路径：<a href="/categories/linux/9000/">linux就该这么学</a></p>
-<h3 id="一-输入输出重定向"><a href="#一-输入输出重定向" class="headerlink" title="一. 输入输出重定向"></a>一. 输入输出重定向</h3><ol>
-<li><p>输出重定向</p>
+<h3 id="一-Vim文本编辑器"><a href="#一-Vim文本编辑器" class="headerlink" title="一. Vim文本编辑器"></a>一. Vim文本编辑器</h3><ol>
+<li><p>三种模式<br>命令模式：控制光标移动，可对文本进行复制、粘贴、删除和查找等工作<br>输入模式：正常的文本录入<br>末行模式：保存或退出文档，以及设置编辑环境</p>
+</li>
+<li><p>命令模式中常用命令</p>
 <table border="1">
-<tr><th>符号</th><th>作用</th></tr>
-<tr><td>></td><td>将标准输出重定向到一个文件中(清空原有文件的数据)</td></tr>
-<tr><td>2></td><td>将错误输出重定向到一个文件中(清空原有文件的数据)</td></tr>
-<tr><td>>></td><td>将标准输出重定向到一个文件中(追加到原有内容的后面)</td></tr>
-<tr><td>2>></td><td>将错误输出重定向到一个文件中(追加到原有内容的后面)</td></tr>
-<tr><td>&></td><td>将标准输出与错误输出共同写入到一个文件中(清空原有文件的数据)</td></tr>
-<tr><td>&>></td><td>将标准输出与错误输出共同写入到一个文件中(追加到原有内容的后面)</td></tr>
+<tr><th>命令</th><th>作用</th></tr>
+<tr><td>dd</td><td>将标准输出重定向到一个文件中(清空原有文件的数据)</td></tr>
+<tr><td>5dd</td><td>将错误输出重定向到一个文件中(清空原有文件的数据)</td></tr>
+<tr><td>yy</td><td>将标准输出重定向到一个文件中(追加到原有内容的后面)</td></tr>
+<tr><td>5yy></td><td>将错误输出重定向到一个文件中(追加到原有内容的后面)</td></tr>
+<tr><td>n</td><td>将标准输出与错误输出共同写入到一个文件中(清空原有文件的数据)</td></tr>
+<tr><td>N</td><td>将标准输出与错误输出共同写入到一个文件中(追加到原有内容的后面)</td></tr>
+<tr><td>u</td><td>将标准输出与错误输出共同写入到一个文件中(追加到原有内容的后面)</td></tr>
+<tr><td>p</td><td>将标准输出与错误输出共同写入到一个文件中(追加到原有内容的后面)</td></tr>
 </table>
 </li>
-<li><p>输入重定向</p>
+<li><p>末行模式中可用的命令</p>
+<table border="1">
+<tr><th>命令</th><th>作用</th></tr>
+<tr><td>:w</td><td>保存</td></tr>
+<tr><td>:q</td><td>退出</td></tr>
+<tr><td>:q!</td><td>强制退出(放弃对文档的修改内容)</td></tr>
+<tr><td>:wq!</td><td>强制保存退出</td></tr>
+<tr><td>set nu</td><td>显示行号</td></tr>
+<tr><td>set nonu</td><td>不显示行号</td></tr>
+<tr><td>:命令</td><td>执行该命令</td></tr>
+<tr><td>:整数</td><td>跳转到该行</td></tr>
+<tr><td>:s/one/two</td><td>将当前光标所在行的第一个one替换成two</td></tr>
+<tr><td>:s/one/two/g</td><td>将当前光标所在行的所有one替换成two</td></tr>
+<tr><td>:%s/one/two/g</td><td>将全文中的所有one替换成two</td></tr>
+<tr><td>?字符串</td><td>在文本中从下至上搜索该字符串</td></tr>
+<tr><td>/字符串</td><td>在文本中从上至下搜索该字符串</td></tr>
+</table>
+
+
 </li>
 </ol>
-<h3 id="二-管道命令符"><a href="#二-管道命令符" class="headerlink" title="二. 管道命令符"></a>二. 管道命令符</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">命令A | 命令B</span><br></pre></td></tr></table></figure>
+<h3 id="二-编写SHELL脚本"><a href="#二-编写SHELL脚本" class="headerlink" title="二. 编写SHELL脚本"></a>二. 编写SHELL脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">命令A | 命令B</span><br></pre></td></tr></table></figure>
 
       
     </div><!-- .entry-content -->
@@ -136,10 +158,10 @@
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
-        <span class="nav-previous"><a href="/categories/java/9100/" rel="prev"><span class="meta-nav">←</span> JavaSE轻松入门基础视频教程</a></span>
+        <span class="nav-previous"><a href="/categories/linux/9002/" rel="prev"><span class="meta-nav">←</span> 第二章：新手必须掌握的Linux命令</a></span>
     
     
-        <span class="nav-next"><a href="/categories/linux/9003/" rel="next">第三章：管道符、重定向与环境变量 <span class="meta-nav">→</span></a></span>
+        <span class="nav-next"><a href="/categories/java/9100/" rel="next">JavaSE轻松入门基础视频教程 <span class="meta-nav">→</span></a></span>
     
 </nav><!-- .nav-single -->
 
@@ -158,7 +180,7 @@
   <aside class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hadoop/">hadoop</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hadoop/">hadoop</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">5</span></li></ul>
     </div>
   </aside>
 
@@ -167,7 +189,7 @@
   <aside class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-content">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </aside>
 
@@ -179,11 +201,7 @@
       <ul>
         
           <li>
-            <a href="/categories/hadoop/1009/">Hadoop环境搭建-第三部分 伪分布式模式安装</a>
-          </li>
-        
-          <li>
-            <a href="/categories/hadoop/1011/">Hadoop环境搭建-第五部分 Hadoop HA安装</a>
+            <a href="/categories/linux/9001/">第一章：部署虚拟环境安装linux系统</a>
           </li>
         
           <li>
@@ -191,11 +209,15 @@
           </li>
         
           <li>
-            <a href="/categories/linux/9000/">linux就该这么学</a>
+            <a href="/categories/hadoop/1010/">Hadoop环境搭建-第四部分 完全分布式模式安装</a>
           </li>
         
           <li>
-            <a href="/categories/linux/9001/">第一章：部署虚拟环境安装linux系统</a>
+            <a href="/categories/hadoop/1011/">Hadoop环境搭建-第五部分 Hadoop HA安装</a>
+          </li>
+        
+          <li>
+            <a href="/categories/hadoop/1009/">Hadoop环境搭建-第三部分 伪分布式模式安装</a>
           </li>
         
       </ul>
