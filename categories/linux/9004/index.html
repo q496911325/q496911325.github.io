@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="王鹏">
 <meta property="og:description" content="本系列首页路径：linux就该这么学 一. Vim文本编辑器 三种模式命令模式：控制光标移动，可对文本进行复制、粘贴、删除和查找等工作输入模式：正常的文本录入末行模式：保存或退出文档，以及设置编辑环境  命令模式中常用命令  命令作用 dd将标准输出重定向到一个文件中(清空原有文件的数据) 5dd将错误输出重定向到一个文件中(清空原有文件的数据) yy将标准输出重定向到一个文件中(追加到原有内容的">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-29T06:19:56.262Z">
+<meta property="og:updated_time" content="2019-12-01T10:25:01.804Z">
 <meta name="twitter:card" content="summary">
   
   
@@ -88,7 +88,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9004/" data-id="ck3mdwn4m000qe0tvd1fs3t88" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9004/" data-id="ck3mv0cz2000en8tv2zltd11j" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -129,10 +129,67 @@
 <tr><td>/字符串</td><td>在文本中从上至下搜索该字符串</td></tr>
 </table>
 
+</li>
+</ol>
+<h3 id="二-配置主机名称"><a href="#二-配置主机名称" class="headerlink" title="二. 配置主机名称"></a>二. 配置主机名称</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hostname</span><br></pre></td></tr></table></figure>
+
+<h3 id="三-配置网卡信息"><a href="#三-配置网卡信息" class="headerlink" title="三. 配置网卡信息"></a>三. 配置网卡信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-enoxxxxxx</span><br><span class="line"></span><br><span class="line">设备类型：TYPE=Ethernet</span><br><span class="line">地址分配模式：BOOTPROTO=static</span><br><span class="line">网卡名称：NAME=eno16777736</span><br><span class="line">是否启动：ONBOOT=yes</span><br><span class="line">IP地址：IPADDR=192.168.10.10</span><br><span class="line">子网掩码：NETMASK=255.255.255.0</span><br><span class="line">网关地址：GATEWAY=192.168.10.1</span><br><span class="line">DNS地址：DNS1=192.168.10.1</span><br><span class="line"></span><br><span class="line">systemctl restart network</span><br></pre></td></tr></table></figure>
+
+<h3 id="四-配置Yum软件仓库"><a href="#四-配置Yum软件仓库" class="headerlink" title="四. 配置Yum软件仓库"></a>四. 配置Yum软件仓库</h3><h3 id="五-编写SHELL脚本"><a href="#五-编写SHELL脚本" class="headerlink" title="五. 编写SHELL脚本"></a>五. 编写SHELL脚本</h3><p>##1. 接收用户的参数</p>
+<table border="1">
+  <tr><th>命令</th><th>作用</th></tr>
+  <tr><td>$0</td><td>当前shell脚本程序的名称</td></tr>
+  <tr><td>$#</td><td>总共有几个参数</td></tr>
+  <tr><td>$*</td><td>所有位置的参数值</td></tr>
+  <tr><td>$?</td><td>显示上一次命令的执行返回值 0表示没有错误 其他任何值表明有错误</td></tr>
+  <tr><td>$n</td><td>n=1...9</td></tr>
+  <tr><td>$$</td><td>这个脚本程序的PID</td></tr>
+  <tr><td>$@</td><td>跟$*类似，但是可以当作数组用</td></tr>
+</table>
+
+<p>##2. 判断用户的参数</p>
+<ol>
+<li><p>文件测试语句</p>
+<table border="1">
+<tr><th>命令</th><th>作用</th></tr>
+<tr><td>-d</td><td>测试文件是否为目录类型</td></tr>
+<tr><td>-e</td><td>测试文件是否存在</td></tr>
+<tr><td>-f</td><td>判断是否为一般文件</td></tr>
+<tr><td>-r</td><td>测试当前用户是否有权限读取</td></tr>
+<tr><td>-w</td><td>测试当前用户是否有权限写入</td></tr>
+<tr><td>-x</td><td>测试当前用户是否有权限执行</td></tr>
+</table>
+</li>
+<li><p>逻辑测试语句</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&amp;&amp; 前面命令执行成功才会执行后面的命令</span><br><span class="line">|| 前面命令执行失败才会执行后面的命令</span><br><span class="line">! 得到的值取反</span><br><span class="line">[ -e /opt/aa ] &amp;&amp; <span class="built_in">echo</span> <span class="string">"true"</span> || <span class="built_in">echo</span> <span class="string">"false"</span></span><br><span class="line">[ ! -e /opt/aa ] &amp;&amp; <span class="built_in">echo</span> <span class="string">"true"</span> || <span class="built_in">echo</span> <span class="string">"false"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>整数值比较语句</p>
+<table border="1">
+<tr><th>运算符</th><th>作用</th></tr>
+<tr><td>-eq</td><td>是否等于</td></tr>
+<tr><td>-ne</td><td>是否不等于</td></tr>
+<tr><td>-gt</td><td>是否大于</td></tr>
+<tr><td>-lt</td><td>是否小于</td></tr>
+<tr><td>-le</td><td>是否等于或小于</td></tr>
+<tr><td>-ge</td><td>是否大于或小于</td></tr>
+</table>
+</li>
+<li><p>字符串比较语句</p>
+<table border="1">
+<tr><th>运算符</th><th>作用</th></tr>
+<tr><td>=</td><td>比较字符串内容是否相同</td></tr>
+<tr><td>!=</td><td>比较字符串内容是否不同</td></tr>
+<tr><td>-z</td><td>判断字符串是否为空</td></tr>
+</table>
+</li>
+<li><p>流程控制语句</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"enter you score(0-100):"</span> GRADE</span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$GRADE</span> -ge 85 ] &amp;&amp; [ <span class="variable">$GRADE</span> -le 100 ] ; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"85-100"</span></span><br><span class="line"><span class="keyword">elif</span> [ <span class="variable">$GRADE</span> -ge 60 ] &amp;&amp; [ <span class="variable">$GRADE</span> -lt 85 ] ; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"60-85"</span></span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line"><span class="built_in">echo</span> <span class="string">"不及格或输入错误"</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
-<h3 id="二-编写SHELL脚本"><a href="#二-编写SHELL脚本" class="headerlink" title="二. 编写SHELL脚本"></a>二. 编写SHELL脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">命令A | 命令B</span><br></pre></td></tr></table></figure>
+<p>for</p>
+<p>while</p>
+<p>case</p>
 
       
     </div><!-- .entry-content -->
@@ -158,10 +215,8 @@
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
-        <span class="nav-previous"><a href="/categories/linux/9002/" rel="prev"><span class="meta-nav">←</span> 第二章：新手必须掌握的Linux命令</a></span>
     
-    
-        <span class="nav-next"><a href="/categories/java/9100/" rel="next">JavaSE轻松入门基础视频教程 <span class="meta-nav">→</span></a></span>
+        <span class="nav-next"><a href="/categories/hadoop/1006/" rel="next">Hadoop环境搭建-首页 <span class="meta-nav">→</span></a></span>
     
 </nav><!-- .nav-single -->
 
@@ -201,7 +256,7 @@
       <ul>
         
           <li>
-            <a href="/categories/linux/9001/">第一章：部署虚拟环境安装linux系统</a>
+            <a href="/categories/linux/9004/">第四章：Vim编辑器与Shell命令脚本</a>
           </li>
         
           <li>
@@ -209,15 +264,15 @@
           </li>
         
           <li>
-            <a href="/categories/hadoop/1010/">Hadoop环境搭建-第四部分 完全分布式模式安装</a>
-          </li>
-        
-          <li>
-            <a href="/categories/hadoop/1011/">Hadoop环境搭建-第五部分 Hadoop HA安装</a>
+            <a href="/categories/hadoop/1008/">Hadoop环境搭建-第二部分 Hadoop本地模式安装</a>
           </li>
         
           <li>
             <a href="/categories/hadoop/1009/">Hadoop环境搭建-第三部分 伪分布式模式安装</a>
+          </li>
+        
+          <li>
+            <a href="/categories/linux/9003/">第三章：管道符、重定向与环境变量</a>
           </li>
         
       </ul>
