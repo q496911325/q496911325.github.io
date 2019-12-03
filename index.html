@@ -74,7 +74,7 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
-    <article id="post-9003-管道符、重定向与环境变量 - 副本" class="post-9003-管道符、重定向与环境变量 - 副本 post type-post status-publish format-standard hentry">
+    <article id="post-9000-linux就该这么学" class="post-9000-linux就该这么学 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -82,79 +82,26 @@
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/categories/linux/9003/">第三章：管道符、重定向与环境变量</a>
+      <a class="article-title" href="/categories/linux/9000/">linux就该这么学</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9003/" data-id="ck3p4mhjd000d7wtvh20fgui2" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9000/" data-id="ck3p4qjfo000euwtvgmiihmh8" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>本系列首页路径：<a href="/categories/linux/9000/">linux就该这么学</a></p>
-<h3 id="一-输入输出重定向"><a href="#一-输入输出重定向" class="headerlink" title="一. 输入输出重定向"></a>一. 输入输出重定向</h3><ol>
-<li><p>输出重定向</p>
-<table border="1">
-<tr><th>符号</th><th>作用</th></tr>
-<tr><td>></td><td>将标准输出重定向到一个文件中(清空原有文件的数据)</td></tr>
-<tr><td>2></td><td>将错误输出重定向到一个文件中(清空原有文件的数据)</td></tr>
-<tr><td>>></td><td>将标准输出重定向到一个文件中(追加到原有内容的后面)</td></tr>
-<tr><td>2>></td><td>将错误输出重定向到一个文件中(追加到原有内容的后面)</td></tr>
-<tr><td>&></td><td>将标准输出与错误输出共同写入到一个文件中(清空原有文件的数据)</td></tr>
-<tr><td>&>></td><td>将标准输出与错误输出共同写入到一个文件中(追加到原有内容的后面)</td></tr>
-</table>
-</li>
-<li><p>输入重定向</p>
-<table border="1">
-<tr><th>符号</th><th>作用</th></tr>
-<tr><td>命令 < 文件</td><td>将文件作为命令的标准输入</td></tr>
-<tr><td>命令 << 分界符</td><td>从标准输入中读入，知道遇见分界符才停止</td></tr>
-</table>
-
-</li>
-</ol>
-<h3 id="二-管道命令符"><a href="#二-管道命令符" class="headerlink" title="二. 管道命令符"></a>二. 管道命令符</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">命令A | 命令B</span><br></pre></td></tr></table></figure>
-
-<h3 id="三-命令行的通配符"><a href="#三-命令行的通配符" class="headerlink" title="三. 命令行的通配符"></a>三. 命令行的通配符</h3><table border="1">
-  <tr><th>符号</th><th>作用</th></tr>
-  <tr><td>*</td><td>匹配0或多个字符</td></tr>
-  <tr><td>?</td><td>匹配单个字符</td></tr>
-  <tr><td>[0-9]或者[a-z]</td><td>匹配0~9任意单个数字或者a~z任意单个字符</td></tr>
-</table>
-
-<h3 id="四-常用的转义字符"><a href="#四-常用的转义字符" class="headerlink" title="四. 常用的转义字符"></a>四. 常用的转义字符</h3><table border="1">
-  <tr><th>符号</th><th>作用</th></tr>
-  <tr><td>\</td><td>使反斜杠后面的一个变量变为单纯的字符串</td></tr>
-  <tr><td>' '</td><td>转义其中所有的变量为单纯的字符串</td></tr>
-  <tr><td>" "</td><td>保留其中的变量属性，不进行转义处理</td></tr>
-  <tr><td>` `</td><td>把其中的命令执行后返回结果</td></tr>
-</table>
-
-<h3 id="五-重要的环境变量"><a href="#五-重要的环境变量" class="headerlink" title="五. 重要的环境变量"></a>五. 重要的环境变量</h3><p>自定义别名命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> 别名=<span class="string">'命令'</span></span><br><span class="line"><span class="built_in">unalias</span> 别名(删除别名)</span><br><span class="line">例子：<span class="built_in">alias</span> cd1=<span class="string">'cd'</span>(终端级，关掉终端就没有了)</span><br><span class="line">vim ~/.bashrc(用户级，针对单个用户)</span><br><span class="line">vim /etc/bashrc(系统级，针对所有用户)</span><br></pre></td></tr></table></figure>
-<table border="1">
-  <tr><th>变量名称</th><th>作用</th></tr>
-  <tr><td>HOME</td><td>用户的主目录(即家目录)</td></tr>
-  <tr><td>SHELL</td><td>用户在使用的SHELL解释器名称</td></tr>
-  <tr><td>HISTSIZE</td><td>输出的历史命令记录条数</td></tr>
-  <tr><td>HISTFILESIZE</td><td>保存的历史命令记录条数</td></tr>
-  <tr><td>MAIL</td><td>邮件保存路径</td></tr>
-  <tr><td>LANG</td><td>系统语言、语系名称</td></tr>
-  <tr><td>RANDOM</td><td>生成一个随机数字</td></tr>
-  <tr><td>PS1</td><td>Bash解释器的提示符</td></tr>
-  <tr><td>PATH</td><td>定义解释器搜索用户执行命令的路径</td></tr>
-  <tr><td>EDITOR</td><td>用户默认的文本编辑器</td></tr>
-</table>
+        <p>第一章：<a href="/categories/linux/9001/">部署虚拟环境安装linux系统</a><br>第二章：<a href="/categories/linux/9002/">新手必须掌握的Linux命令</a><br>第三章：<a href="/categories/linux/9003/">管道符、重定向与环境变量</a><br>第四章：<a href="/categories/linux/9004/">Vim编辑器与Shell命令脚本</a><br>第五章：<a href="/categories/linux/9005/">用户身份与文件权限</a><br>第六章：<a href="/categories/linux/9006/">存储结构与硬盘划分</a><br>第七章：<a href="/categories/linux/9007/">使用RAID与LVM磁盘阵列技术</a><br>第八章：<a href="/categories/linux/9008/">iptables与firewalld防火墙</a><br>第九章：<a href="/categories/linux/9009/">使用ssh服务管理远程主机</a><br>第十章：<a href="/categories/linux/9010/">使用Apache服务部署静态网站</a><br>第十一章：<a href="/categories/linux/9011/">使用vsftpd服务传输文件</a><br>第十二章：<a href="/categories/linux/9012/">使用Samba或NFS实现文件共享</a><br>第十三章：<a href="/categories/linux/9013/">使用BIND提供域名解析服务</a><br>第十四章：<a href="/categories/linux/9014/">使用DHCP动态管理主机地址</a><br>第十五章：<a href="/categories/linux/9015/">使用Postfix与Dovecot部署邮件系统</a><br>第十六章：<a href="/categories/linux/9016/">使用Squid部署代理缓存服务</a><br>第十七章：<a href="/categories/linux/9017/">使用iSCSI服务部署网络存储</a><br>第十八章：<a href="/categories/linux/9018/">使用MariaDB数据库管理系统</a><br>第十九章：<a href="/categories/linux/9019/">使用PXE+Kickstart无人值守安装服务</a><br>第二十章：<a href="/categories/linux/9020/">使用LNMP架构部署动态网站环境</a></p>
 
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/categories/linux/9003/">
+    <a href="/categories/linux/9000/">
     <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
         2019-10-22
     </time>
@@ -166,6 +113,9 @@
   </div>
 
     
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a></li></ul>
+
     </footer>
 </article>
 
@@ -190,7 +140,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1008/" data-id="ck3p4mhit00007wtvcjkt0bsh" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1008/" data-id="ck3p4qjf60000uwtv5720eekl" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -283,7 +233,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1011/" data-id="ck3p4mhj600057wtv7rmshp8i" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1011/" data-id="ck3p4qjfh0006uwtv45k0brat" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -325,58 +275,6 @@
 
 
   
-    <article id="post-1010-Hadoop环境搭建-第四部分 完全分布式模式安装" class="post-1010-Hadoop环境搭建-第四部分 完全分布式模式安装 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/categories/hadoop/1010/">Hadoop环境搭建-第四部分 完全分布式模式安装</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1010/" data-id="ck3p4mhj700067wtv2uk30qnv" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>本系列首页：<a href="/categories/hadoop/1006/">Hadoop环境搭建</a></p>
-<h2 id="第一部分、linux环境安装"><a href="#第一部分、linux环境安装" class="headerlink" title="第一部分、linux环境安装"></a>第一部分、linux环境安装</h2><h3 id="第一步、配置Vmware-NAT网络"><a href="#第一步、配置Vmware-NAT网络" class="headerlink" title="第一步、配置Vmware NAT网络"></a>第一步、配置Vmware NAT网络</h3><h4 id="一、Vmware网络模式介绍"><a href="#一、Vmware网络模式介绍" class="headerlink" title="一、Vmware网络模式介绍"></a>一、Vmware网络模式介绍</h4><p>参考：<a href="https://blog.csdn.net/collection4u/article/details/14127671" target="_blank" rel="noopener">https://blog.csdn.net/collection4u/article/details/14127671</a></p>
-<h4 id="二、NAT模式配置"><a href="#二、NAT模式配置" class="headerlink" title="二、NAT模式配置"></a>二、NAT模式配置</h4><h5 id="1、aabbc"><a href="#1、aabbc" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/categories/hadoop/1010/">
-    <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
-        2019-10-22
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/hadoop/">hadoop</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
     <article id="post-1009-Hadoop环境搭建-第三部分 伪分布式模式安装" class="post-1009-Hadoop环境搭建-第三部分 伪分布式模式安装 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -392,7 +290,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1009/" data-id="ck3p4mhj900077wtvfkqhaatb" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1009/" data-id="ck3p4qjfi0007uwtv3mp04n74" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -513,7 +411,7 @@
 
 
   
-    <article id="post-9000-linux就该这么学" class="post-9000-linux就该这么学 post type-post status-publish format-standard hentry">
+    <article id="post-1010-Hadoop环境搭建-第四部分 完全分布式模式安装" class="post-1010-Hadoop环境搭建-第四部分 完全分布式模式安装 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -521,26 +419,149 @@
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/categories/linux/9000/">linux就该这么学</a>
+      <a class="article-title" href="/categories/hadoop/1010/">Hadoop环境搭建-第四部分 完全分布式模式安装</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9000/" data-id="ck3p4mhjb000b7wtv2djd6o5o" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1010/" data-id="ck3p4qjfj0008uwtv0jnlcawo" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>第一章：<a href="/categories/linux/9001/">部署虚拟环境安装linux系统</a><br>第二章：<a href="/categories/linux/9002/">新手必须掌握的Linux命令</a><br>第三章：<a href="/categories/linux/9003/">管道符、重定向与环境变量</a><br>第四章：<a href="/categories/linux/9004/">Vim编辑器与Shell命令脚本</a><br>第五章：<a href="/categories/linux/9005/">用户身份与文件权限</a><br>第六章：<a href="/categories/linux/9006/">存储结构与硬盘划分</a><br>第七章：<a href="/categories/linux/9007/">使用RAID与LVM磁盘阵列技术</a><br>第八章：<a href="/categories/linux/9008/">iptables与firewalld防火墙</a><br>第九章：<a href="/categories/linux/9009/">使用ssh服务管理远程主机</a><br>第十章：<a href="/categories/linux/9010/">使用Apache服务部署静态网站</a><br>第十一章：<a href="/categories/linux/9011/">使用vsftpd服务传输文件</a><br>第十二章：<a href="/categories/linux/9012/">使用Samba或NFS实现文件共享</a><br>第十三章：<a href="/categories/linux/9013/">使用BIND提供域名解析服务</a><br>第十四章：<a href="/categories/linux/9014/">使用DHCP动态管理主机地址</a><br>第十五章：<a href="/categories/linux/9015/">使用Postfix与Dovecot部署邮件系统</a><br>第十六章：<a href="/categories/linux/9016/">使用Squid部署代理缓存服务</a><br>第十七章：<a href="/categories/linux/9017/">使用iSCSI服务部署网络存储</a><br>第十八章：<a href="/categories/linux/9018/">使用MariaDB数据库管理系统</a><br>第十九章：<a href="/categories/linux/9019/">使用PXE+Kickstart无人值守安装服务</a><br>第二十章：<a href="/categories/linux/9020/">使用LNMP架构部署动态网站环境</a></p>
+        <p>本系列首页：<a href="/categories/hadoop/1006/">Hadoop环境搭建</a></p>
+<h2 id="第一部分、linux环境安装"><a href="#第一部分、linux环境安装" class="headerlink" title="第一部分、linux环境安装"></a>第一部分、linux环境安装</h2><h3 id="第一步、配置Vmware-NAT网络"><a href="#第一步、配置Vmware-NAT网络" class="headerlink" title="第一步、配置Vmware NAT网络"></a>第一步、配置Vmware NAT网络</h3><h4 id="一、Vmware网络模式介绍"><a href="#一、Vmware网络模式介绍" class="headerlink" title="一、Vmware网络模式介绍"></a>一、Vmware网络模式介绍</h4><p>参考：<a href="https://blog.csdn.net/collection4u/article/details/14127671" target="_blank" rel="noopener">https://blog.csdn.net/collection4u/article/details/14127671</a></p>
+<h4 id="二、NAT模式配置"><a href="#二、NAT模式配置" class="headerlink" title="二、NAT模式配置"></a>二、NAT模式配置</h4><h5 id="1、aabbc"><a href="#1、aabbc" class="headerlink" title="1、aabbc"></a>1、aabbc</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim</span><br></pre></td></tr></table></figure>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/categories/hadoop/1010/">
+    <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
+        2019-10-22
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/hadoop/">hadoop</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-9001-部署虚拟环境安装linux系统" class="post-9001-部署虚拟环境安装linux系统 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/categories/linux/9001/">第一章：部署虚拟环境安装linux系统</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9001/" data-id="ck3p4qjfm000cuwtved1n7o64" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>本系列首页路径：<a href="/categories/linux/9000/">linux就该这么学</a></p>
+<h3 id="一-重置root管理员密码"><a href="#一-重置root管理员密码" class="headerlink" title="一. 重置root管理员密码"></a>一. 重置root管理员密码</h3><ol>
+<li>查询系统版本<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/redhat-release</span><br></pre></td></tr></table></figure></li>
+<li>reboot重启主机，出现引导界面时按下e键进入内核编辑界面</li>
+<li>在linux16这行参数的最后面追加rd.break，然后按下ctrl+X组合键来运行修改过的内核程序。</li>
+<li>依次输入一下命令<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mount -o remount,rw /sysroot</span><br><span class="line">chroot /sysroot</span><br><span class="line">passwd</span><br><span class="line"><span class="comment"># 这里输入新的root密码</span></span><br><span class="line"><span class="comment"># 这里再输入一次</span></span><br><span class="line">touch /.autorelabel</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="二-rpm软件包管理器"><a href="#二-rpm软件包管理器" class="headerlink" title="二. rpm软件包管理器"></a>二. rpm软件包管理器</h3><table border="1">
+  <tr><th>命令</th><th>描述</th></tr>
+  <tr><td>rpm -ivh filename.rpm</td><td>安装软件的命令格式</td></tr>
+  <tr><td>rpm -Uvh filename.rpm</td><td>升级软件的命令格式</td></tr>
+  <tr><td>rpm -e filename.rpm</td><td>卸载软件的命令格式</td></tr>
+  <tr><td>rpm -qpi filename.rpm</td><td>查询软件描述信息的命令格式</td></tr>
+  <tr><td>rpm -qpl filename.rpm</td><td>列出软件文件信息的命令格式</td></tr>
+  <tr><td>rpm -qf filename</td><td></td>查询文件属于哪个RPM的命令格式</tr>
+  <tr><td>rpm -qa </td><td>列出所有安装过的包</td></tr>
+  <tr><td>rpm -qa | grep sql</td><td>列出包含指定sql的包</td></tr>
+</table>
+
+<h3 id="三-yum软件仓库"><a href="#三-yum软件仓库" class="headerlink" title="三. yum软件仓库"></a>三. yum软件仓库</h3><table border="1">
+  <tr><th>命令</th><th>描述</th></tr>
+  <tr><td>yum repolist all</td><td>列出所有仓库</td></tr>
+  <tr><td>yum list all</td><td>列出仓库中所有软件包</td></tr>
+  <tr><td>yum info 软件包名称</td><td>查看软件包信息</td></tr>
+  <tr><td>yum install 软件包名称</td><td>安装软件包</td></tr>
+  <tr><td>yum reinstall 软件包名称</td><td>重新安装软件包</td></tr>
+  <tr><td>yum update 软件包名称</td><td>升级软件包</td></tr>
+  <tr><td>yum remove 软件包名称</td><td>移除软件包</td></tr>
+  <tr><td>yum clean all </td><td>清除所有仓库缓存</td></tr>
+  <tr><td>yum check-update </td><td>检查可更新的软件包</td></tr>
+  <tr><td>yum grouplist</td><td>查看系统中已经安装的软件包组</td></tr>
+  <tr><td>yum groupinstall 软件包组</td><td>安装指定的软件包组</td></tr>
+  <tr><td>yum groupremove 软件包组</td><td>移除指定的软件包组</td></tr>
+  <tr><td>yum groupinfo 软件包组</td><td>查询指定的软件包组信息</td></tr>
+</table>
+
+<h3 id="四-systemd初始化进程"><a href="#四-systemd初始化进程" class="headerlink" title="四. systemd初始化进程"></a>四. systemd初始化进程</h3><ol>
+<li><p>systemd与System V init的区别以及作用</p>
+<table border="1">
+<tr><th>System V init运行级别</th><th>systemd目录名称</th><th>作用</th></tr>
+<tr><td>0</td><td>runlevel0</td><td>关机</td></tr>
+<tr><td>1</td><td>runlevel1</td><td>单用户模式</td></tr>
+<tr><td>2</td><td>runlevel2</td><td>等同于级别3</td></tr>
+<tr><td>3</td><td>runlevel3</td><td>多用户的文本界面</td></tr>
+<tr><td>4</td><td>runlevel4</td><td>等同于级别3</td></tr>
+<tr><td>5</td><td>runlevel5</td><td>多用户的图形界面</td></tr>
+<tr><td>6</td><td>runlevel6</td><td>重启</td></tr>
+<tr><td>emergency</td><td>emergency.target</td><td>紧急Shell</td></tr>
+</table>
+</li>
+<li><p>systemctl管理服务的启动、重启、停止、重载、查看状态等常用命令</p>
+<table border="1">
+<tr><th>System V init命令</th><th>systemctl命令</th><th>作用</th></tr>
+<tr><td>service foo start</td><td>systemctl start foo.service</td><td>启动服务</td></tr>
+<tr><td>service foo restart</td><td>systemctl restart foo.service</td><td>重启服务</td></tr>
+<tr><td>service foo stop</td><td>systemctl stop foo.service</td><td>停止服务</td></tr>
+<tr><td>service foo reload</td><td>systemctl reload foo.service</td><td>重新加载配置文件(不终止服务)</td></tr>
+<tr><td>service foo status</td><td>systemctl status foo.service</td><td>查看服务状态</td></tr>
+</table>
+</li>
+<li><p>systemctl设置服务开机启动、不启动、查看各级别下服务启动状态等常用命令</p>
+<table border="1">
+<tr><th>System V init命令</th><th>systemctl命令</th><th>作用</th></tr>
+<tr><td>chkconfig foo on</td><td>systemctl enable foo.service</td><td>开机自动启动</td></tr>
+<tr><td>chkconfig foo off</td><td>systemctl disable foo.service</td><td>开机不自动启动</td></tr>
+<tr><td>chkconfig foo</td><td>systemctl is-enable foo.service</td><td>查看特定服务是否为开机自动启动</td></tr>
+<tr><td>chkconfig --list</td><td>systemctl list-unit-files --type=service</td><td>查看各个级别下服务的启动和禁用情况</td></tr>
+</table>
+</li>
+</ol>
 
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/categories/linux/9000/">
+    <a href="/categories/linux/9001/">
     <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
         2019-10-22
     </time>
@@ -552,9 +573,6 @@
   </div>
 
     
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a></li></ul>
-
     </footer>
 </article>
 
@@ -579,7 +597,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1006/" data-id="ck3p4mhj200027wtv3vkb3iwq" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/1006/" data-id="ck3p4qjfd0002uwtv9pl14yn3" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -638,6 +656,107 @@
 
 
   
+    <article id="post-9003-管道符、重定向与环境变量 - 副本" class="post-9003-管道符、重定向与环境变量 - 副本 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/categories/linux/9003/">第三章：管道符、重定向与环境变量</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9003/" data-id="ck3p4qjfr000juwtv0af5bq6m" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>本系列首页路径：<a href="/categories/linux/9000/">linux就该这么学</a></p>
+<h3 id="一-输入输出重定向"><a href="#一-输入输出重定向" class="headerlink" title="一. 输入输出重定向"></a>一. 输入输出重定向</h3><ol>
+<li><p>输出重定向</p>
+<table border="1">
+<tr><th>符号</th><th>作用</th></tr>
+<tr><td>></td><td>将标准输出重定向到一个文件中(清空原有文件的数据)</td></tr>
+<tr><td>2></td><td>将错误输出重定向到一个文件中(清空原有文件的数据)</td></tr>
+<tr><td>>></td><td>将标准输出重定向到一个文件中(追加到原有内容的后面)</td></tr>
+<tr><td>2>></td><td>将错误输出重定向到一个文件中(追加到原有内容的后面)</td></tr>
+<tr><td>&></td><td>将标准输出与错误输出共同写入到一个文件中(清空原有文件的数据)</td></tr>
+<tr><td>&>></td><td>将标准输出与错误输出共同写入到一个文件中(追加到原有内容的后面)</td></tr>
+</table>
+</li>
+<li><p>输入重定向</p>
+<table border="1">
+<tr><th>符号</th><th>作用</th></tr>
+<tr><td>命令 < 文件</td><td>将文件作为命令的标准输入</td></tr>
+<tr><td>命令 << 分界符</td><td>从标准输入中读入，知道遇见分界符才停止</td></tr>
+</table>
+
+</li>
+</ol>
+<h3 id="二-管道命令符"><a href="#二-管道命令符" class="headerlink" title="二. 管道命令符"></a>二. 管道命令符</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">命令A | 命令B</span><br></pre></td></tr></table></figure>
+
+<h3 id="三-命令行的通配符"><a href="#三-命令行的通配符" class="headerlink" title="三. 命令行的通配符"></a>三. 命令行的通配符</h3><table border="1">
+  <tr><th>符号</th><th>作用</th></tr>
+  <tr><td>*</td><td>匹配0或多个字符</td></tr>
+  <tr><td>?</td><td>匹配单个字符</td></tr>
+  <tr><td>[0-9]或者[a-z]</td><td>匹配0~9任意单个数字或者a~z任意单个字符</td></tr>
+</table>
+
+<h3 id="四-常用的转义字符"><a href="#四-常用的转义字符" class="headerlink" title="四. 常用的转义字符"></a>四. 常用的转义字符</h3><table border="1">
+  <tr><th>符号</th><th>作用</th></tr>
+  <tr><td>\</td><td>使反斜杠后面的一个变量变为单纯的字符串</td></tr>
+  <tr><td>' '</td><td>转义其中所有的变量为单纯的字符串</td></tr>
+  <tr><td>" "</td><td>保留其中的变量属性，不进行转义处理</td></tr>
+  <tr><td>` `</td><td>把其中的命令执行后返回结果</td></tr>
+</table>
+
+<h3 id="五-重要的环境变量"><a href="#五-重要的环境变量" class="headerlink" title="五. 重要的环境变量"></a>五. 重要的环境变量</h3><p>自定义别名命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> 别名=<span class="string">'命令'</span></span><br><span class="line"><span class="built_in">unalias</span> 别名(删除别名)</span><br><span class="line">例子：<span class="built_in">alias</span> cd1=<span class="string">'cd'</span>(终端级，关掉终端就没有了)</span><br><span class="line">vim ~/.bashrc(用户级，针对单个用户)</span><br><span class="line">vim /etc/bashrc(系统级，针对所有用户)</span><br></pre></td></tr></table></figure>
+<table border="1">
+  <tr><th>变量名称</th><th>作用</th></tr>
+  <tr><td>HOME</td><td>用户的主目录(即家目录)</td></tr>
+  <tr><td>SHELL</td><td>用户在使用的SHELL解释器名称</td></tr>
+  <tr><td>HISTSIZE</td><td>输出的历史命令记录条数</td></tr>
+  <tr><td>HISTFILESIZE</td><td>保存的历史命令记录条数</td></tr>
+  <tr><td>MAIL</td><td>邮件保存路径</td></tr>
+  <tr><td>LANG</td><td>系统语言、语系名称</td></tr>
+  <tr><td>RANDOM</td><td>生成一个随机数字</td></tr>
+  <tr><td>PS1</td><td>Bash解释器的提示符</td></tr>
+  <tr><td>PATH</td><td>定义解释器搜索用户执行命令的路径</td></tr>
+  <tr><td>EDITOR</td><td>用户默认的文本编辑器</td></tr>
+</table>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/categories/linux/9003/">
+    <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
+        2019-10-22
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-9002-新手必须掌握的Linux命令" class="post-9002-新手必须掌握的Linux命令 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -653,7 +772,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9002/" data-id="ck3p4mhjg000i7wtv7fhudskz" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9002/" data-id="ck3p4qjfs000muwtvao5h8jvy" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -908,125 +1027,6 @@
 
 
   
-    <article id="post-9001-部署虚拟环境安装linux系统" class="post-9001-部署虚拟环境安装linux系统 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/categories/linux/9001/">第一章：部署虚拟环境安装linux系统</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9001/" data-id="ck3p4mhjh000l7wtv78zcffqr" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>本系列首页路径：<a href="/categories/linux/9000/">linux就该这么学</a></p>
-<h3 id="一-重置root管理员密码"><a href="#一-重置root管理员密码" class="headerlink" title="一. 重置root管理员密码"></a>一. 重置root管理员密码</h3><ol>
-<li>查询系统版本<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/redhat-release</span><br></pre></td></tr></table></figure></li>
-<li>reboot重启主机，出现引导界面时按下e键进入内核编辑界面</li>
-<li>在linux16这行参数的最后面追加rd.break，然后按下ctrl+X组合键来运行修改过的内核程序。</li>
-<li>依次输入一下命令<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mount -o remount,rw /sysroot</span><br><span class="line">chroot /sysroot</span><br><span class="line">passwd</span><br><span class="line"><span class="comment"># 这里输入新的root密码</span></span><br><span class="line"><span class="comment"># 这里再输入一次</span></span><br><span class="line">touch /.autorelabel</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="二-rpm软件包管理器"><a href="#二-rpm软件包管理器" class="headerlink" title="二. rpm软件包管理器"></a>二. rpm软件包管理器</h3><table border="1">
-  <tr><th>命令</th><th>描述</th></tr>
-  <tr><td>rpm -ivh filename.rpm</td><td>安装软件的命令格式</td></tr>
-  <tr><td>rpm -Uvh filename.rpm</td><td>升级软件的命令格式</td></tr>
-  <tr><td>rpm -e filename.rpm</td><td>卸载软件的命令格式</td></tr>
-  <tr><td>rpm -qpi filename.rpm</td><td>查询软件描述信息的命令格式</td></tr>
-  <tr><td>rpm -qpl filename.rpm</td><td>列出软件文件信息的命令格式</td></tr>
-  <tr><td>rpm -qf filename</td><td></td>查询文件属于哪个RPM的命令格式</tr>
-  <tr><td>rpm -qa </td><td>列出所有安装过的包</td></tr>
-  <tr><td>rpm -qa | grep sql</td><td>列出包含指定sql的包</td></tr>
-</table>
-
-<h3 id="三-yum软件仓库"><a href="#三-yum软件仓库" class="headerlink" title="三. yum软件仓库"></a>三. yum软件仓库</h3><table border="1">
-  <tr><th>命令</th><th>描述</th></tr>
-  <tr><td>yum repolist all</td><td>列出所有仓库</td></tr>
-  <tr><td>yum list all</td><td>列出仓库中所有软件包</td></tr>
-  <tr><td>yum info 软件包名称</td><td>查看软件包信息</td></tr>
-  <tr><td>yum install 软件包名称</td><td>安装软件包</td></tr>
-  <tr><td>yum reinstall 软件包名称</td><td>重新安装软件包</td></tr>
-  <tr><td>yum update 软件包名称</td><td>升级软件包</td></tr>
-  <tr><td>yum remove 软件包名称</td><td>移除软件包</td></tr>
-  <tr><td>yum clean all </td><td>清除所有仓库缓存</td></tr>
-  <tr><td>yum check-update </td><td>检查可更新的软件包</td></tr>
-  <tr><td>yum grouplist</td><td>查看系统中已经安装的软件包组</td></tr>
-  <tr><td>yum groupinstall 软件包组</td><td>安装指定的软件包组</td></tr>
-  <tr><td>yum groupremove 软件包组</td><td>移除指定的软件包组</td></tr>
-  <tr><td>yum groupinfo 软件包组</td><td>查询指定的软件包组信息</td></tr>
-</table>
-
-<h3 id="四-systemd初始化进程"><a href="#四-systemd初始化进程" class="headerlink" title="四. systemd初始化进程"></a>四. systemd初始化进程</h3><ol>
-<li><p>systemd与System V init的区别以及作用</p>
-<table border="1">
-<tr><th>System V init运行级别</th><th>systemd目录名称</th><th>作用</th></tr>
-<tr><td>0</td><td>runlevel0</td><td>关机</td></tr>
-<tr><td>1</td><td>runlevel1</td><td>单用户模式</td></tr>
-<tr><td>2</td><td>runlevel2</td><td>等同于级别3</td></tr>
-<tr><td>3</td><td>runlevel3</td><td>多用户的文本界面</td></tr>
-<tr><td>4</td><td>runlevel4</td><td>等同于级别3</td></tr>
-<tr><td>5</td><td>runlevel5</td><td>多用户的图形界面</td></tr>
-<tr><td>6</td><td>runlevel6</td><td>重启</td></tr>
-<tr><td>emergency</td><td>emergency.target</td><td>紧急Shell</td></tr>
-</table>
-</li>
-<li><p>systemctl管理服务的启动、重启、停止、重载、查看状态等常用命令</p>
-<table border="1">
-<tr><th>System V init命令</th><th>systemctl命令</th><th>作用</th></tr>
-<tr><td>service foo start</td><td>systemctl start foo.service</td><td>启动服务</td></tr>
-<tr><td>service foo restart</td><td>systemctl restart foo.service</td><td>重启服务</td></tr>
-<tr><td>service foo stop</td><td>systemctl stop foo.service</td><td>停止服务</td></tr>
-<tr><td>service foo reload</td><td>systemctl reload foo.service</td><td>重新加载配置文件(不终止服务)</td></tr>
-<tr><td>service foo status</td><td>systemctl status foo.service</td><td>查看服务状态</td></tr>
-</table>
-</li>
-<li><p>systemctl设置服务开机启动、不启动、查看各级别下服务启动状态等常用命令</p>
-<table border="1">
-<tr><th>System V init命令</th><th>systemctl命令</th><th>作用</th></tr>
-<tr><td>chkconfig foo on</td><td>systemctl enable foo.service</td><td>开机自动启动</td></tr>
-<tr><td>chkconfig foo off</td><td>systemctl disable foo.service</td><td>开机不自动启动</td></tr>
-<tr><td>chkconfig foo</td><td>systemctl is-enable foo.service</td><td>查看特定服务是否为开机自动启动</td></tr>
-<tr><td>chkconfig --list</td><td>systemctl list-unit-files --type=service</td><td>查看各个级别下服务的启动和禁用情况</td></tr>
-</table>
-</li>
-</ol>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/categories/linux/9001/">
-    <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
-        2019-10-22
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/linux/">linux</a>
-  </div>
-
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
     <article id="post-9004-Vim编辑器与Shell命令脚本" class="post-9004-Vim编辑器与Shell命令脚本 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -1042,7 +1042,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9004/" data-id="ck3p4mhjk000q7wtv9f2x8yep" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9004/" data-id="ck3p4qjfv000ruwtv7hoabcay" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -1136,16 +1136,10 @@
 </table>
 </li>
 <li><p>流程控制语句(if for while case)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">if</span> [ 条件1 ] &amp;&amp; [ 条件2 ] ; <span class="keyword">then</span></span><br><span class="line">	代码块</span><br><span class="line"><span class="keyword">elif</span> [ 条件1 ] &amp;&amp; [ 条件2 ] ; <span class="keyword">then</span></span><br><span class="line">	代码块</span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line">	代码块</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">if</span> [ 条件1 ] &amp;&amp; [ 条件2 ] ; <span class="keyword">then</span></span><br><span class="line">	代码块</span><br><span class="line"><span class="keyword">elif</span> [ 条件1 ] &amp;&amp; [ 条件2 ] ; <span class="keyword">then</span></span><br><span class="line">	代码块</span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line">	代码块</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">-----------------------------------------------------------</span><br><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">for</span> UNAME <span class="keyword">in</span> `cat users.txt`</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="variable">$UNAME</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">-----------------------------------------------------------</span><br><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">TIMES=0</span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$TIMES</span> -eq 10 ] ; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">exit</span> 0</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$TIMES</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">let</span> TIMES++</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">-----------------------------------------------------------</span><br><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"请输入一个字符，并按enter键结束："</span> KEY</span><br><span class="line"><span class="keyword">case</span> <span class="variable">$KEY</span> <span class="keyword">in</span></span><br><span class="line">[a-z]|[A-Z])</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"字母"</span></span><br><span class="line">;;</span><br><span class="line">[0-9])</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"数字"</span></span><br><span class="line">;;</span><br><span class="line">*)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"其他"</span></span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">for</span> UNAME <span class="keyword">in</span> `cat users.txt`</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="variable">$UNAME</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">TIMES=0</span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$TIMES</span> -eq 10 ] ; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">exit</span> 0</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$TIMES</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">let</span> TIMES++</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"请输入一个字符，并按enter键结束："</span> KEY</span><br><span class="line"><span class="keyword">case</span> <span class="variable">$KEY</span> <span class="keyword">in</span></span><br><span class="line">[a-z]|[A-Z])</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"字母"</span></span><br><span class="line">;;</span><br><span class="line">[0-9])</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"数字"</span></span><br><span class="line">;;</span><br><span class="line">*)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"其他"</span></span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="六-计划任务服务程序"><a href="#六-计划任务服务程序" class="headerlink" title="六. 计划任务服务程序"></a>六. 计划任务服务程序</h3><ol>
 <li><p>一次性计划任务<br>创建：echo “ls” | at 23:00<br>查看：at -l<br>删除：atrm 2</p>
 </li>
@@ -1217,7 +1211,7 @@
       <ul>
         
           <li>
-            <a href="/categories/linux/9003/">第三章：管道符、重定向与环境变量</a>
+            <a href="/categories/linux/9000/">linux就该这么学</a>
           </li>
         
           <li>
@@ -1229,11 +1223,11 @@
           </li>
         
           <li>
-            <a href="/categories/hadoop/1010/">Hadoop环境搭建-第四部分 完全分布式模式安装</a>
+            <a href="/categories/hadoop/1009/">Hadoop环境搭建-第三部分 伪分布式模式安装</a>
           </li>
         
           <li>
-            <a href="/categories/hadoop/1009/">Hadoop环境搭建-第三部分 伪分布式模式安装</a>
+            <a href="/categories/hadoop/1010/">Hadoop环境搭建-第四部分 完全分布式模式安装</a>
           </li>
         
       </ul>

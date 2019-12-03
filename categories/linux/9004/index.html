@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="王鹏">
 <meta property="og:description" content="本系列首页路径：linux就该这么学 一. Vim文本编辑器 三种模式命令模式：控制光标移动，可对文本进行复制、粘贴、删除和查找等工作输入模式：正常的文本录入末行模式：保存或退出文档，以及设置编辑环境  命令模式中常用命令  命令作用 dd将标准输出重定向到一个文件中(清空原有文件的数据) 5dd将错误输出重定向到一个文件中(清空原有文件的数据) yy将标准输出重定向到一个文件中(追加到原有内容的">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-02T03:36:41.984Z">
+<meta property="og:updated_time" content="2019-12-03T00:33:49.054Z">
 <meta name="twitter:card" content="summary">
   
   
@@ -88,7 +88,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9004/" data-id="ck3p4mhjk000q7wtv9f2x8yep" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9004/" data-id="ck3p4qjfv000ruwtv7hoabcay" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -182,16 +182,10 @@
 </table>
 </li>
 <li><p>流程控制语句(if for while case)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">if</span> [ 条件1 ] &amp;&amp; [ 条件2 ] ; <span class="keyword">then</span></span><br><span class="line">	代码块</span><br><span class="line"><span class="keyword">elif</span> [ 条件1 ] &amp;&amp; [ 条件2 ] ; <span class="keyword">then</span></span><br><span class="line">	代码块</span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line">	代码块</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">if</span> [ 条件1 ] &amp;&amp; [ 条件2 ] ; <span class="keyword">then</span></span><br><span class="line">	代码块</span><br><span class="line"><span class="keyword">elif</span> [ 条件1 ] &amp;&amp; [ 条件2 ] ; <span class="keyword">then</span></span><br><span class="line">	代码块</span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line">	代码块</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">-----------------------------------------------------------</span><br><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">for</span> UNAME <span class="keyword">in</span> `cat users.txt`</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="variable">$UNAME</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">-----------------------------------------------------------</span><br><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">TIMES=0</span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$TIMES</span> -eq 10 ] ; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">exit</span> 0</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$TIMES</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">let</span> TIMES++</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">-----------------------------------------------------------</span><br><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"请输入一个字符，并按enter键结束："</span> KEY</span><br><span class="line"><span class="keyword">case</span> <span class="variable">$KEY</span> <span class="keyword">in</span></span><br><span class="line">[a-z]|[A-Z])</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"字母"</span></span><br><span class="line">;;</span><br><span class="line">[0-9])</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"数字"</span></span><br><span class="line">;;</span><br><span class="line">*)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"其他"</span></span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">for</span> UNAME <span class="keyword">in</span> `cat users.txt`</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="variable">$UNAME</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">TIMES=0</span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$TIMES</span> -eq 10 ] ; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">exit</span> 0</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$TIMES</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">let</span> TIMES++</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"请输入一个字符，并按enter键结束："</span> KEY</span><br><span class="line"><span class="keyword">case</span> <span class="variable">$KEY</span> <span class="keyword">in</span></span><br><span class="line">[a-z]|[A-Z])</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"字母"</span></span><br><span class="line">;;</span><br><span class="line">[0-9])</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"数字"</span></span><br><span class="line">;;</span><br><span class="line">*)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"其他"</span></span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="六-计划任务服务程序"><a href="#六-计划任务服务程序" class="headerlink" title="六. 计划任务服务程序"></a>六. 计划任务服务程序</h3><ol>
 <li><p>一次性计划任务<br>创建：echo “ls” | at 23:00<br>查看：at -l<br>删除：atrm 2</p>
 </li>
@@ -224,10 +218,10 @@
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
-        <span class="nav-previous"><a href="/categories/linux/9001/" rel="prev"><span class="meta-nav">←</span> 第一章：部署虚拟环境安装linux系统</a></span>
+        <span class="nav-previous"><a href="/categories/linux/9002/" rel="prev"><span class="meta-nav">←</span> 第二章：新手必须掌握的Linux命令</a></span>
     
     
-        <span class="nav-next"><a href="/categories/hadoop/9200/" rel="next">大数据开发hadoop精讲 <span class="meta-nav">→</span></a></span>
+        <span class="nav-next"><a href="/categories/java/9100/" rel="next">JavaSE轻松入门基础视频教程 <span class="meta-nav">→</span></a></span>
     
 </nav><!-- .nav-single -->
 
@@ -267,7 +261,7 @@
       <ul>
         
           <li>
-            <a href="/categories/linux/9003/">第三章：管道符、重定向与环境变量</a>
+            <a href="/categories/linux/9000/">linux就该这么学</a>
           </li>
         
           <li>
@@ -279,11 +273,11 @@
           </li>
         
           <li>
-            <a href="/categories/hadoop/1010/">Hadoop环境搭建-第四部分 完全分布式模式安装</a>
+            <a href="/categories/hadoop/1009/">Hadoop环境搭建-第三部分 伪分布式模式安装</a>
           </li>
         
           <li>
-            <a href="/categories/hadoop/1009/">Hadoop环境搭建-第三部分 伪分布式模式安装</a>
+            <a href="/categories/hadoop/1010/">Hadoop环境搭建-第四部分 完全分布式模式安装</a>
           </li>
         
       </ul>
