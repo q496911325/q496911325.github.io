@@ -16,17 +16,17 @@
   
   
   
-  <title>linux就该这么学 | 王鹏</title>
+  <title>Hadoop_Error汇总 | 王鹏</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第一章：部署虚拟环境安装linux系统第二章：新手必须掌握的Linux命令第三章：管道符、重定向与环境变量第四章：Vim编辑器与Shell命令脚本第五章：用户身份与文件权限第六章：存储结构与硬盘划分第七章：使用RAID与LVM磁盘阵列技术第八章：iptables与firewalld防火墙第九章：使用ssh服务管理远程主机第十章：使用Apache服务部署静态网站第十一章：使用vsftpd服务传输文件">
+  <meta name="description" content="一. namenode二. datanode123456ERROR org.apache.hadoop.hdfs.server.datanode.DirectoryScanner: dfs.datanode.directoryscan.throttle.limit.ms.per.sec set to value below 1 ms&#x2F;sec. Assuming default value of 1">
 <meta name="keywords" content="读书笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux就该这么学">
-<meta property="og:url" content="https:&#x2F;&#x2F;wpblog.top&#x2F;categories&#x2F;linux&#x2F;9000&#x2F;index.html">
+<meta property="og:title" content="Hadoop_Error汇总">
+<meta property="og:url" content="https:&#x2F;&#x2F;wpblog.top&#x2F;categories&#x2F;hadoop&#x2F;9299&#x2F;index.html">
 <meta property="og:site_name" content="王鹏">
-<meta property="og:description" content="第一章：部署虚拟环境安装linux系统第二章：新手必须掌握的Linux命令第三章：管道符、重定向与环境变量第四章：Vim编辑器与Shell命令脚本第五章：用户身份与文件权限第六章：存储结构与硬盘划分第七章：使用RAID与LVM磁盘阵列技术第八章：iptables与firewalld防火墙第九章：使用ssh服务管理远程主机第十章：使用Apache服务部署静态网站第十一章：使用vsftpd服务传输文件">
+<meta property="og:description" content="一. namenode二. datanode123456ERROR org.apache.hadoop.hdfs.server.datanode.DirectoryScanner: dfs.datanode.directoryscan.throttle.limit.ms.per.sec set to value below 1 ms&#x2F;sec. Assuming default value of 1">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-04T06:48:41.420Z">
+<meta property="og:updated_time" content="2019-12-07T04:04:52.070Z">
 <meta name="twitter:card" content="summary">
   
   
@@ -73,7 +73,7 @@
 </header>
 
       <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-9000-linux就该这么学" class="post-9000-linux就该这么学 post type-post status-publish format-standard hentry">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-9299-hadoop_log汇总" class="post-9299-hadoop_log汇总 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -81,26 +81,28 @@
         
   
     <h1 class="entry-title article-title">
-      linux就该这么学
+      Hadoop_Error汇总
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9000/" data-id="ck43s7tff000ci4tvdekjc9hb" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/9299/" data-id="ck43s7tgh000yi4tv3hejbuz0" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>第一章：<a href="/categories/linux/9001/">部署虚拟环境安装linux系统</a><br>第二章：<a href="/categories/linux/9002/">新手必须掌握的Linux命令</a><br>第三章：<a href="/categories/linux/9003/">管道符、重定向与环境变量</a><br>第四章：<a href="/categories/linux/9004/">Vim编辑器与Shell命令脚本</a><br>第五章：<a href="/categories/linux/9005/">用户身份与文件权限</a><br>第六章：<a href="/categories/linux/9006/">存储结构与硬盘划分</a><br>第七章：<a href="/categories/linux/9007/">使用RAID与LVM磁盘阵列技术</a><br>第八章：<a href="/categories/linux/9008/">iptables与firewalld防火墙</a><br>第九章：<a href="/categories/linux/9009/">使用ssh服务管理远程主机</a><br>第十章：<a href="/categories/linux/9010/">使用Apache服务部署静态网站</a><br>第十一章：<a href="/categories/linux/9011/">使用vsftpd服务传输文件</a><br>第十二章：<a href="/categories/linux/9012/">使用Samba或NFS实现文件共享</a><br>第十三章：<a href="/categories/linux/9013/">使用BIND提供域名解析服务</a><br>第十四章：<a href="/categories/linux/9014/">使用DHCP动态管理主机地址</a><br>第十五章：<a href="/categories/linux/9015/">使用Postfix与Dovecot部署邮件系统</a><br>第十六章：<a href="/categories/linux/9016/">使用Squid部署代理缓存服务</a><br>第十七章：<a href="/categories/linux/9017/">使用iSCSI服务部署网络存储</a><br>第十八章：<a href="/categories/linux/9018/">使用MariaDB数据库管理系统</a><br>第十九章：<a href="/categories/linux/9019/">使用PXE+Kickstart无人值守安装服务</a><br>第二十章：<a href="/categories/linux/9020/">使用LNMP架构部署动态网站环境</a></p>
+        <h3 id="一-namenode"><a href="#一-namenode" class="headerlink" title="一. namenode"></a>一. namenode</h3><h3 id="二-datanode"><a href="#二-datanode" class="headerlink" title="二. datanode"></a>二. datanode</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ERROR org.apache.hadoop.hdfs.server.datanode.DirectoryScanner: dfs.datanode.directoryscan.throttle.limit.ms.per.sec <span class="built_in">set</span> to value below 1 ms/sec. Assuming default value of 1000</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;dfs.datanode.directoryscan.throttle.limit.ms.per.sec&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;1000&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+
+
 
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/categories/linux/9000/">
+    <a href="/categories/hadoop/9299/">
     <time datetime="2019-10-21T16:04:18.000Z" class="entry-date">
         2019-10-22
     </time>
@@ -108,7 +110,7 @@
     
   <span class="article-delim">&#8226;</span>
   <div class="article-category">
-  <a class="article-category-link" href="/categories/linux/">linux</a>
+  <a class="article-category-link" href="/categories/hadoop/">hadoop</a>
   </div>
 
     
@@ -123,10 +125,10 @@
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
-        <span class="nav-previous"><a href="/categories/hadoop/1011/" rel="prev"><span class="meta-nav">←</span> Hadoop环境搭建-第五部分 Hadoop HA安装</a></span>
+        <span class="nav-previous"><a href="/categories/hadoop/9200/" rel="prev"><span class="meta-nav">←</span> 大数据开发hadoop精讲</a></span>
     
     
-        <span class="nav-next"><a href="/categories/linux/9001/" rel="next">第一章：部署虚拟环境安装linux系统 <span class="meta-nav">→</span></a></span>
+        <span class="nav-next"><a href="/categories/java/9100/" rel="next">JavaSE轻松入门基础视频教程 <span class="meta-nav">→</span></a></span>
     
 </nav><!-- .nav-single -->
 

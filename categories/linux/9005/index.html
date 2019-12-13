@@ -18,15 +18,15 @@
   
   <title>第五章：用户身份与文件权限 | 王鹏</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本系列首页路径：linux就该这么学 一. 用户身份与能力 useradd  参数作用 -d指定用户的家目录 -e账户的到期时间，格式为YYYY-MM-DD -u指定该用户的默认UID -g指定一个初始的用户基本组(必须已存在) -G指定一个或多个扩展用户组 -N不创建与用户同名的基本用户组 -s指定该用户的默认Shell解释器   groupadd 12  usermod  参数作用 -c填写用">
+  <meta name="description" content="本系列首页路径：linux就该这么学 一. 用户身份与能力 useradd  参数作用 -d指定用户的家目录 -e账户的到期时间，格式为YYYY-MM-DD -u指定该用户的默认UID -g指定一个初始的用户基本组(必须已存在) -G指定一个或多个扩展用户组 -N不创建与用户同名的基本用户组 -s指定该用户的默认Shell解释器   groupadd 1groupadd 用户组  usermod">
 <meta name="keywords" content="博客,王鹏,王鹏的博客,大数据,hadoop">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第五章：用户身份与文件权限">
 <meta property="og:url" content="https:&#x2F;&#x2F;wpblog.top&#x2F;categories&#x2F;linux&#x2F;9005&#x2F;index.html">
 <meta property="og:site_name" content="王鹏">
-<meta property="og:description" content="本系列首页路径：linux就该这么学 一. 用户身份与能力 useradd  参数作用 -d指定用户的家目录 -e账户的到期时间，格式为YYYY-MM-DD -u指定该用户的默认UID -g指定一个初始的用户基本组(必须已存在) -G指定一个或多个扩展用户组 -N不创建与用户同名的基本用户组 -s指定该用户的默认Shell解释器   groupadd 12  usermod  参数作用 -c填写用">
+<meta property="og:description" content="本系列首页路径：linux就该这么学 一. 用户身份与能力 useradd  参数作用 -d指定用户的家目录 -e账户的到期时间，格式为YYYY-MM-DD -u指定该用户的默认UID -g指定一个初始的用户基本组(必须已存在) -G指定一个或多个扩展用户组 -N不创建与用户同名的基本用户组 -s指定该用户的默认Shell解释器   groupadd 1groupadd 用户组  usermod">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-03T02:53:17.148Z">
+<meta property="og:updated_time" content="2019-12-10T02:47:29.189Z">
 <meta name="twitter:card" content="summary">
   
   
@@ -88,7 +88,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9005/" data-id="ck3p9qg7n000wq4tv7kbhcoer" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/linux/9005/" data-id="ck43s7tg3000ri4tv7szs5fl5" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -109,13 +109,13 @@
 </table>
 </li>
 <li><p>groupadd</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupadd 用户组</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>usermod</p>
 <table border="1">
 <tr><th>参数</th><th>作用</th></tr>
 <tr><td>-c</td><td>填写用户账户的备注信息</td></tr>
-<tr><td>-d -m</td>参数-m与参数-d连用，可重新指定用户的家目录并自动把旧的数据转移过去<td></td></tr>
+<tr><td>-d -m</td><td>参数-m与参数-d连用，可重新指定用户的家目录并自动把旧的数据转移过去</td></tr>
 <tr><td>-e</td><td>账户的到期时间，格式为YYYY-MM-DD</td></tr>
 <tr><td>-g</td><td>变更所属用户组</td></tr>
 <tr><td>-G</td><td>变更扩展用户组</td></tr>
@@ -153,6 +153,8 @@
   <tr><td>文件所属组</td><td>读-写-执行</td><td>r-w-x/4-2-1</td></tr>
   <tr><td>其他用户</td><td>读-写-执行</td><td>r-w-x/4-2-1</td></tr>
 </table>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod [u/g/o]+[r/w/x/s/t] username </span><br><span class="line">chown username:groupname 文件</span><br></pre></td></tr></table></figure>
 
 <h3 id="三-文件的特殊权限"><a href="#三-文件的特殊权限" class="headerlink" title="三. 文件的特殊权限"></a>三. 文件的特殊权限</h3><ol>
 <li>SUID</li>
@@ -218,10 +220,10 @@
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
-        <span class="nav-previous"><a href="/categories/java/9100/" rel="prev"><span class="meta-nav">←</span> JavaSE轻松入门基础视频教程</a></span>
+        <span class="nav-previous"><a href="/categories/linux/9002/" rel="prev"><span class="meta-nav">←</span> 第二章：新手必须掌握的Linux命令</a></span>
     
     
-        <span class="nav-next"><a href="/categories/hadoop/9200/" rel="next">大数据开发hadoop精讲 <span class="meta-nav">→</span></a></span>
+        <span class="nav-next"><a href="/categories/linux/9003/" rel="next">第三章：管道符、重定向与环境变量 <span class="meta-nav">→</span></a></span>
     
 </nav><!-- .nav-single -->
 
@@ -240,7 +242,7 @@
   <aside class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hadoop/">hadoop</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">6</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hadoop/">hadoop</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">6</span></li></ul>
     </div>
   </aside>
 
@@ -249,7 +251,7 @@
   <aside class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-content">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a><span class="tag-list-count">4</span></li></ul>
     </div>
   </aside>
 
@@ -261,7 +263,15 @@
       <ul>
         
           <li>
-            <a href="/categories/linux/9002/">第二章：新手必须掌握的Linux命令</a>
+            <a href="/categories/linux/9004/">第四章：Vim编辑器与Shell命令脚本</a>
+          </li>
+        
+          <li>
+            <a href="/categories/hadoop/1009/">Hadoop环境搭建-第三部分 伪分布式模式安装</a>
+          </li>
+        
+          <li>
+            <a href="/categories/hadoop/1008/">Hadoop环境搭建-第二部分 Hadoop本地模式安装</a>
           </li>
         
           <li>
@@ -270,14 +280,6 @@
         
           <li>
             <a href="/categories/hadoop/1011/">Hadoop环境搭建-第五部分 Hadoop HA安装</a>
-          </li>
-        
-          <li>
-            <a href="/categories/hadoop/1008/">Hadoop环境搭建-第二部分 Hadoop本地模式安装</a>
-          </li>
-        
-          <li>
-            <a href="/categories/hadoop/1009/">Hadoop环境搭建-第三部分 伪分布式模式安装</a>
           </li>
         
       </ul>
