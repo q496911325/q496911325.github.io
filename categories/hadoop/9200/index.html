@@ -16,17 +16,17 @@
   
   
   
-  <title>大数据开发hadoop精讲 | 王鹏</title>
+  <title>hadoop生态 | 王鹏</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一. hadoop模块介绍 hadoop模块  common：工具类  rpc通信框架  hdfs：hadoop分布式文件存储系统  主从架构  主进程：namenode(1个)  从进程：datanode(多个)  助理进程(secodarynamenode) 分担namenode压力  yarn：集群资源调度框架  主从架构  主进程：resourcemanager(负责统筹资源)  从进程：">
+  <meta name="description" content="一. Common包括Hadoop常用的工具类，由原来的Hadoop core部分更名而来。主要包括系统配置工具Configuration、远程过程调用RPC、序列化机制和Hadoop抽象文件系统FileSystem等。它们为在通用硬件上搭建云计算环境提供基本的服务，并为运行在该平台上的软件开发提供了所需的API 二. HDFS三. MapReduce四. YARN五. Hive(Pig&#x2F;Shar">
 <meta name="keywords" content="读书笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大数据开发hadoop精讲">
+<meta property="og:title" content="hadoop生态">
 <meta property="og:url" content="https:&#x2F;&#x2F;wpblog.top&#x2F;categories&#x2F;hadoop&#x2F;9200&#x2F;index.html">
 <meta property="og:site_name" content="王鹏">
-<meta property="og:description" content="一. hadoop模块介绍 hadoop模块  common：工具类  rpc通信框架  hdfs：hadoop分布式文件存储系统  主从架构  主进程：namenode(1个)  从进程：datanode(多个)  助理进程(secodarynamenode) 分担namenode压力  yarn：集群资源调度框架  主从架构  主进程：resourcemanager(负责统筹资源)  从进程：">
+<meta property="og:description" content="一. Common包括Hadoop常用的工具类，由原来的Hadoop core部分更名而来。主要包括系统配置工具Configuration、远程过程调用RPC、序列化机制和Hadoop抽象文件系统FileSystem等。它们为在通用硬件上搭建云计算环境提供基本的服务，并为运行在该平台上的软件开发提供了所需的API 二. HDFS三. MapReduce四. YARN五. Hive(Pig&#x2F;Shar">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-07T03:47:19.630Z">
+<meta property="og:updated_time" content="2019-12-28T04:51:04.673Z">
 <meta name="twitter:card" content="summary">
   
   
@@ -73,7 +73,7 @@
 </header>
 
       <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-9200-大数据开发hadoop精讲" class="post-9200-大数据开发hadoop精讲 post type-post status-publish format-standard hentry">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-9200-hadoop" class="post-9200-hadoop post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -81,86 +81,21 @@
         
   
     <h1 class="entry-title article-title">
-      大数据开发hadoop精讲
+      hadoop生态
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/9200/" data-id="ck43s7tgc000wi4tv0mb26vs2" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
+            <a href="javascript:void(0);" data-url="https://wpblog.top/categories/hadoop/9200/" data-id="ckc4ip28a000niwtv82oph9nx" class="leave-reply bdsharebuttonbox" data-cmd="more"></a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h3 id="一-hadoop模块介绍"><a href="#一-hadoop模块介绍" class="headerlink" title="一. hadoop模块介绍"></a>一. hadoop模块介绍</h3><ol>
-<li>hadoop模块<table>
- <tr><td>common：工具类  rpc通信框架</td><tr>
- <tr><td>hdfs：hadoop分布式文件存储系统  主从架构  主进程：namenode(1个)  从进程：datanode(多个)  助理进程(secodarynamenode) 分担namenode压力</td><tr>
- <tr><td>yarn：集群资源调度框架  主从架构  主进程：resourcemanager(负责统筹资源)  从进程：nodemanager</td><tr>
- <tr><td>mapreduce：分布式计算框架</td><tr>
-</table>
-
-</li>
-</ol>
-<h3 id="二-hadoop的搭建"><a href="#二-hadoop的搭建" class="headerlink" title="二. hadoop的搭建"></a>二. hadoop的搭建</h3><p>搭建准备：<br>1）IP配置<br>    vim /etc/udev/rules.d/70-persistent-net.rules<br>    vim /etc/sysconfig/network-scripts/ifcfg-eth0<br>2）主机名<br>    hostname 主机名<br>    vim /etc/sysconfig/network<br>3）主机映射<br>    vim /etc/hosts<br>4）关闭防火墙和selinux<br>    service iptables stop<br>    chkconfig iptables off<br>    vim /etc/selinux/config(改为disabled )<br>5）将系统的启动级别改为3<br>    vim /etc/inittab<br>6）创建普通用户，并为普通用户添加sudolers权限<br>    useradd<br>    passwd<br>    vim /etc/sudoers      用户名  ALL=(ALL)  NOPASSWD:  ALL<br>7）配置免密登录<br>    1）生成秘钥<br>    ssh-keygen<br>    2）发送秘钥<br>    ssh-copy-id<br>8）安装jdk<br>    vim /etc/profile</p>
-<pre><code>export JAVA_HOME=路径名
-export PATH=$JAVA_HOME/bin:$PATH
-
-source /etc/prifile</code></pre><p>9）时间同步<br>    1）不能联网  搭建时间服务器<br>    2）能联网   找一个公网中的共用的时间服务器<br>    ntpdate 公网时间服务器地址<br>10）安装版本选择 2.7.6</p>
-<p>##1. 伪分布式的搭建<br>1）切换成普通用户<br>2）上传<br>3）解压<br>4）修改配置文件()<br>    修改配置文件的目录：$HADOOP_HOME/etc/hadoop<br>    1）hadoop-env.sh<br>        export JAVA_HOME=jdk路径<br>    2）core-site.xml<br>            <property><br>                    <name>fs.defaultFS</name><br>                    <value>hdfs://localhost:9000</value><br>            </property><br>    3）hdfs-site.xml<br>        <property><br>                    <name>dfs.replication</name><br>                    <value>1</value><br>            </property><br>    4）yarn-site.xml<br>        <property><br>                    <name>yarn.nodemanager.aux-services</name><br>                    <value>mapreduce_shuffle</value><br>            </property><br>    5）mapred-site.xml<br>        <property><br>                    <name>mapreduce.framework.name</name><br>                    <value>yarn</value><br>            </property><br>        # nodemanager起不来的话，可能会需要下面2个<br>        # 查看每个物理CPU中core的个数(即核数)<br>        #cat /proc/cpuinfo| grep “cpu cores”| uniq<br>        <property><br>                    <name>yarn.nodemanager.resource.memory-mb</name><br>                    <value>1024</value><br>        </property><br>        <property><br>                    <name>yarn.nodemanager.resource.cpu-vcores</name><br>                    <value>1</value><br>        </property><br>    6）slaves<br>    7）配置环境变量<br>        export JAVA_HOME=路径名<br>        export HADOOP_HOME=路径名<br>        export PATH=$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH</p>
-<pre><code>    source /etc/profile
-
-    验证 hadoop version
-8）先进行格式化
-    hadoop namenode -format
-9）启动
-    sbin/start-dfs.sh
-    sbin/start-yarn.sh
-10）验证
-    jps   6个进程
-
-    2812 Jps
-    2322 ResourceManager
-    1970 DataNode
-    2172 SecondaryNameNode
-    1869 NameNode
-    2431 NodeManager
-
-页面：
-    hdfs：namenode的ip:50070
-    yarn：resourceManager的ip:8088</code></pre><p>##1. 完全分布式的搭建<br>1）切换成普通用户<br>2）上传<br>3）解压<br>4）修改配置文件()<br>    修改配置文件的目录：$HADOOP_HOME/etc/hadoop<br>    集群规划<br>            hdfs            yarn<br>    node1    namenode datanode        nodemanager<br>    node2    datanode   secondraynamenode    nodemanager<br>    node3    datanode   resourcemanager        nodemanager<br>    1）hadoop-env.sh<br>        export JAVA_HOME=jdk路径<br>    2）core-site.xml<br>            <property><br>                    <name>fs.defaultFS</name><br>                    <value>hdfs://namenode的IP:9000</value><br>            </property><br>        <property><br>                    <name>hadoop.tmp.dir</name><br>                    <value>临时文件存放地址</value><br>            </property><br>    3）hdfs-site.xml<br>            <property><br>                    <name>dfs.namenode.name.dir</name><br>                    <value>name数据存储目录</value><br>            </property><br>        <property><br>                    <name>dfs.datanode.data.dir</name><br>                    <value>data数据存储目录</value><br>            </property><br>        <property><br>                    <name>dfs.replication</name><br>                    <value>2</value><br>            </property><br>        <property><br>                    <name>dfs.secondary.http.address</name><br>                    <value>node2:50090</value><br>            </property><br>    4）yarn-site.xml<br>        <property><br>                    <name>yarn.resourcemanager.hostname</name><br>                    <value>yarn主调度节点</value><br>            </property><br>        <property><br>                    <name>yarn.nodemanager.aux-services</name><br>                    <value>mapreduce_shuffle</value><br>            </property><br>    5）mapred-site.xml<br>        <property><br>                    <name>mapreduce.framework.name</name><br>                    <value>yarn</value><br>            </property><br>        # nodemanager起不来的话，可能会需要下面2个<br>        # 查看每个物理CPU中core的个数(即核数)<br>        #cat /proc/cpuinfo| grep “cpu cores”| uniq<br>        <property><br>                    <name>yarn.nodemanager.resource.memory-mb</name><br>                    <value>1024</value><br>        </property><br>        <property><br>                    <name>yarn.nodemanager.resource.cpu-vcores</name><br>                    <value>1</value><br>        </property><br>    6）slaves(从节点信息)<br>        node1<br>        node2<br>        node3<br>    7）配置环境变量<br>        export JAVA_HOME=路径名<br>        export HADOOP_HOME=路径名<br>        export PATH=$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH</p>
-<pre><code>    source /etc/profile
-
-    验证 hadoop version
-8）先进行格式化
-    hadoop namenode -format
-9）启动
-    sbin/start-dfs.sh
-    sbin/start-yarn.sh
-10）验证
-
-页面：
-    hdfs：namenode的ip:50070
-    yarn：resourceManager的ip:8088
-
-11）单独启动
-hdfs：
-    hadoop-daemon.sh start hdfs的相关进程
-    hadoop-daemon.sh start namenode
-    hadoop-daemon.sh start secondarynamenode
-yarn：
-    yarn-daemon.sh start yarn的相关进程
-    yarn-daemon.sh start resourcemanger
-
-集群搭建过程中环境变量的配置
-1）/etc/profile            系统环境变量 针对所有用户
-2）~/.bashrc               用户环境变量 针对当前用户
-3）~/.bash_profile      用户环境变量 针对当前用户 
-
-hdfs：分块存储 每一个块就叫block
-hadoop2.X中默认的切分的块的大小  128M  1.X是64M</code></pre>
+        <h3 id="一-Common"><a href="#一-Common" class="headerlink" title="一. Common"></a>一. Common</h3><p>包括Hadoop常用的工具类，由原来的Hadoop core部分更名而来。主要包括系统配置工具Configuration、远程过程调用RPC、序列化机制和Hadoop抽象文件系统FileSystem等。它们为在通用硬件上搭建云计算环境提供基本的服务，并为运行在该平台上的软件开发提供了所需的API</p>
+<h3 id="二-HDFS"><a href="#二-HDFS" class="headerlink" title="二. HDFS"></a>二. HDFS</h3><h3 id="三-MapReduce"><a href="#三-MapReduce" class="headerlink" title="三. MapReduce"></a>三. MapReduce</h3><h3 id="四-YARN"><a href="#四-YARN" class="headerlink" title="四. YARN"></a>四. YARN</h3><h3 id="五-Hive-Pig-Shark"><a href="#五-Hive-Pig-Shark" class="headerlink" title="五. Hive(Pig/Shark)"></a>五. Hive(Pig/Shark)</h3><h3 id="六-HBase"><a href="#六-HBase" class="headerlink" title="六. HBase"></a>六. HBase</h3><h3 id="七-Zookeeper"><a href="#七-Zookeeper" class="headerlink" title="七. Zookeeper"></a>七. Zookeeper</h3><h3 id="八-Sqoop"><a href="#八-Sqoop" class="headerlink" title="八. Sqoop"></a>八. Sqoop</h3><h3 id="九-Flume"><a href="#九-Flume" class="headerlink" title="九. Flume"></a>九. Flume</h3><h3 id="十-Oozie"><a href="#十-Oozie" class="headerlink" title="十. Oozie"></a>十. Oozie</h3><h3 id="十一-Spark"><a href="#十一-Spark" class="headerlink" title="十一. Spark"></a>十一. Spark</h3>
       
     </div><!-- .entry-content -->
 
@@ -188,10 +123,8 @@ hadoop2.X中默认的切分的块的大小  128M  1.X是64M</code></pre>
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
-        <span class="nav-previous"><a href="/categories/linux/9003/" rel="prev"><span class="meta-nav">←</span> 第三章：管道符、重定向与环境变量</a></span>
     
-    
-        <span class="nav-next"><a href="/categories/hadoop/9299/" rel="next">Hadoop_Error汇总 <span class="meta-nav">→</span></a></span>
+        <span class="nav-next"><a href="/categories/hadoop/1006/" rel="next">Hadoop环境搭建-首页 <span class="meta-nav">→</span></a></span>
     
 </nav><!-- .nav-single -->
 
@@ -210,7 +143,7 @@ hadoop2.X中默认的切分的块的大小  128M  1.X是64M</code></pre>
   <aside class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hadoop/">hadoop</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">6</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hadoop/">hadoop</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">6</span></li></ul>
     </div>
   </aside>
 
@@ -219,7 +152,7 @@ hadoop2.X中默认的切分的块的大小  128M  1.X是64M</code></pre>
   <aside class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-content">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a><span class="tag-list-count">4</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a><span class="tag-list-count">5</span></li></ul>
     </div>
   </aside>
 
@@ -231,19 +164,19 @@ hadoop2.X中默认的切分的块的大小  128M  1.X是64M</code></pre>
       <ul>
         
           <li>
-            <a href="/categories/linux/9004/">第四章：Vim编辑器与Shell命令脚本</a>
-          </li>
-        
-          <li>
-            <a href="/categories/hadoop/1009/">Hadoop环境搭建-第三部分 伪分布式模式安装</a>
-          </li>
-        
-          <li>
-            <a href="/categories/hadoop/1008/">Hadoop环境搭建-第二部分 Hadoop本地模式安装</a>
+            <a href="/categories/hadoop/9200/">hadoop生态</a>
           </li>
         
           <li>
             <a href="/categories/hadoop/1006/">Hadoop环境搭建-首页</a>
+          </li>
+        
+          <li>
+            <a href="/categories/hadoop/1010/">Hadoop环境搭建-第四部分 完全分布式模式安装</a>
+          </li>
+        
+          <li>
+            <a href="/categories/linux/9001/">第一章：部署虚拟环境安装linux系统</a>
           </li>
         
           <li>
@@ -264,7 +197,7 @@ hadoop2.X中默认的切分的块的大小  128M  1.X是64M</code></pre>
            <li>&nbsp;&nbsp;博客框架：<a href="http://hexo.io/" target="_blank">Hexo</a></li>
     </ul>
     <br/>
-    <p>&copy; 2019 王鹏
+    <p>&copy; 2020 王鹏
     All rights reserved.</p>
 </footer>
     <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
